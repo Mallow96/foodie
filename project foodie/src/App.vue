@@ -1,11 +1,13 @@
 <script setup>
-import Header from "./pages/header.vue";
-import Footer from "./pages/footer.vue";
+import Header from "./components/header.vue";
+import Footer from "./components/footer.vue";
 </script>
 
 <template>
   <header><Header></Header></header>
-  <router-view></router-view>
+  <div class="container">
+    <router-view></router-view>
+  </div>
   <footer><Footer></Footer></footer>
 </template>
 
