@@ -1,5 +1,4 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -19,6 +18,10 @@
   --color-primary-yellow: #FFDA34;
 
   --container-width: 1200px;
+}
+
+html, body, #app {
+  font-family: 'Chiron GoRound TC', sans-serif !important;
 }
 
 a {
