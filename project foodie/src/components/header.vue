@@ -15,12 +15,12 @@
       class="right d-flex align-items-center position-absolute top-50 end-0 translate-middle-y me-4"
     >
       <div class="icons d-flex gap-4">
-        <a href="">
+        <router-link :to="{ name: 'account' }">          
           <i class="fa-solid fa-user"></i>
-        </a>
-        <a href="">
+        </router-link>
+        <router-link :to="{}">          
           <i class="fa-solid fa-bell"></i>
-        </a>
+        </router-link>
       </div>
     </div>
   </header>
