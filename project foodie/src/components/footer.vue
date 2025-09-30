@@ -2,11 +2,12 @@
 
 <template>
   <div class="footer w-100">
-    <div class="container">
-      <div class="top d-flex justify-content-between align-items-center py-3">
+    <div class="container py-4">
+      <div class="top d-flex justify-content-between align-items-center">
         <div class="logo d-inline-block">
           <a href="">
-            <h2>thisisLogo</h2>
+            <img src="../assets/logo.svg" alt="logo" class="logo-img">
+            <!-- <h2>thisisLogo</h2> -->
           </a>
         </div>
         <ol class="socials">
@@ -44,7 +45,7 @@
         <p class="p-0 m-0 text-start">
           Project Foodie © 2025. All rights reserved.
         </p>
-        <ol class="d-flex justify-content-between my-3">
+        <ol class="d-flex justify-content-between">
           <li>
             <a href="" class="fw-bold">Eleven</a>
           </li>
@@ -79,6 +80,11 @@
   padding: 0;
 }
 
+.logo-img {
+  width: 7.5rem;
+  height: auto;
+}
+
 .socials > li > a > i {
   font-size: 1.5rem;
   transition: color 0.3s ease;
@@ -88,7 +94,7 @@
   height: 1px;
   background-color: var(--color-primary-brown);
   opacity: 0.5;
-  margin: 0;
+  margin: 3rem 0;
 }
 
 a {

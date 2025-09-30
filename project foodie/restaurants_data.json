@@ -1,0 +1,2202 @@
+[
+  {
+    "id": 1,
+    "name": "川味小館 No.1",
+    "rating": 4.3,
+    "about": "主打重慶、四川風味的正宗川菜，口味香辣濃郁。",
+    "menu": "提供麻婆豆腐、水煮牛、宮保雞丁等經典川菜。",
+    "price_range": "200-399",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台北市大安區和平東路123號",
+    "transportation": "捷運科技大樓站5號出口，步行5分鐘",
+    "signature_dishes": [
+      "水煮牛肉",
+      "宮保雞丁"
+    ],
+    "branches": "無",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "請提前訂位，尖峰時段用餐限時90分鐘。",
+    "category": "Chinese"
+  },
+  {
+    "id": 2,
+    "name": "Tokyo Sushi Bar",
+    "rating": 4.7,
+    "about": "日式壽司專門店，由日本師傅坐鎮。",
+    "menu": "提供握壽司、手卷、生魚片、丼飯。",
+    "price_range": "1000-1499",
+    "hours": "週二至週日 12:00-21:00 (週一公休)",
+    "address": "新北市板橋區文化路45號",
+    "transportation": "捷運板橋站2號出口，步行3分鐘",
+    "signature_dishes": [
+      "炙燒鮭魚壽司",
+      "海膽軍艦"
+    ],
+    "branches": "無",
+    "payment_methods": [
+      "現金",
+      "信用卡",
+      "線上支付"
+    ],
+    "dining_notice": "需提前兩天預約訂位。",
+    "category": "Japanese"
+  },
+  {
+    "id": 3,
+    "name": "老字號牛肉麵館",
+    "rating": 4.5,
+    "about": "三十年老店，紅燒牛肉麵遠近馳名。",
+    "menu": "多種湯頭選擇，紅燒、清燉皆有。",
+    "price_range": "200-399",
+    "hours": "週一至週日 10:30-21:00",
+    "address": "台北市萬華區康定路89號",
+    "transportation": "捷運龍山寺站出口步行7分鐘",
+    "signature_dishes": [
+      "紅燒牛肉麵",
+      "酸菜白肉麵"
+    ],
+    "branches": "台中分店",
+    "payment_methods": [
+      "現金",
+      "線上支付"
+    ],
+    "dining_notice": "用餐時間人潮眾多，需耐心等候。",
+    "category": "Chinese"
+  },
+  {
+    "id": 4,
+    "name": "Le Petit Pain",
+    "rating": 4.2,
+    "about": "法式麵包與甜點店，氛圍浪漫。",
+    "menu": "提供可頌、塔類、三明治與咖啡。",
+    "price_range": "400-599",
+    "hours": "週一至週日 08:00-20:00",
+    "address": "台南市中西區府前路100號",
+    "transportation": "公車府前路站下車，步行2分鐘",
+    "signature_dishes": [
+      "起司可頌",
+      "檸檬塔"
+    ],
+    "branches": "無",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "不限時，適合下午茶與工作。",
+    "category": "Bakery"
+  },
+  {
+    "id": 5,
+    "name": "八方雲集 Dumpling House",
+    "rating": 4.0,
+    "about": "以鍋貼、水餃聞名，平價大眾。",
+    "menu": "鍋貼、水餃、湯品、米飯。",
+    "price_range": "0-199",
+    "hours": "週一至週日 10:00-23:00",
+    "address": "高雄市前鎮區中華五路66號",
+    "transportation": "公車前鎮站下車即達",
+    "signature_dishes": [
+      "鍋貼",
+      "酸辣湯"
+    ],
+    "branches": "全台多家分店",
+    "payment_methods": [
+      "現金",
+      "線上支付"
+    ],
+    "dining_notice": "餐點現做，需稍候。",
+    "category": "Chinese"
+  },
+  {
+    "id": 6,
+    "name": "海景西餐廳 OceanView",
+    "rating": 4.8,
+    "about": "高級西餐廳，提供浪漫海景用餐環境。",
+    "menu": "牛排、龍蝦、義大利麵、紅酒。",
+    "price_range": "2000以上",
+    "hours": "週一至週日 17:00-23:00",
+    "address": "基隆市中正區望海街52號",
+    "transportation": "自行開車，餐廳附設停車場",
+    "signature_dishes": [
+      "炭烤帶骨牛排",
+      "奶油焗龍蝦"
+    ],
+    "branches": "無",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "需收取10%服務費，建議正式服裝。",
+    "category": "Western"
+  },
+  {
+    "id": 7,
+    "name": "韓味屋 K-Flavor",
+    "rating": 4.1,
+    "about": "韓式烤肉與小菜吃到飽。",
+    "menu": "韓式烤肉、泡菜鍋、石鍋拌飯。",
+    "price_range": "600-799",
+    "hours": "週一至週日 12:00-22:30",
+    "address": "桃園市中壢區中山路201號",
+    "transportation": "中壢火車站步行8分鐘",
+    "signature_dishes": [
+      "厚切五花肉",
+      "泡菜煎餅"
+    ],
+    "branches": "新竹、台中分店",
+    "payment_methods": [
+      "現金",
+      "信用卡",
+      "線上支付"
+    ],
+    "dining_notice": "用餐時間兩小時，超時將加收費用。",
+    "category": "Korean"
+  },
+  {
+    "id": 8,
+    "name": "青草巷素食館",
+    "rating": 4.6,
+    "about": "提供健康蔬食，食材新鮮無添加。",
+    "menu": "素食便當、炒飯、火鍋套餐。",
+    "price_range": "200-399",
+    "hours": "週二至週日 10:00-20:30 (週一休息)",
+    "address": "台北市士林區承德路45巷18號",
+    "transportation": "捷運劍潭站步行5分鐘",
+    "signature_dishes": [
+      "素麻辣鍋",
+      "香菇滷飯"
+    ],
+    "branches": "無",
+    "payment_methods": [
+      "現金",
+      "線上支付"
+    ],
+    "dining_notice": "餐點皆現點現做，需稍等。",
+    "category": "Vegetarian"
+  },
+  {
+    "id": 9,
+    "name": "義大利麵坊 Amore",
+    "rating": 4.4,
+    "about": "平價義大利麵專賣，家庭聚餐首選。",
+    "menu": "白醬、紅醬、青醬義大利麵，多樣選擇。",
+    "price_range": "200-399",
+    "hours": "週一至週日 11:00-21:00",
+    "address": "新竹市東區建國路78號",
+    "transportation": "公車建國市場站下車",
+    "signature_dishes": [
+      "青醬雞肉義大利麵",
+      "奶油蛤蜊義大利麵"
+    ],
+    "branches": "新竹巨城百貨分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "假日尖峰時段須排隊。",
+    "category": "Italian"
+  },
+  {
+    "id": 10,
+    "name": "鼎香港式飲茶",
+    "rating": 4.7,
+    "about": "提供各式港點與精緻茶點，適合家庭聚餐。",
+    "menu": "燒賣、蝦餃、叉燒包、煲湯。",
+    "price_range": "600-799",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台中市北區中清路338號",
+    "transportation": "開車可停於餐廳地下停車場",
+    "signature_dishes": [
+      "鮮蝦餃",
+      "蜜汁叉燒包"
+    ],
+    "branches": "台北信義店、台南分店",
+    "payment_methods": [
+      "現金",
+      "信用卡",
+      "線上支付"
+    ],
+    "dining_notice": "收取10%服務費。",
+    "category": "Dim Sum"
+  },
+  {
+    "id": 11,
+    "name": "宵夜王 No.9",
+    "rating": 4.0,
+    "about": "營業到凌晨的平價小吃店，夜貓族最愛。",
+    "menu": "鹽酥雞、滷味、泡麵、炸物拼盤。",
+    "price_range": "0-199",
+    "hours": "週一至週日 18:00-04:00",
+    "address": "台北市中正區市民大道55號",
+    "transportation": "捷運善導寺站步行6分鐘",
+    "signature_dishes": [
+      "招牌鹽酥雞",
+      "滷味拼盤"
+    ],
+    "branches": "無",
+    "payment_methods": [
+      "現金"
+    ],
+    "dining_notice": "餐點可外帶，內用座位有限。",
+    "category": "Street Food"
+  },
+  {
+    "id": 12,
+    "name": "京味餃子館",
+    "rating": 4.5,
+    "about": "專賣北方麵食，現包水餃皮薄餡多。",
+    "menu": "水餃、蔥油餅、羊肉湯餃。",
+    "price_range": "200-399",
+    "hours": "週一至週日 11:00-21:30",
+    "address": "新北市永和區永貞路92號",
+    "transportation": "捷運頂溪站步行10分鐘",
+    "signature_dishes": [
+      "韭菜豬肉水餃",
+      "羊肉湯餃"
+    ],
+    "branches": "無",
+    "payment_methods": [
+      "現金",
+      "線上支付"
+    ],
+    "dining_notice": "假日尖峰人潮眾多，建議外帶。",
+    "category": "Chinese"
+  },
+  {
+    "id": 13,
+    "name": "火鍋樂園 HotPot Paradise",
+    "rating": 4.3,
+    "about": "吃到飽火鍋，自助吧食材多樣。",
+    "menu": "日式、麻辣鍋、牛奶鍋，多種湯頭可選。",
+    "price_range": "800-999",
+    "hours": "週一至週日 11:30-23:30",
+    "address": "台中市西屯區文心路88號",
+    "transportation": "捷運文心崇德站旁",
+    "signature_dishes": [
+      "麻辣鴛鴦鍋",
+      "手切牛肉"
+    ],
+    "branches": "高雄分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "用餐時間限2小時。",
+    "category": "Hotpot"
+  },
+  {
+    "id": 14,
+    "name": "小鎮咖啡館 Little Town",
+    "rating": 4.2,
+    "about": "充滿鄉村氣息的咖啡館，手沖咖啡專賣。",
+    "menu": "手沖咖啡、甜點、輕食。",
+    "price_range": "200-399",
+    "hours": "週一至週日 09:00-19:00",
+    "address": "台南市永康區中華路409號",
+    "transportation": "自行前往，附近有公有停車場",
+    "signature_dishes": [
+      "手沖耶加雪啡",
+      "手工起司蛋糕"
+    ],
+    "branches": "無",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "不限時，低消為一杯飲品。",
+    "category": "Café"
+  },
+  {
+    "id": 15,
+    "name": "烤肉王 BBQ KING",
+    "rating": 4.6,
+    "about": "美式烤肉與啤酒餐廳，氣氛熱鬧。",
+    "menu": "烤豬肋排、煙燻牛胸肉、漢堡。",
+    "price_range": "600-799",
+    "hours": "週四至週日 16:00-23:00",
+    "address": "花蓮市中山路325號",
+    "transportation": "自行開車，鄰近停車場",
+    "signature_dishes": [
+      "煙燻牛胸肉",
+      "BBQ豬肋排"
+    ],
+    "branches": "無",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "假日訂位困難，請提前預約。",
+    "category": "BBQ"
+  },
+  {
+    "id": 16,
+    "name": "米蘭風情 Milan Style",
+    "rating": 4.3,
+    "about": "義大利料理餐廳，裝潢充滿歐洲風情。",
+    "menu": "燉飯、披薩、牛排、甜點。",
+    "price_range": "1000-1499",
+    "hours": "週一至週日 12:00-22:00",
+    "address": "新北市三重區集美街18號",
+    "transportation": "捷運菜寮站出口步行6分鐘",
+    "signature_dishes": [
+      "松露燉飯",
+      "窯烤披薩"
+    ],
+    "branches": "無",
+    "payment_methods": [
+      "現金",
+      "信用卡",
+      "線上支付"
+    ],
+    "dining_notice": "兩人以上建議預約。",
+    "category": "Italian"
+  },
+  {
+    "id": 17,
+    "name": "南洋風味 Thai & Malay",
+    "rating": 4.5,
+    "about": "東南亞風味餐館，香料濃郁。",
+    "menu": "泰國冬蔭功、馬來叻沙、咖哩。",
+    "price_range": "400-599",
+    "hours": "週三至週日 11:30-21:00",
+    "address": "嘉義市文化路夜市內",
+    "transportation": "步行至文化路夜市即可",
+    "signature_dishes": [
+      "泰式冬蔭功",
+      "馬來叻沙"
+    ],
+    "branches": "無",
+    "payment_methods": [
+      "現金"
+    ],
+    "dining_notice": "料理口味偏辣，請斟酌點餐。",
+    "category": "Thai"
+  },
+  {
+    "id": 18,
+    "name": "家鄉味 Hometown Flavor",
+    "rating": 4.1,
+    "about": "以台式家常菜為主，溫暖味道。",
+    "menu": "滷肉飯、三杯雞、炒青菜、魚料理。",
+    "price_range": "200-399",
+    "hours": "週一至週日 11:00-20:00",
+    "address": "新北市板橋區民生路309號",
+    "transportation": "公車民生新村站下車",
+    "signature_dishes": [
+      "滷肉飯",
+      "三杯雞"
+    ],
+    "branches": "無",
+    "payment_methods": [
+      "現金",
+      "線上支付"
+    ],
+    "dining_notice": "平假日至少需等待10分鐘。",
+    "category": "Family"
+  },
+  {
+    "id": 19,
+    "name": "青花椒麻辣館",
+    "rating": 4.6,
+    "about": "以青花椒香麻口味為主打的重慶火鍋。",
+    "menu": "重慶麻辣鍋、牛油鍋底、鴨血豆腐。",
+    "price_range": "1000-1499",
+    "hours": "週一至週日 12:00-23:00",
+    "address": "高雄市新興區中正三路202號",
+    "transportation": "捷運中央公園站步行8分鐘",
+    "signature_dishes": [
+      "鴨血豆腐",
+      "手切羔羊肉"
+    ],
+    "branches": "無",
+    "payment_methods": [
+      "現金",
+      "信用卡",
+      "線上支付"
+    ],
+    "dining_notice": "用餐需加收10%服務費。",
+    "category": "Hotpot"
+  },
+  {
+    "id": 20,
+    "name": "精緻鐵板燒 Teppanyaki 88",
+    "rating": 4.9,
+    "about": "高檔鐵板燒料理，師傅桌邊烹調。",
+    "menu": "和牛、干貝、龍蝦套餐。",
+    "price_range": "2000以上",
+    "hours": "週一至週日 17:30-22:30",
+    "address": "台北市信義區松壽路88號",
+    "transportation": "捷運市政府站步行5分鐘",
+    "signature_dishes": [
+      "和牛鐵板燒",
+      "香煎干貝"
+    ],
+    "branches": "無",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "需正裝出席，提前訂位。",
+    "category": "Japanese"
+  },
+  {
+    "id": 21,
+    "name": "滿福樓 甜點店",
+    "rating": 4.0,
+    "about": "提供正宗甜點店，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Dessert料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1500-1999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "高雄市大安區和平路908號",
+    "transportation": "捷運或公車可達，步行3分鐘",
+    "signature_dishes": [
+      "手工蛋糕",
+      "布丁"
+    ],
+    "branches": "台中分店",
+    "payment_methods": [
+      "現金",
+      "信用卡",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時107分鐘。",
+    "category": "Dessert"
+  },
+  {
+    "id": 22,
+    "name": "老店招牌 家庭餐廳",
+    "rating": 4.2,
+    "about": "提供正宗家庭餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Family料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "200-399",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "高雄市中正區和平路5號",
+    "transportation": "捷運或公車可達，步行3分鐘",
+    "signature_dishes": [
+      "套餐",
+      "兒童餐"
+    ],
+    "branches": "台中分店",
+    "payment_methods": [
+      "現金"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時117分鐘。",
+    "category": "Family"
+  },
+  {
+    "id": 23,
+    "name": "星級館 泰式料理",
+    "rating": 4.3,
+    "about": "提供正宗泰式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Thai料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1500-1999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "花蓮市中西區建國路39號",
+    "transportation": "捷運或公車可達，步行10分鐘",
+    "signature_dishes": [
+      "泰式炒河粉",
+      "芒果糯米飯"
+    ],
+    "branches": "新竹巨城百貨分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時116分鐘。",
+    "category": "Thai"
+  },
+  {
+    "id": 24,
+    "name": "天香樓 韓式料理",
+    "rating": 4.7,
+    "about": "提供正宗韓式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Korean料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1500-1999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "新竹市板橋區建國路894號",
+    "transportation": "捷運或公車可達，步行6分鐘",
+    "signature_dishes": [
+      "石鍋拌飯",
+      "韓式烤肉"
+    ],
+    "branches": "台中分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時119分鐘。",
+    "category": "Korean"
+  },
+  {
+    "id": 25,
+    "name": "精選餐廳 中式料理",
+    "rating": 4.0,
+    "about": "提供正宗中式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Chinese料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "600-799",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "花蓮市中西區中山路825號",
+    "transportation": "捷運或公車可達，步行5分鐘",
+    "signature_dishes": [
+      "回鍋肉",
+      "麻婆豆腐"
+    ],
+    "branches": "台北信義店、台南分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時106分鐘。",
+    "category": "Chinese"
+  },
+  {
+    "id": 26,
+    "name": "金牌餐廳 牛排館",
+    "rating": 4.9,
+    "about": "提供正宗牛排館，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Steakhouse料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1500-1999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "花蓮市中山區中正路217號",
+    "transportation": "捷運或公車可達，步行6分鐘",
+    "signature_dishes": [
+      "菲力牛排",
+      "肋眼牛排"
+    ],
+    "branches": "新竹分店",
+    "payment_methods": [
+      "現金"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時101分鐘。",
+    "category": "Steakhouse"
+  },
+  {
+    "id": 27,
+    "name": "天香樓 烤肉餐廳",
+    "rating": 4.1,
+    "about": "提供正宗烤肉餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打BBQ料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "2000以上",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台中市中山區中山路860號",
+    "transportation": "捷運或公車可達，步行8分鐘",
+    "signature_dishes": [
+      "烤雞翅",
+      "蜜汁烤肉"
+    ],
+    "branches": "新竹分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時98分鐘。",
+    "category": "BBQ"
+  },
+  {
+    "id": 28,
+    "name": "老店招牌 西式料理",
+    "rating": 4.4,
+    "about": "提供正宗西式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Western料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "400-599",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "桃園市前鎮區中正路629號",
+    "transportation": "捷運或公車可達，步行7分鐘",
+    "signature_dishes": [
+      "龍蝦",
+      "法式湯品"
+    ],
+    "branches": "新竹、台中分店",
+    "payment_methods": [
+      "現金",
+      "信用卡",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時108分鐘。",
+    "category": "Western"
+  },
+  {
+    "id": 29,
+    "name": "招牌店 日式料理",
+    "rating": 4.3,
+    "about": "提供正宗日式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Japanese料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "0-199",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "桃園市中壢區民族路309號",
+    "transportation": "捷運或公車可達，步行2分鐘",
+    "signature_dishes": [
+      "拉麵",
+      "天婦羅"
+    ],
+    "branches": "台中分店",
+    "payment_methods": [
+      "現金",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時109分鐘。",
+    "category": "Japanese"
+  },
+  {
+    "id": 30,
+    "name": "家常味 泰式料理",
+    "rating": 4.8,
+    "about": "提供正宗泰式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Thai料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "400-599",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台北市大安區和平路660號",
+    "transportation": "捷運或公車可達，步行3分鐘",
+    "signature_dishes": [
+      "芒果糯米飯",
+      "綠咖哩"
+    ],
+    "branches": "台北信義店、台南分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時107分鐘。",
+    "category": "Thai"
+  },
+  {
+    "id": 31,
+    "name": "滿福樓 速食店",
+    "rating": 4.9,
+    "about": "提供正宗速食店，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Fast Food料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "2000以上",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "花蓮市前鎮區民族路59號",
+    "transportation": "捷運或公車可達，步行4分鐘",
+    "signature_dishes": [
+      "可樂",
+      "炸雞"
+    ],
+    "branches": "高雄分店",
+    "payment_methods": [
+      "現金",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時96分鐘。",
+    "category": "Fast Food"
+  },
+  {
+    "id": 32,
+    "name": "金牌餐廳 咖啡廳",
+    "rating": 4.3,
+    "about": "提供正宗咖啡廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Café料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "400-599",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台南市松山區中山路550號",
+    "transportation": "捷運或公車可達，步行6分鐘",
+    "signature_dishes": [
+      "提拉米蘇",
+      "手沖咖啡"
+    ],
+    "branches": "新竹巨城百貨分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時120分鐘。",
+    "category": "Café"
+  },
+  {
+    "id": 33,
+    "name": "新食代 烤肉餐廳",
+    "rating": 4.3,
+    "about": "提供正宗烤肉餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打BBQ料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1000-1499",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "基隆市中山區中山路8號",
+    "transportation": "捷運或公車可達，步行5分鐘",
+    "signature_dishes": [
+      "煙燻牛胸",
+      "蜜汁烤肉"
+    ],
+    "branches": "台北信義店、台南分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時98分鐘。",
+    "category": "BBQ"
+  },
+  {
+    "id": 34,
+    "name": "美味餐廳 牛排館",
+    "rating": 4.6,
+    "about": "提供正宗牛排館，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Steakhouse料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "2000以上",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "新北市松山區民族路854號",
+    "transportation": "捷運或公車可達，步行8分鐘",
+    "signature_dishes": [
+      "肋眼牛排",
+      "菲力牛排"
+    ],
+    "branches": "新竹、台中分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時90分鐘。",
+    "category": "Steakhouse"
+  },
+  {
+    "id": 35,
+    "name": "香辣館 日式料理",
+    "rating": 4.1,
+    "about": "提供正宗日式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Japanese料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1500-1999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "嘉義市中正區民族路547號",
+    "transportation": "捷運或公車可達，步行7分鐘",
+    "signature_dishes": [
+      "壽司",
+      "拉麵"
+    ],
+    "branches": "台中分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時100分鐘。",
+    "category": "Japanese"
+  },
+  {
+    "id": 36,
+    "name": "品味軒 創意料理",
+    "rating": 4.1,
+    "about": "提供正宗創意料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Fusion料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "2000以上",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台北市板橋區中正路618號",
+    "transportation": "捷運或公車可達，步行2分鐘",
+    "signature_dishes": [
+      "季節限定",
+      "融合菜色"
+    ],
+    "branches": "無",
+    "payment_methods": [
+      "現金"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時93分鐘。",
+    "category": "Fusion"
+  },
+  {
+    "id": 37,
+    "name": "美食坊 義式料理",
+    "rating": 4.1,
+    "about": "提供正宗義式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Italian料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "800-999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "嘉義市大安區建國路933號",
+    "transportation": "捷運或公車可達，步行3分鐘",
+    "signature_dishes": [
+      "千層麵",
+      "義大利麵"
+    ],
+    "branches": "新竹、台中分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時118分鐘。",
+    "category": "Italian"
+  },
+  {
+    "id": 38,
+    "name": "好味道 素食餐廳",
+    "rating": 4.8,
+    "about": "提供正宗素食餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Vegetarian料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "2000以上",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台南市中壢區中山路519號",
+    "transportation": "捷運或公車可達，步行7分鐘",
+    "signature_dishes": [
+      "養生湯品",
+      "素食拉麵"
+    ],
+    "branches": "台中分店",
+    "payment_methods": [
+      "現金"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時106分鐘。",
+    "category": "Vegetarian"
+  },
+  {
+    "id": 39,
+    "name": "好味道 小吃店",
+    "rating": 4.4,
+    "about": "提供正宗小吃店，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Street Food料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "2000以上",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "基隆市中壢區和平路525號",
+    "transportation": "捷運或公車可達，步行5分鐘",
+    "signature_dishes": [
+      "鹽酥雞",
+      "蚵仔煎"
+    ],
+    "branches": "全台多家分店",
+    "payment_methods": [
+      "現金"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時117分鐘。",
+    "category": "Street Food"
+  },
+  {
+    "id": 40,
+    "name": "金牌餐廳 自助餐廳",
+    "rating": 4.1,
+    "about": "提供正宗自助餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Buffet料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "600-799",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "基隆市中西區中正路499號",
+    "transportation": "捷運或公車可達，步行5分鐘",
+    "signature_dishes": [
+      "現切烤肉",
+      "自助百匯"
+    ],
+    "branches": "全台多家分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時114分鐘。",
+    "category": "Buffet"
+  },
+  {
+    "id": 41,
+    "name": "新食代 港式茶餐廳",
+    "rating": 4.4,
+    "about": "提供正宗港式茶餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Dim Sum料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1500-1999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "嘉義市中正區和平路199號",
+    "transportation": "捷運或公車可達，步行3分鐘",
+    "signature_dishes": [
+      "叉燒包",
+      "腸粉"
+    ],
+    "branches": "台南分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時113分鐘。",
+    "category": "Dim Sum"
+  },
+  {
+    "id": 42,
+    "name": "香辣館 甜點店",
+    "rating": 4.0,
+    "about": "提供正宗甜點店，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Dessert料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1000-1499",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "花蓮市西屯區建國路719號",
+    "transportation": "捷運或公車可達，步行9分鐘",
+    "signature_dishes": [
+      "布丁",
+      "冰淇淋"
+    ],
+    "branches": "台北信義店、台南分店",
+    "payment_methods": [
+      "現金"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時114分鐘。",
+    "category": "Dessert"
+  },
+  {
+    "id": 43,
+    "name": "星級館 日式料理",
+    "rating": 4.4,
+    "about": "提供正宗日式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Japanese料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "400-599",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "嘉義市板橋區和平路288號",
+    "transportation": "捷運或公車可達，步行8分鐘",
+    "signature_dishes": [
+      "拉麵",
+      "天婦羅"
+    ],
+    "branches": "全台多家分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時108分鐘。",
+    "category": "Japanese"
+  },
+  {
+    "id": 44,
+    "name": "風味屋 火鍋店",
+    "rating": 4.1,
+    "about": "提供正宗火鍋店，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Hotpot料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "600-799",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "基隆市信義區中山路94號",
+    "transportation": "捷運或公車可達，步行4分鐘",
+    "signature_dishes": [
+      "麻辣鍋",
+      "酸菜白肉鍋"
+    ],
+    "branches": "無",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時101分鐘。",
+    "category": "Hotpot"
+  },
+  {
+    "id": 45,
+    "name": "品香居 西式料理",
+    "rating": 4.6,
+    "about": "提供正宗西式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Western料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "600-799",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "基隆市中壢區和平路189號",
+    "transportation": "捷運或公車可達，步行7分鐘",
+    "signature_dishes": [
+      "牛排",
+      "法式湯品"
+    ],
+    "branches": "新竹巨城百貨分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時102分鐘。",
+    "category": "Western"
+  },
+  {
+    "id": 46,
+    "name": "品味軒 家庭餐廳",
+    "rating": 4.6,
+    "about": "提供正宗家庭餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Family料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "600-799",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "新北市大安區中山路969號",
+    "transportation": "捷運或公車可達，步行7分鐘",
+    "signature_dishes": [
+      "套餐",
+      "家常菜"
+    ],
+    "branches": "台南分店",
+    "payment_methods": [
+      "現金",
+      "信用卡",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時113分鐘。",
+    "category": "Family"
+  },
+  {
+    "id": 47,
+    "name": "金牌餐廳 泰式料理",
+    "rating": 4.5,
+    "about": "提供正宗泰式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Thai料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "2000以上",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "新竹市中西區中正路416號",
+    "transportation": "捷運或公車可達，步行9分鐘",
+    "signature_dishes": [
+      "冬蔭功湯",
+      "綠咖哩"
+    ],
+    "branches": "台北信義店、台南分店",
+    "payment_methods": [
+      "現金"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時93分鐘。",
+    "category": "Thai"
+  },
+  {
+    "id": 48,
+    "name": "天香樓 甜點店",
+    "rating": 4.3,
+    "about": "提供正宗甜點店，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Dessert料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "800-999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "嘉義市西屯區中山路167號",
+    "transportation": "捷運或公車可達，步行8分鐘",
+    "signature_dishes": [
+      "冰淇淋",
+      "布丁"
+    ],
+    "branches": "新竹、台中分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時95分鐘。",
+    "category": "Dessert"
+  },
+  {
+    "id": 49,
+    "name": "風味屋 自助餐廳",
+    "rating": 4.2,
+    "about": "提供正宗自助餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Buffet料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1000-1499",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台北市西屯區中正路640號",
+    "transportation": "捷運或公車可達，步行10分鐘",
+    "signature_dishes": [
+      "沙拉吧",
+      "現切烤肉"
+    ],
+    "branches": "台中分店",
+    "payment_methods": [
+      "現金"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時110分鐘。",
+    "category": "Buffet"
+  },
+  {
+    "id": 50,
+    "name": "滿福樓 日式料理",
+    "rating": 4.1,
+    "about": "提供正宗日式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Japanese料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "2000以上",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "新竹市中壢區中正路63號",
+    "transportation": "捷運或公車可達，步行8分鐘",
+    "signature_dishes": [
+      "壽司",
+      "丼飯"
+    ],
+    "branches": "台北信義店、台南分店",
+    "payment_methods": [
+      "現金",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時117分鐘。",
+    "category": "Japanese"
+  },
+  {
+    "id": 51,
+    "name": "食香閣 火鍋店",
+    "rating": 4.7,
+    "about": "提供正宗火鍋店，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Hotpot料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "400-599",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台北市中壢區中山路100號",
+    "transportation": "捷運或公車可達，步行8分鐘",
+    "signature_dishes": [
+      "麻辣鍋",
+      "番茄鍋"
+    ],
+    "branches": "新竹巨城百貨分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時93分鐘。",
+    "category": "Hotpot"
+  },
+  {
+    "id": 52,
+    "name": "美食坊 烤肉餐廳",
+    "rating": 4.5,
+    "about": "提供正宗烤肉餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打BBQ料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "800-999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "桃園市中正區建國路770號",
+    "transportation": "捷運或公車可達，步行9分鐘",
+    "signature_dishes": [
+      "烤雞翅",
+      "蜜汁烤肉"
+    ],
+    "branches": "台北分店",
+    "payment_methods": [
+      "現金",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時95分鐘。",
+    "category": "BBQ"
+  },
+  {
+    "id": 53,
+    "name": "新食代 韓式料理",
+    "rating": 4.5,
+    "about": "提供正宗韓式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Korean料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "200-399",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台北市西屯區和平路790號",
+    "transportation": "捷運或公車可達，步行8分鐘",
+    "signature_dishes": [
+      "韓式炸雞",
+      "泡菜鍋"
+    ],
+    "branches": "新竹分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時103分鐘。",
+    "category": "Korean"
+  },
+  {
+    "id": 54,
+    "name": "招牌店 港式茶餐廳",
+    "rating": 4.7,
+    "about": "提供正宗港式茶餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Dim Sum料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1000-1499",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "新北市前鎮區民族路654號",
+    "transportation": "捷運或公車可達，步行6分鐘",
+    "signature_dishes": [
+      "蝦餃",
+      "叉燒包"
+    ],
+    "branches": "新竹、台中分店",
+    "payment_methods": [
+      "現金",
+      "信用卡",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時101分鐘。",
+    "category": "Dim Sum"
+  },
+  {
+    "id": 55,
+    "name": "金牌餐廳 義式料理",
+    "rating": 4.8,
+    "about": "提供正宗義式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Italian料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "2000以上",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台北市西屯區中山路297號",
+    "transportation": "捷運或公車可達，步行4分鐘",
+    "signature_dishes": [
+      "披薩",
+      "燉飯"
+    ],
+    "branches": "新竹、台中分店",
+    "payment_methods": [
+      "現金",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時91分鐘。",
+    "category": "Italian"
+  },
+  {
+    "id": 56,
+    "name": "精選餐廳 牛排館",
+    "rating": 4.3,
+    "about": "提供正宗牛排館，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Steakhouse料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "800-999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "高雄市前鎮區建國路936號",
+    "transportation": "捷運或公車可達，步行7分鐘",
+    "signature_dishes": [
+      "菲力牛排",
+      "肋眼牛排"
+    ],
+    "branches": "新竹巨城百貨分店",
+    "payment_methods": [
+      "現金",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時100分鐘。",
+    "category": "Steakhouse"
+  },
+  {
+    "id": 57,
+    "name": "家常味 義式料理",
+    "rating": 4.1,
+    "about": "提供正宗義式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Italian料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1500-1999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台中市中西區建國路119號",
+    "transportation": "捷運或公車可達，步行9分鐘",
+    "signature_dishes": [
+      "燉飯",
+      "披薩"
+    ],
+    "branches": "無",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時105分鐘。",
+    "category": "Italian"
+  },
+  {
+    "id": 58,
+    "name": "美味餐廳 甜點店",
+    "rating": 4.6,
+    "about": "提供正宗甜點店，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Dessert料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1500-1999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "新北市中山區中山路36號",
+    "transportation": "捷運或公車可達，步行3分鐘",
+    "signature_dishes": [
+      "冰淇淋",
+      "布丁"
+    ],
+    "branches": "新竹、台中分店",
+    "payment_methods": [
+      "現金",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時118分鐘。",
+    "category": "Dessert"
+  },
+  {
+    "id": 59,
+    "name": "品味軒 港式茶餐廳",
+    "rating": 3.9,
+    "about": "提供正宗港式茶餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Dim Sum料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1500-1999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "新竹市大安區民族路674號",
+    "transportation": "捷運或公車可達，步行3分鐘",
+    "signature_dishes": [
+      "叉燒包",
+      "腸粉"
+    ],
+    "branches": "高雄分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時98分鐘。",
+    "category": "Dim Sum"
+  },
+  {
+    "id": 60,
+    "name": "食香閣 創意料理",
+    "rating": 4.4,
+    "about": "提供正宗創意料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Fusion料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "800-999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台南市前鎮區建國路442號",
+    "transportation": "捷運或公車可達，步行5分鐘",
+    "signature_dishes": [
+      "融合菜色",
+      "季節限定"
+    ],
+    "branches": "台南分店",
+    "payment_methods": [
+      "現金"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時115分鐘。",
+    "category": "Fusion"
+  },
+  {
+    "id": 61,
+    "name": "天香樓 中式料理",
+    "rating": 4.7,
+    "about": "提供正宗中式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Chinese料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "2000以上",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "基隆市信義區民族路338號",
+    "transportation": "捷運或公車可達，步行2分鐘",
+    "signature_dishes": [
+      "麻婆豆腐",
+      "糖醋里肌"
+    ],
+    "branches": "新竹巨城百貨分店",
+    "payment_methods": [
+      "現金"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時114分鐘。",
+    "category": "Chinese"
+  },
+  {
+    "id": 62,
+    "name": "滿福樓 烤肉餐廳",
+    "rating": 4.2,
+    "about": "提供正宗烤肉餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打BBQ料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1500-1999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台南市信義區建國路690號",
+    "transportation": "捷運或公車可達，步行6分鐘",
+    "signature_dishes": [
+      "蜜汁烤肉",
+      "烤雞翅"
+    ],
+    "branches": "新竹巨城百貨分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時92分鐘。",
+    "category": "BBQ"
+  },
+  {
+    "id": 63,
+    "name": "金牌餐廳 韓式料理",
+    "rating": 4.9,
+    "about": "提供正宗韓式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Korean料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1000-1499",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "嘉義市西屯區中山路749號",
+    "transportation": "捷運或公車可達，步行3分鐘",
+    "signature_dishes": [
+      "韓式炸雞",
+      "石鍋拌飯"
+    ],
+    "branches": "新竹、台中分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時117分鐘。",
+    "category": "Korean"
+  },
+  {
+    "id": 64,
+    "name": "品味軒 日式料理",
+    "rating": 4.5,
+    "about": "提供正宗日式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Japanese料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "2000以上",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台北市板橋區中正路681號",
+    "transportation": "捷運或公車可達，步行8分鐘",
+    "signature_dishes": [
+      "拉麵",
+      "丼飯"
+    ],
+    "branches": "台北信義店、台南分店",
+    "payment_methods": [
+      "現金",
+      "信用卡",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時113分鐘。",
+    "category": "Japanese"
+  },
+  {
+    "id": 65,
+    "name": "滿福樓 港式茶餐廳",
+    "rating": 4.9,
+    "about": "提供正宗港式茶餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Dim Sum料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "200-399",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "新竹市松山區中正路740號",
+    "transportation": "捷運或公車可達，步行8分鐘",
+    "signature_dishes": [
+      "腸粉",
+      "燒賣"
+    ],
+    "branches": "台北分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時120分鐘。",
+    "category": "Dim Sum"
+  },
+  {
+    "id": 66,
+    "name": "滿福樓 西式料理",
+    "rating": 4.4,
+    "about": "提供正宗西式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Western料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "200-399",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台北市信義區民族路282號",
+    "transportation": "捷運或公車可達，步行6分鐘",
+    "signature_dishes": [
+      "法式湯品",
+      "焗烤料理"
+    ],
+    "branches": "台北信義店、台南分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時99分鐘。",
+    "category": "Western"
+  },
+  {
+    "id": 67,
+    "name": "美食坊 咖啡廳",
+    "rating": 4.0,
+    "about": "提供正宗咖啡廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Café料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "2000以上",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "嘉義市中山區和平路290號",
+    "transportation": "捷運或公車可達，步行2分鐘",
+    "signature_dishes": [
+      "拿鐵",
+      "司康餅"
+    ],
+    "branches": "台北分店",
+    "payment_methods": [
+      "現金",
+      "信用卡",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時114分鐘。",
+    "category": "Café"
+  },
+  {
+    "id": 68,
+    "name": "香辣館 速食店",
+    "rating": 4.2,
+    "about": "提供正宗速食店，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Fast Food料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1500-1999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "花蓮市松山區和平路738號",
+    "transportation": "捷運或公車可達，步行4分鐘",
+    "signature_dishes": [
+      "漢堡",
+      "可樂"
+    ],
+    "branches": "新竹分店",
+    "payment_methods": [
+      "現金",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時110分鐘。",
+    "category": "Fast Food"
+  },
+  {
+    "id": 69,
+    "name": "金牌餐廳 泰式料理",
+    "rating": 4.1,
+    "about": "提供正宗泰式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Thai料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "600-799",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台中市中正區中山路654號",
+    "transportation": "捷運或公車可達，步行2分鐘",
+    "signature_dishes": [
+      "冬蔭功湯",
+      "泰式炒河粉"
+    ],
+    "branches": "新竹巨城百貨分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時111分鐘。",
+    "category": "Thai"
+  },
+  {
+    "id": 70,
+    "name": "品味軒 港式茶餐廳",
+    "rating": 4.3,
+    "about": "提供正宗港式茶餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Dim Sum料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "800-999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "嘉義市板橋區民族路453號",
+    "transportation": "捷運或公車可達，步行9分鐘",
+    "signature_dishes": [
+      "腸粉",
+      "燒賣"
+    ],
+    "branches": "全台多家分店",
+    "payment_methods": [
+      "現金",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時115分鐘。",
+    "category": "Dim Sum"
+  },
+  {
+    "id": 71,
+    "name": "食香閣 牛排館",
+    "rating": 4.3,
+    "about": "提供正宗牛排館，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Steakhouse料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "800-999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "桃園市中西區建國路552號",
+    "transportation": "捷運或公車可達，步行4分鐘",
+    "signature_dishes": [
+      "菲力牛排",
+      "肋眼牛排"
+    ],
+    "branches": "無",
+    "payment_methods": [
+      "現金"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時99分鐘。",
+    "category": "Steakhouse"
+  },
+  {
+    "id": 72,
+    "name": "御膳房 素食餐廳",
+    "rating": 4.5,
+    "about": "提供正宗素食餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Vegetarian料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "400-599",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "桃園市松山區中山路447號",
+    "transportation": "捷運或公車可達，步行3分鐘",
+    "signature_dishes": [
+      "素食拉麵",
+      "養生湯品"
+    ],
+    "branches": "台北信義店、台南分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時103分鐘。",
+    "category": "Vegetarian"
+  },
+  {
+    "id": 73,
+    "name": "經典館 日式料理",
+    "rating": 4.4,
+    "about": "提供正宗日式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Japanese料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1000-1499",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台南市板橋區建國路734號",
+    "transportation": "捷運或公車可達，步行4分鐘",
+    "signature_dishes": [
+      "天婦羅",
+      "壽司"
+    ],
+    "branches": "高雄分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時116分鐘。",
+    "category": "Japanese"
+  },
+  {
+    "id": 74,
+    "name": "好味道 義式料理",
+    "rating": 4.4,
+    "about": "提供正宗義式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Italian料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "200-399",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "桃園市中正區中正路513號",
+    "transportation": "捷運或公車可達，步行10分鐘",
+    "signature_dishes": [
+      "千層麵",
+      "披薩"
+    ],
+    "branches": "新竹巨城百貨分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時90分鐘。",
+    "category": "Italian"
+  },
+  {
+    "id": 75,
+    "name": "經典館 家庭餐廳",
+    "rating": 4.4,
+    "about": "提供正宗家庭餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Family料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "0-199",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "花蓮市信義區中正路942號",
+    "transportation": "捷運或公車可達，步行2分鐘",
+    "signature_dishes": [
+      "家常菜",
+      "兒童餐"
+    ],
+    "branches": "新竹、台中分店",
+    "payment_methods": [
+      "現金",
+      "信用卡",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時92分鐘。",
+    "category": "Family"
+  },
+  {
+    "id": 76,
+    "name": "御膳房 自助餐廳",
+    "rating": 4.5,
+    "about": "提供正宗自助餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Buffet料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "800-999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台北市板橋區建國路697號",
+    "transportation": "捷運或公車可達，步行10分鐘",
+    "signature_dishes": [
+      "沙拉吧",
+      "甜點區"
+    ],
+    "branches": "台北信義店、台南分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時106分鐘。",
+    "category": "Buffet"
+  },
+  {
+    "id": 77,
+    "name": "老店招牌 海鮮餐廳",
+    "rating": 4.1,
+    "about": "提供正宗海鮮餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Seafood料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1500-1999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "新竹市中正區和平路269號",
+    "transportation": "捷運或公車可達，步行4分鐘",
+    "signature_dishes": [
+      "海鮮粥",
+      "螃蟹料理"
+    ],
+    "branches": "台北信義店、台南分店",
+    "payment_methods": [
+      "現金",
+      "信用卡",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時111分鐘。",
+    "category": "Seafood"
+  },
+  {
+    "id": 78,
+    "name": "滿福樓 素食餐廳",
+    "rating": 4.6,
+    "about": "提供正宗素食餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Vegetarian料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "600-799",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "嘉義市大安區和平路642號",
+    "transportation": "捷運或公車可達，步行4分鐘",
+    "signature_dishes": [
+      "養生湯品",
+      "素食拉麵"
+    ],
+    "branches": "高雄分店",
+    "payment_methods": [
+      "現金",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時118分鐘。",
+    "category": "Vegetarian"
+  },
+  {
+    "id": 79,
+    "name": "金牌餐廳 家庭餐廳",
+    "rating": 4.3,
+    "about": "提供正宗家庭餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Family料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "0-199",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "新北市大安區民族路58號",
+    "transportation": "捷運或公車可達，步行4分鐘",
+    "signature_dishes": [
+      "套餐",
+      "家常菜"
+    ],
+    "branches": "全台多家分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時118分鐘。",
+    "category": "Family"
+  },
+  {
+    "id": 80,
+    "name": "新食代 家庭餐廳",
+    "rating": 4.6,
+    "about": "提供正宗家庭餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Family料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1000-1499",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台中市前鎮區建國路264號",
+    "transportation": "捷運或公車可達，步行7分鐘",
+    "signature_dishes": [
+      "套餐",
+      "家常菜"
+    ],
+    "branches": "台北分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時114分鐘。",
+    "category": "Family"
+  },
+  {
+    "id": 81,
+    "name": "老店招牌 義式料理",
+    "rating": 4.4,
+    "about": "提供正宗義式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Italian料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1500-1999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "基隆市前鎮區中正路342號",
+    "transportation": "捷運或公車可達，步行3分鐘",
+    "signature_dishes": [
+      "披薩",
+      "義大利麵"
+    ],
+    "branches": "無",
+    "payment_methods": [
+      "現金",
+      "信用卡",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時106分鐘。",
+    "category": "Italian"
+  },
+  {
+    "id": 82,
+    "name": "招牌店 泰式料理",
+    "rating": 4.1,
+    "about": "提供正宗泰式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Thai料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "400-599",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "高雄市前鎮區建國路375號",
+    "transportation": "捷運或公車可達，步行5分鐘",
+    "signature_dishes": [
+      "芒果糯米飯",
+      "泰式炒河粉"
+    ],
+    "branches": "新竹、台中分店",
+    "payment_methods": [
+      "現金",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時105分鐘。",
+    "category": "Thai"
+  },
+  {
+    "id": 83,
+    "name": "食香閣 西式料理",
+    "rating": 4.8,
+    "about": "提供正宗西式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Western料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "400-599",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台南市中山區和平路488號",
+    "transportation": "捷運或公車可達，步行5分鐘",
+    "signature_dishes": [
+      "龍蝦",
+      "牛排"
+    ],
+    "branches": "新竹巨城百貨分店",
+    "payment_methods": [
+      "現金",
+      "信用卡",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時114分鐘。",
+    "category": "Western"
+  },
+  {
+    "id": 84,
+    "name": "品香居 西式料理",
+    "rating": 4.7,
+    "about": "提供正宗西式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Western料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "800-999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "桃園市信義區民族路961號",
+    "transportation": "捷運或公車可達，步行6分鐘",
+    "signature_dishes": [
+      "法式湯品",
+      "龍蝦"
+    ],
+    "branches": "新竹、台中分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時94分鐘。",
+    "category": "Western"
+  },
+  {
+    "id": 85,
+    "name": "經典館 家庭餐廳",
+    "rating": 4.1,
+    "about": "提供正宗家庭餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Family料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "200-399",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "基隆市西屯區中正路356號",
+    "transportation": "捷運或公車可達，步行6分鐘",
+    "signature_dishes": [
+      "兒童餐",
+      "家常菜"
+    ],
+    "branches": "新竹分店",
+    "payment_methods": [
+      "現金",
+      "信用卡",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時109分鐘。",
+    "category": "Family"
+  },
+  {
+    "id": 86,
+    "name": "精選餐廳 火鍋店",
+    "rating": 4.9,
+    "about": "提供正宗火鍋店，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Hotpot料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "2000以上",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台南市大安區中山路201號",
+    "transportation": "捷運或公車可達，步行3分鐘",
+    "signature_dishes": [
+      "牛奶鍋",
+      "麻辣鍋"
+    ],
+    "branches": "新竹巨城百貨分店",
+    "payment_methods": [
+      "現金",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時103分鐘。",
+    "category": "Hotpot"
+  },
+  {
+    "id": 87,
+    "name": "品香居 韓式料理",
+    "rating": 4.6,
+    "about": "提供正宗韓式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Korean料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "2000以上",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "高雄市板橋區民族路250號",
+    "transportation": "捷運或公車可達，步行5分鐘",
+    "signature_dishes": [
+      "石鍋拌飯",
+      "泡菜鍋"
+    ],
+    "branches": "新竹分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時92分鐘。",
+    "category": "Korean"
+  },
+  {
+    "id": 88,
+    "name": "星級館 速食店",
+    "rating": 4.4,
+    "about": "提供正宗速食店，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Fast Food料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1000-1499",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "新北市大安區民族路807號",
+    "transportation": "捷運或公車可達，步行8分鐘",
+    "signature_dishes": [
+      "漢堡",
+      "可樂"
+    ],
+    "branches": "台中分店",
+    "payment_methods": [
+      "現金"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時106分鐘。",
+    "category": "Fast Food"
+  },
+  {
+    "id": 89,
+    "name": "經典館 甜點店",
+    "rating": 4.8,
+    "about": "提供正宗甜點店，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Dessert料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1500-1999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "新北市中山區建國路307號",
+    "transportation": "捷運或公車可達，步行9分鐘",
+    "signature_dishes": [
+      "手工蛋糕",
+      "布丁"
+    ],
+    "branches": "全台多家分店",
+    "payment_methods": [
+      "現金"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時115分鐘。",
+    "category": "Dessert"
+  },
+  {
+    "id": 90,
+    "name": "新食代 素食餐廳",
+    "rating": 4.2,
+    "about": "提供正宗素食餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Vegetarian料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "800-999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "新北市中山區建國路628號",
+    "transportation": "捷運或公車可達，步行6分鐘",
+    "signature_dishes": [
+      "蔬食便當",
+      "養生湯品"
+    ],
+    "branches": "新竹分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時119分鐘。",
+    "category": "Vegetarian"
+  },
+  {
+    "id": 91,
+    "name": "美味餐廳 創意料理",
+    "rating": 4.5,
+    "about": "提供正宗創意料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Fusion料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "800-999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "嘉義市大安區建國路971號",
+    "transportation": "捷運或公車可達，步行5分鐘",
+    "signature_dishes": [
+      "主廚特製",
+      "創意料理"
+    ],
+    "branches": "台中分店",
+    "payment_methods": [
+      "現金",
+      "信用卡",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時118分鐘。",
+    "category": "Fusion"
+  },
+  {
+    "id": 92,
+    "name": "傳統味 西式料理",
+    "rating": 4.5,
+    "about": "提供正宗西式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Western料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1500-1999",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "新竹市中壢區建國路412號",
+    "transportation": "捷運或公車可達，步行4分鐘",
+    "signature_dishes": [
+      "焗烤料理",
+      "法式湯品"
+    ],
+    "branches": "新竹、台中分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時111分鐘。",
+    "category": "Western"
+  },
+  {
+    "id": 93,
+    "name": "傳統味 速食店",
+    "rating": 4.4,
+    "about": "提供正宗速食店，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Fast Food料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "2000以上",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "花蓮市中西區建國路191號",
+    "transportation": "捷運或公車可達，步行8分鐘",
+    "signature_dishes": [
+      "可樂",
+      "炸雞"
+    ],
+    "branches": "新竹巨城百貨分店",
+    "payment_methods": [
+      "現金"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時102分鐘。",
+    "category": "Fast Food"
+  },
+  {
+    "id": 94,
+    "name": "傳統味 泰式料理",
+    "rating": 4.0,
+    "about": "提供正宗泰式料理，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Thai料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "400-599",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台北市西屯區中山路838號",
+    "transportation": "捷運或公車可達，步行5分鐘",
+    "signature_dishes": [
+      "芒果糯米飯",
+      "泰式炒河粉"
+    ],
+    "branches": "台北分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時119分鐘。",
+    "category": "Thai"
+  },
+  {
+    "id": 95,
+    "name": "金牌餐廳 素食餐廳",
+    "rating": 4.0,
+    "about": "提供正宗素食餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Vegetarian料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "400-599",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台中市板橋區中山路953號",
+    "transportation": "捷運或公車可達，步行3分鐘",
+    "signature_dishes": [
+      "素食拉麵",
+      "養生湯品"
+    ],
+    "branches": "新竹、台中分店",
+    "payment_methods": [
+      "現金"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時101分鐘。",
+    "category": "Vegetarian"
+  },
+  {
+    "id": 96,
+    "name": "家常味 海鮮餐廳",
+    "rating": 4.4,
+    "about": "提供正宗海鮮餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Seafood料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1000-1499",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "桃園市西屯區中正路300號",
+    "transportation": "捷運或公車可達，步行9分鐘",
+    "signature_dishes": [
+      "螃蟹料理",
+      "蒜蓉蝦"
+    ],
+    "branches": "台南分店",
+    "payment_methods": [
+      "現金",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時90分鐘。",
+    "category": "Seafood"
+  },
+  {
+    "id": 97,
+    "name": "家常味 烘焙坊",
+    "rating": 4.8,
+    "about": "提供正宗烘焙坊，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Bakery料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "600-799",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台北市中山區中正路382號",
+    "transportation": "捷運或公車可達，步行7分鐘",
+    "signature_dishes": [
+      "麵包",
+      "司康"
+    ],
+    "branches": "全台多家分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時104分鐘。",
+    "category": "Bakery"
+  },
+  {
+    "id": 98,
+    "name": "星級館 素食餐廳",
+    "rating": 3.9,
+    "about": "提供正宗素食餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Vegetarian料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "200-399",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "基隆市中西區和平路244號",
+    "transportation": "捷運或公車可達，步行5分鐘",
+    "signature_dishes": [
+      "素食火鍋",
+      "養生湯品"
+    ],
+    "branches": "無",
+    "payment_methods": [
+      "現金",
+      "線上支付"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時119分鐘。",
+    "category": "Vegetarian"
+  },
+  {
+    "id": 99,
+    "name": "家常味 小吃店",
+    "rating": 4.7,
+    "about": "提供正宗小吃店，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Street Food料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "200-399",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "花蓮市中山區中正路798號",
+    "transportation": "捷運或公車可達，步行5分鐘",
+    "signature_dishes": [
+      "臭豆腐",
+      "滷味"
+    ],
+    "branches": "新竹、台中分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時93分鐘。",
+    "category": "Street Food"
+  },
+  {
+    "id": 100,
+    "name": "香辣館 港式茶餐廳",
+    "rating": 4.5,
+    "about": "提供正宗港式茶餐廳，環境舒適，服務親切，是聚餐的好選擇。",
+    "menu": "主打Dim Sum料理，食材新鮮，口味道地，提供多樣化選擇。",
+    "price_range": "1000-1499",
+    "hours": "週一至週日 11:00-22:00",
+    "address": "台北市松山區中正路198號",
+    "transportation": "捷運或公車可達，步行2分鐘",
+    "signature_dishes": [
+      "腸粉",
+      "蝦餃"
+    ],
+    "branches": "全台多家分店",
+    "payment_methods": [
+      "現金",
+      "信用卡"
+    ],
+    "dining_notice": "建議提前訂位，尖峰時段用餐限時92分鐘。",
+    "category": "Dim Sum"
+  }
+]

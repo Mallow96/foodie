@@ -6,7 +6,8 @@
   >
     <div class="logo mx-auto">
       <a href="">
-        <h2>thisisLogo</h2>
+      <img src="../assets/logo.svg" alt="logo" class="logo-img">
+        <!-- <h2>thisisLogo</h2> -->
       </a>
     </div>
 
@@ -32,6 +33,11 @@ header {
 
 .logo {
   place-items: center;
+}
+
+.logo-img {
+  width: 6.75rem;
+  height: auto;
 }
 
 .icons > a {
