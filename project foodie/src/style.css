@@ -75,6 +75,11 @@ h1 {
   margin: 3rem 0;
 }
 
+input {
+  background-color: rgb(255, 255, 255, 0);
+  color: black;
+}
+
 /* button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -104,6 +109,11 @@ button:focus-visible {
   flex-direction: column;
   align-items: center;
   position: relative;
+}
+
+.button-default {
+  background-color: var(--color-primary-brown);
+  color: white;
 }
 
 @media (prefers-color-scheme: light) {

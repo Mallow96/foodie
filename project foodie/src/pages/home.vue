@@ -1,11 +1,11 @@
 <script setup>
-
+import Home_search from "../components/home_search.vue";
+import Home_searchCopy from "../components/home_search copy.vue";
 </script>
 
 <template>
-        <h1>test123</h1>
+  <Home_search></Home_search>
+  <Home_searchCopy></Home_searchCopy>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
