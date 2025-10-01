@@ -6,7 +6,7 @@
       <div class="top d-flex justify-content-between align-items-center">
         <div class="logo d-inline-block">
           <a href="">
-            <img src="../assets/logo.svg" alt="logo" class="logo-img">
+            <img src="../assets/logo.svg" alt="logo" class="logo-img" />
             <!-- <h2>thisisLogo</h2> -->
           </a>
         </div>
@@ -88,13 +88,6 @@
 .socials > li > a > i {
   font-size: 1.5rem;
   transition: color 0.3s ease;
-}
-
-.divider {
-  height: 1px;
-  background-color: var(--color-primary-brown);
-  opacity: 0.5;
-  margin: 3rem 0;
 }
 
 a {

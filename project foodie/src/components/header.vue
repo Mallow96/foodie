@@ -1,9 +1,7 @@
 <script setup></script>
 
 <template>
-  <header
-    class="w-100 d-flex justify-content-center align-center bg-white py-1"
-  >
+  <header class="d-flex justify-content-center align-center py-1">
     <div class="logo mx-auto">
       <a href="">
         <img src="../assets/logo.svg" alt="logo" class="logo-img" />
@@ -29,7 +27,8 @@
 
 <style scoped>
 header {
-  position: fixed;
+  width: 100%;
+  background-color: var(--color-beige-50);
 }
 
 .logo {

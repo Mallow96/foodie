@@ -17,14 +17,23 @@
   --color-primary-orange: #ffa24c;
   --color-primary-yellow: #ffda34;
 
+  --color-beige-50: #fbf8f3;
+  --color-brown-200: #c8b4a6;
+  --color-yellow-100: #fff2b6;
+
   --container-width: 1200px;
   --bellow-header: 3.5rem;
+
+  --border-radius: 0.9375rem;
 }
 
 html,
 body,
 #app {
   font-family: "Chiron GoRound TC", sans-serif !important;
+  width: 100%;
+  height: 100vh;
+  overflow: visible;
 }
 
 a {
@@ -40,10 +49,11 @@ body {
   width: 100vw;
   margin: 0;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   /* place-items: center; */
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--color-beige-50);
 }
 
 h1 {
@@ -52,8 +62,17 @@ h1 {
 }
 
 .container {
+  width: 75%;
   margin: var(--bellow-header) 0;
   max-width: 1200px;
+  /* height: 100vh; */
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--color-primary-brown);
+  opacity: 0.5;
+  margin: 3rem 0;
 }
 
 /* button {
@@ -80,12 +99,12 @@ button:focus-visible {
   padding: 2em;
 }
 
-/* #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-} */
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
