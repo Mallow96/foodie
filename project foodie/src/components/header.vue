@@ -6,7 +6,7 @@
   >
     <div class="logo mx-auto">
       <a href="">
-      <img src="../assets/logo.svg" alt="logo" class="logo-img">
+        <img src="../assets/logo.svg" alt="logo" class="logo-img" />
         <!-- <h2>thisisLogo</h2> -->
       </a>
     </div>
@@ -15,11 +15,12 @@
       class="right d-flex align-items-center position-absolute top-50 end-0 translate-middle-y me-4"
     >
       <div class="icons d-flex gap-4">
-        <router-link :to="{ name: 'account' }">          
-          <i class="fa-solid fa-user"></i>
-        </router-link>
-        <router-link :to="{}">          
+        <router-link :to="{}">
           <i class="fa-solid fa-bell"></i>
+        </router-link>
+
+        <router-link :to="{ name: 'account' }">
+          <i class="fa-solid fa-user"></i>
         </router-link>
       </div>
     </div>
