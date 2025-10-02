@@ -3,6 +3,7 @@ import { ref } from "vue";
 import { useRoute } from "vue-router";
 import { useRestStore } from "../store/restaurants_store";
 import restaurantInfo from "../components/restaurant-info.vue";
+import reservationCalendar from "../components/reservation_calendar.vue";
 
 const route = useRoute();
 const restStore = useRestStore();
@@ -103,17 +104,7 @@ const restaurant = restStore.restaurants.find((r) => String(r.id) === id);
 
       <!-- 預訂 -->
       <div class="col-3">
-        <div class="card" style="width: 18rem">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card’s content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
+        <reservationCalendar></reservationCalendar>
       </div>
       <!-- 預訂 -->
     </div>
