@@ -46,8 +46,10 @@
           Project Foodie © 2025. All rights reserved.
         </p>
         <ol class="d-flex justify-content-between">
-          <li>
-            <a href="" class="fw-bold">Eleven</a>
+          <li class="fw-bold">
+            <router-link :to="{ name: 'fakelist' }">
+              List of Restaurants
+            </router-link>
           </li>
           <li>
             <a href="" class="fw-bold">Twelve</a>
