@@ -1,19 +1,49 @@
 <script setup>
 import Btn_send from "./btn_send.vue";
-import { ref, watch, nextTick } from "vue";
+import { ref, watch, nextTick, onMounted, onUnmounted } from "vue";
 
-const isExpand = ref(false);
+const isExpanded = ref(false);
+const collapseShow = ref(false);
+const searchBlock = ref(null);
+
+const fnSearchExpand = () => {
+  if (!isExpanded.value) {
+    isExpanded.value = true;
+  }
+
+  if (!collapseShow.value) {
+    setTimeout(() => {
+      collapseShow.value = true;
+    }, 300);
+  }
+};
+
+const fnSearchCollapse = () => {
+  if (isExpanded.value) {
+    isExpanded.value = false;
+  }
+
+  if (collapseShow.value) {
+    collapseShow.value = false;
+  }
+};
+
+const handleClickOutside = (event) => {
+  if (searchBlock.value && !searchBlock.value.contains(event.target)) {
+    fnSearchCollapse();
+  }
+};
+
+onMounted(() => {
+  document.addEventListener("mousedown", handleClickOutside);
+});
+
+onUnmounted(() => {
+  document.removeEventListener("mousedown", handleClickOutside);
+});
+
 const expandedInput = ref(null);
-
-const fn_searchExpand = () => {
-  isExpand.value = true;
-};
-
-const fn_searchCollapse = () => {
-  isExpand.value = false;
-};
-
-watch(isExpand, async (newVal) => {
+watch(isExpanded, async (newVal) => {
   if (newVal) {
     await nextTick();
     expandedInput.value?.focus();
@@ -22,128 +52,179 @@ watch(isExpand, async (newVal) => {
 </script>
 
 <template>
-  <main class="d-flex align-items-center flex-column justify-content-center">
-    <h3>餐廳檢索</h3>
+  <section>
+    <!-- 標題 -->
+    <div class="title"><h3 class="text-center">餐廳檢索</h3></div>
+    <!-- 標題 -->
 
-    <div class="search-btns mt-4" v-if="!isExpand">
-      <!-- 搜尋 -->
+    <!-- 主按鈕*2 -->
+    <div class="search-bar">
+      <!-- 搜尋鈕 -->
       <div
-        class="input-group input-group-default d-flex justify-content-evenly align-items-center gap-3"
-        @click="fn_searchExpand"
+        id="searchBlock"
+        class="search-block search-bar-blocks"
+        :class="{
+          'search-expand': isExpanded,
+        }"
+        @click="fnSearchExpand"
+        ref="searchBlock"
       >
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" placeholder="請輸入關鍵字..." class="input-area" />
+        <div :class="{ 'visible-content': isExpanded }">
+          <i class="fa-solid fa-magnifying-glass ms-3"></i>
+          <input
+            class="search-input"
+            type="text"
+            placeholder="請輸入關鍵字..."
+            ref="expandedInput"
+          />
+        </div>
+
+        <!-- 收合內容 -->
+        <div class="collapse-content slide-in-fwd-center" v-if="collapseShow">
+          <div class="radio-group">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="radioDefault"
+                id="radioDefault2"
+                checked
+              />
+              <label class="form-check-label" for="radioDefault2">
+                清單顯示
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="radioDefault"
+                id="radioDefault1"
+              />
+              <label class="form-check-label" for="radioDefault1">
+                地圖顯示
+              </label>
+            </div>
+          </div>
+          <Btn_send></Btn_send>
+        </div>
+        <!-- 收合內容 -->
       </div>
-      <!-- 搜尋 -->
+      <!-- 搜尋鈕 -->
 
-      <!-- 地圖 -->
-      <div
-        class="input-group input-group-default d-flex align-items-center justify-content-center gap-3"
-      >
+      <!-- 地圖鈕 -->
+      <div class="map-block search-bar-blocks">
         <span>前往地圖</span>
         <i class="fa-solid fa-arrow-right"></i>
       </div>
-      <!-- 地圖 -->
+      <!-- 地圖鈕 -->
     </div>
-
-    <!-- expand -->
-    <div
-      class="input-group input-group-expand d-flex align-items-center justify-content-evenly gap-3 ps-4 mt-4"
-      v-else
-    >
-      <i class="fa-solid fa-magnifying-glass"></i>
-      <input
-        type="text"
-        placeholder="請輸入關鍵字..."
-        ref="expandedInput"
-        class="input-area"
-        @blur="fn_searchCollapse"
-      />
-      <div class="radio-group">
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="radioDefault"
-            id="radioDefault2"
-            checked
-          />
-          <label class="form-check-label" for="radioDefault2"> 清單顯示 </label>
-        </div>
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="radioDefault"
-            id="radioDefault1"
-          />
-          <label class="form-check-label" for="radioDefault1"> 地圖顯示 </label>
-        </div>
-      </div>
-      <Btn_send></Btn_send>
-    </div>
-    <!-- expand -->
-  </main>
+    <!-- 主按鈕*2 -->
+  </section>
 </template>
 
 <style scoped>
-main {
-  height: 25rem;
-  transition: all 0.8s ease;
-}
-
-.search-btns {
+section {
+  width: 100%;
+  height: 31.25rem;
   display: flex;
-  gap: 3rem;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
 }
 
-.input-group {
-  width: 24rem;
-  height: 7.5rem;
+.search-bar {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* 主按鈕*2 個別*/
+.search-bar-blocks {
   background-color: white;
-  /* padding: 2.5rem 1.5rem; */
+  width: 47%;
+  height: 7.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 5rem;
+  transition: width 0.2s ease-in-out;
   font-size: 1.5rem;
-  transition: all 0.3s ease;
-}
-
-.input-group-default {
-  .input-area {
-    width: 66%;
-    border: none;
-    &:focus {
-      border: none;
-    }
-  }
 
   &:hover {
     background-color: var(--color-primary-yellow);
-    cursor: pointer;
-    &:first-child {
+
+    &.search-block {
       cursor: text;
+    }
+
+    &.map-block {
+      cursor: pointer;
     }
   }
 }
 
-.input-group-expand {
-  width: 100%;
+.search-block > div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
 
-  .input-area {
-    border: none;
-    padding: 1rem;
-    font-size: 1.5rem;
-    /* width: 20%; */
-  }
+.search-input {
+  outline: none;
+  border: none;
+}
+
+.visible-content {
+  width: 56%;
+}
+
+.collapse-content {
+  width: 40%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .radio-group {
-  display: flex;
-  gap: 1rem;
   font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-.input-area:focus {
-  outline: none;
-  border: none;
+.search-expand {
+  width: 100%;
+  position: absolute;
+}
+
+.slide-in-fwd-center {
+  -webkit-animation: slide-in-fwd-center 0.5s
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-in-fwd-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes slide-in-fwd-center {
+  0% {
+    -webkit-transform: translateZ(-1400px);
+    transform: translateZ(-1400px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-fwd-center {
+  0% {
+    -webkit-transform: translateZ(-1400px);
+    transform: translateZ(-1400px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1;
+  }
 }
 </style>
