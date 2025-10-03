@@ -23,9 +23,13 @@
   --color-brown-50: #e2d7cf;
   --color-brown-200: #c8b4a6;
   --color-brown-300: #b89d8a;
-
   --color-brown-400: #a7866f;
+
+  --color-dbrown-300: #875352;
+
   --color-yellow-100: #fff2b6;
+  --color-yellow-200: #fff1b1;
+  --color-yellow-300: #ffeb92;
   --color-yellow-400: #ffe570;
 
   --container-width: 1200px;

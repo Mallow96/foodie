@@ -7,7 +7,21 @@ import {
   defineEmits,
   watchEffect,
 } from "vue";
+
+import { useRoute } from "vue-router";
+import { useRestStore } from "../store/restaurants_store";
 import dayjs from "dayjs";
+
+const route = useRoute();
+const id = route.params.id;
+const restStore = useRestStore();
+const restaurant = restStore.restaurants.find((r) => String(r.id) === id);
+
+const reserveYear = ref("");
+const reserveMonth = ref("");
+const reserveDate = ref("");
+const reserveWeekday = ref("");
+const reserveWeekdayDisplay = ref("");
 
 // Props 定義（支援 v-model）
 const props = defineProps({
@@ -131,6 +145,38 @@ const sendReserve = () => {
     `人數：${selectedPeople.value}`,
     `時間：${selectedTime.value}`
   );
+
+  reserveYear.value = selectedDate.value.format("YYYY");
+  reserveMonth.value = selectedDate.value.format("MM");
+  reserveDate.value = selectedDate.value.format("DD");
+  reserveWeekday.value = selectedDate.value.format("ddd");
+
+  switch (reserveWeekday.value) {
+    case "Sun":
+      reserveWeekdayDisplay.value = "星期日";
+      break;
+    case "Mon":
+      reserveWeekdayDisplay.value = "星期一";
+      break;
+    case "Tue":
+      reserveWeekdayDisplay.value = "星期二";
+      break;
+    case "Wed":
+      reserveWeekdayDisplay.value = "星期三";
+      break;
+    case "Thu":
+      reserveWeekdayDisplay.value = "星期四";
+      break;
+    case "Fri":
+      reserveWeekdayDisplay.value = "星期五";
+      break;
+    case "Sat":
+      reserveWeekdayDisplay.value = "星期六";
+      break;
+
+    default:
+      reserveWeekdayDisplay.value = "ERROR";
+  }
 };
 
 window.addEventListener("hide.bs.modal", (event) => {
@@ -281,8 +327,8 @@ watchEffect(() => {
     </div>
   </div>
 
-  <!-- 訂位確認1 -->
   <div class="reserve-modal">
+    <!-- 訂位確認1 -->
     <div
       class="modal fade"
       id="reserveModal"
@@ -302,39 +348,41 @@ watchEffect(() => {
 
           <!-- 主要內容 -->
           <div class="modal-body">
-            <p class="text-center">請填寫您的聯絡資訊</p>
-            <form action="">
-              <div class="row">
-                <label for="">訂位人姓名：</label>
-                <input type="text" class="input-basic" />
-              </div>
-              <div class="row">
-                <label for="">訂位人電話：</label>
-                <input type="text" class="input-basic" />
-              </div>
-              <div class="row">
-                <label for="">訂位人Email：</label>
-                <input type="text" class="input-basic" />
-              </div>
-              <div class="row">
-                <label for="">備註：</label>
-                <textarea name="" id="" class="input-basic"></textarea>
-              </div>
-            </form>
+            <div class="modal-body-container">
+              <p class="text-center">請填寫您的聯絡資訊</p>
+              <form action="">
+                <div class="row">
+                  <label for="">訂位人姓名：</label>
+                  <input type="text" class="input-basic" />
+                </div>
+                <div class="row">
+                  <label for="">訂位人電話：</label>
+                  <input type="text" class="input-basic" />
+                </div>
+                <div class="row">
+                  <label for="">訂位人Email：</label>
+                  <input type="text" class="input-basic" />
+                </div>
+                <div class="row">
+                  <label for="">備註：</label>
+                  <textarea name="" id="" class="input-basic"></textarea>
+                </div>
+              </form>
+            </div>
           </div>
 
           <!-- 按鈕列 -->
           <div class="modal-footer">
-            <button type="button" class="btn" data-bs-dismiss="modal">
-              Close
+            <button type="button" class="btn btn-back" data-bs-dismiss="modal">
+              取消
             </button>
             <!-- 開下一個modal -->
             <button
-              class="btn"
+              class="btn btn-next"
               data-bs-target="#reserveModal2"
               data-bs-toggle="modal"
             >
-              Open second modal
+              預訂
             </button>
           </div>
         </div>
@@ -351,32 +399,70 @@ watchEffect(() => {
     >
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
+          <!-- 2標題 -->
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="reserveModalLabel2">Modal 2</h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+            <h1 class="modal-title fs-5" id="reserveModalLabel2">資訊確認</h1>
+            <button type="button" class="btn" data-bs-dismiss="modal">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
           </div>
+
+          <!-- 主要內容 -->
           <div class="modal-body">
-            Hide this modal and show the first with the button below.
+            <div class="modal-body-container">
+              <p class="text-center">請確認您的聯絡資訊</p>
+
+              <div class="body-top">
+                <h4>{{ restaurant.name }}</h4>
+                <h4>
+                  {{ reserveYear }} / {{ reserveMonth }} / {{ reserveDate }}
+                </h4>
+                <h4>{{ reserveWeekdayDisplay }} {{ selectedPeople }}位</h4>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="body-bot">
+                <div class="row">
+                  <div class="w-25">訂位人姓名</div>
+                  <div class="w-75">user</div>
+                </div>
+                <div class="row">
+                  <div class="w-25">訂位人電話</div>
+                  <div class="w-75">123</div>
+                </div>
+                <div class="row">
+                  <div class="w-25">訂位人Email</div>
+                  <div class="w-75">456@</div>
+                </div>
+                <div class="row">
+                  <div class="w-25">備註</div>
+                  <div class="w-75 note-display">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Fugiat facere, est quibusdam deleniti magnam ab deserunt
+                    aspernatur ex dolores? Mollitia dolorum doloribus explicabo
+                    inventore illo ipsam ullam eius unde placeat?
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <!-- 按鈕列 -->
           <div class="modal-footer">
             <button
-              class="btn btn-primary"
+              class="btn btn-back"
               data-bs-target="#reserveModal"
               data-bs-toggle="modal"
             >
-              Back to first
+              上一步
             </button>
             <button
-              class="btn btn-primary"
+              class="btn btn-next"
               data-bs-target="#reserveModal3"
               data-bs-toggle="modal"
             >
-              Open 3rd modal
+              確認
             </button>
           </div>
         </div>
@@ -393,32 +479,72 @@ watchEffect(() => {
     >
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
+          <!-- 3標題 -->
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="reserveModalLabel3">Modal 3</h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+            <h1 class="modal-title fs-5" id="reserveModalLabel3">訂位成功</h1>
+            <button type="button" class="btn" data-bs-dismiss="modal">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
           </div>
+
+          <!-- 主要內容 -->
           <div class="modal-body">
-            Hide this modal and show the first with the button below.
+            <div class="modal-body-container">
+              <p class="text-center">請確認您的聯絡資訊</p>
+
+              <div class="body-top">
+                <h4>{{ restaurant.name }}</h4>
+                <h4>
+                  {{ reserveYear }} / {{ reserveMonth }} / {{ reserveDate }}
+                </h4>
+                <h4>{{ reserveWeekdayDisplay }} {{ selectedPeople }}位</h4>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="body-bot">
+                <div class="row">
+                  <div class="w-25">訂位人姓名</div>
+                  <div class="w-75">user</div>
+                </div>
+                <div class="row">
+                  <div class="w-25">訂位人電話</div>
+                  <div class="w-75">123</div>
+                </div>
+                <div class="row">
+                  <div class="w-25">訂位人Email</div>
+                  <div class="w-75">456@</div>
+                </div>
+                <div class="row">
+                  <div class="w-25">備註</div>
+                  <div class="w-75 note-display">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Fugiat facere, est quibusdam deleniti magnam ab deserunt
+                    aspernatur ex dolores? Mollitia dolorum doloribus explicabo
+                    inventore illo ipsam ullam eius unde placeat?
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <!-- 按鈕列 -->
           <div class="modal-footer">
             <button
-              class="btn btn-primary"
-              data-bs-target="#reserveModal2"
+              class="btn btn-back"
+              data-bs-target="#reserveModa2"
               data-bs-toggle="modal"
             >
-              Back to first
+              上一步
             </button>
+            <button class="btn btn-next" data-bs-dismiss="modal">確認</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- 候位 -->
   <div class="queue-modal">
     <div
       class="modal fade"
@@ -696,6 +822,67 @@ form {
 
     textarea {
       min-height: 6.25rem;
+    }
+  }
+}
+
+.modal-footer {
+  flex-wrap: nowrap;
+
+  button {
+    font-size: 1.5rem;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+}
+
+.btn-back {
+  color: var(--color-dbrown-300);
+  background-color: var(--color-yellow-200);
+
+  &:hover {
+    background-color: var(--color-beige-200);
+  }
+}
+
+.btn-next {
+  color: var(--color-primary-dbrown);
+  background-color: var(--color-primary-yellow);
+
+  &:hover {
+    background-color: var(--color-yellow-300);
+  }
+}
+
+.modal-body-container {
+  border: 1px solid var(--color-brown-300);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.divider {
+  margin: 1rem;
+}
+
+.body-top,
+.body-bot {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.body-top {
+  text-align: center;
+}
+
+.body-bot {
+  .row {
+    div {
+      white-space: normal; /* Allows wrapping */
+      overflow-wrap: break-word;
+      &:first-child {
+        color: var(--color-primary-brown);
+      }
     }
   }
 }
