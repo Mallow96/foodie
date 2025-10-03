@@ -1,7 +1,7 @@
 <script setup>
 import BackBtn from "../components/back_btn.vue";
 
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { useFoodStore } from "../store/foodie_store";
 
 const useStore = useFoodStore();
@@ -17,9 +17,9 @@ const formatDateTime = (isoString) => {
     year: "numeric",
     month: "long",
     day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
+    // hour: "2-digit",
+    // minute: "2-digit",
+    // second: "2-digit",
   });
 };
 </script>
@@ -29,11 +29,12 @@ const formatDateTime = (isoString) => {
   <main class="content w-100">
     <div class="user-info w-100 d-flex align-items-center">
       <span class="profile"></span>
-      <h2>歡迎！{{ userInfo.realName }} ({{ userInfo.username }})</h2>
+      <h2>{{ userInfo.realName }}</h2>
+      <span> ({{ userInfo.username }})</span>
       <div class="user-details ms-auto">
-        <p>收藏：筆</p>
-        <p>評論：次</p>
-        <p>加入日期：</p>
+        <p>收藏：{{ userInfo?.likedRestaurants?.length || "n" }} 筆</p>
+        <p>評論：{{ userInfo?.reviewAmount?.length || "n" }} 次</p>
+        <p>加入日期：{{ formatDateTime(userInfo.createdAt) }}</p>
       </div>
     </div>
 
@@ -70,6 +71,10 @@ const formatDateTime = (isoString) => {
 </template>
 
 <style scoped>
+h2 {
+  margin: 0;
+}
+
 .back {
   position: fixed;
   left: 0.5rem;
@@ -89,7 +94,10 @@ const formatDateTime = (isoString) => {
 
 .user-info {
   color: var(--color-primary-dbrown);
-  gap: 2rem;
+  h2 {
+    margin-left: 2rem;
+    margin-right: 0.5rem;
+  }
 }
 
 .profile {

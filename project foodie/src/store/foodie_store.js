@@ -19,9 +19,9 @@ export const useFoodStore = defineStore("notes", () => {
   const getLoggedInUserBasicInfo = computed(() => {
     if (loggedInUser.value) {
       // 只回傳需要顯示的資料欄位
-      const { realName, username, email, phone, createdAt, userId, lastLogin } =
+      const { realName, username, email, phone, createdAt, userId, lastLogin, likedRestaurants,reviewAmount } =
         loggedInUser.value;
-      return { realName, username, email, phone, createdAt, userId, lastLogin };
+      return { realName, username, email, phone, createdAt, userId, lastLogin, likedRestaurants,reviewAmount };
     }
     return null;
   });
