@@ -242,8 +242,6 @@ p {
 
 .row {
   border-top: 1px solid var(--color-brown-300);
-  padding: 0;
-  margin: 0;
 }
 
 .last-row {

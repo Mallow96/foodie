@@ -68,7 +68,7 @@ const restaurant = restStore.restaurants.find((r) => String(r.id) === id);
 
     <div class="row mt-4">
       <!-- 切換顯示區 -->
-      <div class="col-9 pe-4">
+      <div class="col-8 pe-2">
         <!-- 切換tab -->
         <ul class="nav">
           <li class="nav-item" @click="setActiveTab('info')">
@@ -103,7 +103,7 @@ const restaurant = restStore.restaurants.find((r) => String(r.id) === id);
       <!-- 切換顯示區 -->
 
       <!-- 預訂 -->
-      <div class="col-3">
+      <div class="col-4">
         <reservationCalendar></reservationCalendar>
       </div>
       <!-- 預訂 -->
@@ -121,6 +121,11 @@ const restaurant = restStore.restaurants.find((r) => String(r.id) === id);
 * {
   padding: 0;
   margin: 0;
+}
+
+main {
+  background-color: white;
+  padding: 0 0.5rem;
 }
 
 .banner {

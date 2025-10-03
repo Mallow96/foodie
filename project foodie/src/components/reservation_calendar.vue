@@ -125,19 +125,19 @@ const roundToNearestHalfHour = () => {
   return rounded.format("HH:mm");
 };
 
-// 監聽選擇的日期、人數、時間
-watchEffect(() => {
-  if (
-    selectedDate.value &&
-    selectedTime.value &&
-    selectedPeople.value != null
-  ) {
-    console.log(
-      `選擇的日期：${selectedDate.value.format("YYYY-MM-DD")}`,
-      `人數：${selectedPeople.value}`,
-      `時間：${selectedTime.value}`
-    );
-  }
+const sendReserve = () => {
+  console.log(
+    `選擇的日期：${selectedDate.value.format("YYYY-MM-DD")}`,
+    `人數：${selectedPeople.value}`,
+    `時間：${selectedTime.value}`
+  );
+};
+
+window.addEventListener("hide.bs.modal", (event) => {
+  event.target.inert = true;
+});
+window.addEventListener("show.bs.modal", (event) => {
+  event.target.inert = false;
 });
 
 // 組件掛載時的初始化
@@ -162,12 +162,29 @@ onMounted(() => {
     emit("update:modelValue", today.format("YYYY-MM-DD"));
   }
 
-  console.log("當前時間四捨五入到最近的半小時:", currentTime.value);
+  // console.log(today.format("YYYY-MM-DD"));
+  // console.log("當前時間四捨五入到最近的半小時:", currentTime.value);
+});
+
+const thisDay = ref("");
+thisDay.value = currentMonth.value.format("YYYY-MM-DD");
+const selectToday = ref(false);
+
+// 監聽選擇的日期、人數、時間
+watchEffect(() => {
+  if (
+    selectedDate.value &&
+    selectedDate.value.format("YYYY-MM-DD") == thisDay.value
+  ) {
+    selectToday.value = true;
+  } else {
+    selectToday.value = false;
+  }
 });
 </script>
 
 <template>
-  <div class="card mb-3" style="max-width: 18rem">
+  <div class="card mb-3">
     <h5 class="card-title text-center">線上預訂</h5>
 
     <!-- 月曆 -->
@@ -240,14 +257,242 @@ onMounted(() => {
         </select>
       </div>
       <!-- 時間按鈕 -->
+
+      <!-- 確認按鈕 -->
+      <button
+        class="btn btn-reserve"
+        @click="sendReserve"
+        data-bs-target="#queueModal"
+        data-bs-toggle="modal"
+        v-if="selectToday"
+      >
+        立即候位
+      </button>
+      <button
+        class="btn btn-reserve"
+        @click="sendReserve"
+        data-bs-target="#reserveModal"
+        data-bs-toggle="modal"
+        v-else
+      >
+        前往預訂
+      </button>
+      <!-- 確認按鈕 -->
+    </div>
+  </div>
+
+  <!-- 訂位確認1 -->
+  <div class="reserve-modal">
+    <div
+      class="modal fade"
+      id="reserveModal"
+      aria-hidden="true"
+      aria-labelledby="reserveModalLabel"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <!-- 1標題 -->
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="reserveModalLabel">聯絡資訊</h1>
+            <button type="button" class="btn" data-bs-dismiss="modal">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- 主要內容 -->
+          <div class="modal-body">
+            <p class="text-center">請填寫您的聯絡資訊</p>
+            <form action="">
+              <div class="row">
+                <label for="">訂位人姓名：</label>
+                <input type="text" class="input-basic" />
+              </div>
+              <div class="row">
+                <label for="">訂位人電話：</label>
+                <input type="text" class="input-basic" />
+              </div>
+              <div class="row">
+                <label for="">訂位人Email：</label>
+                <input type="text" class="input-basic" />
+              </div>
+              <div class="row">
+                <label for="">備註：</label>
+                <textarea name="" id="" class="input-basic"></textarea>
+              </div>
+            </form>
+          </div>
+
+          <!-- 按鈕列 -->
+          <div class="modal-footer">
+            <button type="button" class="btn" data-bs-dismiss="modal">
+              Close
+            </button>
+            <!-- 開下一個modal -->
+            <button
+              class="btn"
+              data-bs-target="#reserveModal2"
+              data-bs-toggle="modal"
+            >
+              Open second modal
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 訂位確認2 -->
+    <div
+      class="modal fade"
+      id="reserveModal2"
+      aria-hidden="true"
+      aria-labelledby="reserveModalLabel2"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="reserveModalLabel2">Modal 2</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            Hide this modal and show the first with the button below.
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-primary"
+              data-bs-target="#reserveModal"
+              data-bs-toggle="modal"
+            >
+              Back to first
+            </button>
+            <button
+              class="btn btn-primary"
+              data-bs-target="#reserveModal3"
+              data-bs-toggle="modal"
+            >
+              Open 3rd modal
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 訂位確認3 -->
+    <div
+      class="modal fade"
+      id="reserveModal3"
+      aria-hidden="true"
+      aria-labelledby="reserveModalLabel3"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="reserveModalLabel3">Modal 3</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            Hide this modal and show the first with the button below.
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-primary"
+              data-bs-target="#reserveModal2"
+              data-bs-toggle="modal"
+            >
+              Back to first
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="queue-modal">
+    <div
+      class="modal fade"
+      id="queueModal"
+      aria-hidden="true"
+      aria-labelledby="queueModalLabel"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="queueModalLabel">queue</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            Show a second modal and hide this one with the button below.
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-primary"
+              data-bs-target="#queueModal2"
+              data-bs-toggle="modal"
+            >
+              Open second modal
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="queueModal2"
+      aria-hidden="true"
+      aria-labelledby="queueModalLabel2"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="queueModalLabel2">Modal 2</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            Hide this modal and show the first with the button below.
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-primary"
+              data-bs-target="#queueModal"
+              data-bs-toggle="modal"
+            >
+              Back to first
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-button {
+/* button {
   padding: 0 !important;
-}
+} */
 
 .card {
   padding: 1rem;
@@ -391,7 +636,67 @@ button {
   /* background-color: #f9f9f9; */
 }
 
-/* .date-cell.disabled:hover {
-  background-color: #f9f9f9;
-} */
+.btn-reserve {
+  font-size: 1.25rem;
+  color: var(--color-primary-dbrown);
+  background-color: var(--color-yellow-400);
+  padding: 0.5rem 0;
+  text-align: center;
+
+  &:hover {
+    background-color: var(--color-yellow-100);
+  }
+}
+
+.modal-header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  h1 {
+    color: var(--color-primary-dbrown);
+  }
+  button {
+    color: var(--color-primary-brown);
+    margin: 0;
+    position: absolute;
+    right: 3%;
+
+    &:hover {
+      color: var(--color-primary-orange);
+    }
+    &:active {
+      border: none;
+    }
+  }
+}
+
+.input-basic {
+  background-color: white;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-brown-200);
+  width: 100%;
+  margin: 0;
+  padding: 0.25rem 0.5rem;
+  color: black;
+
+  &:focus {
+    border-width: 2px;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.25rem;
+
+  .row {
+    gap: 0.5rem;
+    width: 100%;
+
+    textarea {
+      min-height: 6.25rem;
+    }
+  }
+}
 </style>

@@ -26,6 +26,7 @@
 
   --color-brown-400: #a7866f;
   --color-yellow-100: #fff2b6;
+  --color-yellow-400: #ffe570;
 
   --container-width: 1200px;
   --bellow-header: 3.5rem;
@@ -61,6 +62,15 @@ body {
   background-color: var(--color-beige-50);
 }
 
+/* 覆寫 Bootstrap 的 .modal-open 樣式 */
+.modal-open {
+  /* 這是 Bootstrap 用來移除滾動條的 CSS，你可能已經有這個設定 */
+  overflow: hidden !important;
+
+  /* **關鍵步驟：** 移除 Bootstrap 自動加入的 padding-right 補償 */
+  padding-right: 0px !important;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -83,6 +93,10 @@ h1 {
 input {
   background-color: rgb(255, 255, 255, 0);
   color: black;
+}
+
+textarea {
+  resize: none;
 }
 
 /* button {
@@ -119,6 +133,20 @@ button:focus-visible {
 .button-default {
   background-color: var(--color-primary-brown);
   color: white;
+}
+
+.row {
+  padding: 0;
+  margin: 0;
+}
+
+.row > * {
+  padding: 0;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
 }
 
 @media (prefers-color-scheme: light) {
