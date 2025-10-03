@@ -94,6 +94,10 @@ h2 {
   }
 }
 
+.user-details > p {
+  text-align: right;
+}
+
 .profile {
   width: 6rem;
   height: 6rem;
