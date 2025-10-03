@@ -153,6 +153,12 @@ textarea:focus {
   outline: none;
 }
 
+.back {
+  position: fixed;
+  left: 0.5rem;
+  top: calc(var(--bellow-header) + 8px);
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

@@ -4,6 +4,7 @@ import Account from "../pages/account.vue";
 import RestaurantList from "../pages/fake_list.vue";
 import RestaurantPage from "../pages/restaurant_page.vue";
 import AccountSetting from "../pages/account_setting.vue";
+import ReservationHistory from "../pages/reservation_history.vue";
 
 const routes = [
   { path: "/", name: "test", component: Test },
@@ -15,6 +16,8 @@ const routes = [
     name: "accountSetting",
     component: AccountSetting,
   },
+  { path: "/reservation-history", name: "reservationHistory", component: ReservationHistory },
+
 ];
 
 const router = createRouter({
