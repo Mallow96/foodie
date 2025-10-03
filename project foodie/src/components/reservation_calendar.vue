@@ -9,12 +9,12 @@ import {
 } from "vue";
 
 import { useRoute } from "vue-router";
-import { useRestStore } from "../store/restaurants_store";
+import { useFoodStore } from "../store/foodie_store";
 import dayjs from "dayjs";
 
 const route = useRoute();
 const id = route.params.id;
-const restStore = useRestStore();
+const restStore = useFoodStore();
 const restaurant = restStore.restaurants.find((r) => String(r.id) === id);
 
 const reserveYear = ref("");

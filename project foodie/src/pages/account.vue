@@ -1,5 +1,27 @@
 <script setup>
 import BackBtn from "../components/back_btn.vue";
+
+import { computed } from "vue";
+import { useFoodStore } from "../store/foodie_store";
+
+const useStore = useFoodStore();
+
+// 透過 Getter 取得登入使用者的乾淨資料
+const userInfo = computed(() => useStore.getLoggedInUserBasicInfo);
+
+// 格式化日期時間的函式
+const formatDateTime = (isoString) => {
+  if (!isoString) return "N/A";
+  const date = new Date(isoString);
+  return date.toLocaleString("zh-TW", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  });
+};
 </script>
 
 <template>
@@ -7,7 +29,7 @@ import BackBtn from "../components/back_btn.vue";
   <main class="content w-100">
     <div class="user-info w-100 d-flex align-items-center">
       <span class="profile"></span>
-      <h2>使用者名稱</h2>
+      <h2>歡迎！{{ userInfo.realName }} ({{ userInfo.username }})</h2>
       <div class="user-details ms-auto">
         <p>收藏：筆</p>
         <p>評論：次</p>
@@ -18,11 +40,31 @@ import BackBtn from "../components/back_btn.vue";
     <div class="divider w-100"></div>
 
     <ul class="button-list">
-      <li><i class="fa-solid fa-gear btn-icon"></i>帳號管理</li>
-      <li><i class="fa-regular fa-circle-user btn-icon"></i>我的主頁</li>
-      <li><i class="fa-regular fa-heart btn-icon"></i>收藏清單</li>
-      <li><i class="fa-solid fa-ticket btn-icon"></i>優惠管理</li>
-      <li><i class="fa-solid fa-clock-rotate-left btn-icon"></i>訂位紀錄</li>
+      <li>
+        <router-link :to="{ name: 'accountSetting' }">
+          <i class="fa-solid fa-gear btn-icon"></i>帳號管理
+        </router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'accountSetting' }">
+          <i class="fa-regular fa-circle-user btn-icon"></i>我的主頁
+        </router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'accountSetting' }">
+          <i class="fa-regular fa-heart btn-icon"></i>收藏清單
+        </router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'accountSetting' }">
+          <i class="fa-solid fa-ticket btn-icon"></i>優惠管理
+        </router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'accountSetting' }">
+          <i class="fa-solid fa-clock-rotate-left btn-icon"></i>訂位紀錄
+        </router-link>
+      </li>
     </ul>
   </main>
 </template>
@@ -60,14 +102,20 @@ import BackBtn from "../components/back_btn.vue";
 .button-list {
   list-style-type: none;
   font-size: 1.5rem;
-  color: var(--color-primary-brown);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  color: var(--color-primary-brown);
+
+  a {
+    color: var(--color-primary-brown);
+    width: 100%;
+    padding: 1rem;
+    display: inline-block;
+  }
 }
 
 .button-list > li {
-  padding: 1rem;
   border: 2px solid var(--color-primary-brown);
   border-radius: var(--border-radius);
   &:hover {
@@ -81,7 +129,7 @@ import BackBtn from "../components/back_btn.vue";
   }
 }
 
-.button-list > li > i {
+.button-list > li i {
   margin-right: 1rem;
 }
 </style>

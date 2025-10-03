@@ -1,9 +1,9 @@
 <script setup>
 import { useRoute } from "vue-router";
-import { useRestStore } from "../store/restaurants_store";
+import { useFoodStore } from "../store/foodie_store";
 
 const route = useRoute();
-const restStore = useRestStore();
+const restStore = useFoodStore();
 const id = route.params.id;
 
 // 假設 restaurants 中每筆物件有唯一屬性 id

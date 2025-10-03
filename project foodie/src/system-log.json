@@ -1,0 +1,35 @@
+[
+  {
+    "logId": "log3001",
+    "bookingId": "b2003",
+    "timestamp": "2025-10-01T20:10:21.878835",
+    "ipAddress": "192.168.120.228",
+    "action": "cancel",
+    "status": "confirmed",
+    "performedBy": "merchant",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+    "details": "Reservation status updated by restaurant"
+  },
+  {
+    "logId": "log3002",
+    "bookingId": "b2001",
+    "timestamp": "2025-10-02T11:10:21.878914",
+    "ipAddress": "192.168.215.102",
+    "action": "update",
+    "status": "cancelled",
+    "performedBy": "merchant",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+    "details": "Customer modified booking time"
+  },
+  {
+    "logId": "log3003",
+    "bookingId": "b2001",
+    "timestamp": "2025-10-02T07:10:21.878930",
+    "ipAddress": "192.168.26.42",
+    "action": "cancel",
+    "status": "confirmed",
+    "performedBy": "merchant",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X)",
+    "details": "商家確認訂位"
+  }
+]

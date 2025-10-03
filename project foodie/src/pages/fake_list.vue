@@ -1,7 +1,7 @@
 <script setup>
-import { useRestStore } from "../store/restaurants_store"; // 引入 store
+import { useFoodStore } from "../store/foodie_store"; // 引入 store
 
-const restStore = useRestStore(); // 呼叫 store 實例
+const restStore = useFoodStore(); // 呼叫 store 實例
 </script>
 
 <template>

@@ -1,12 +1,12 @@
 <script setup>
 import { ref } from "vue";
 import { useRoute } from "vue-router";
-import { useRestStore } from "../store/restaurants_store";
+import { useFoodStore } from "../store/foodie_store";
 import restaurantInfo from "../components/restaurant-info.vue";
 import reservationCalendar from "../components/reservation_calendar.vue";
 
 const route = useRoute();
-const restStore = useRestStore();
+const restStore = useFoodStore();
 const id = route.params.id;
 
 const activeTab = ref("info");
