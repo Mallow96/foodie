@@ -14,14 +14,20 @@ import dayjs from "dayjs";
 
 const route = useRoute();
 const id = route.params.id;
-const restStore = useFoodStore();
-const restaurant = restStore.restaurants.find((r) => String(r.id) === id);
+const useStore = useFoodStore();
+const restaurant = useStore.restaurants.find((r) => String(r.id) === id);
+const userInfo = computed(() => useStore.getLoggedInUserBasicInfo);
 
 const reserveYear = ref("");
 const reserveMonth = ref("");
 const reserveDate = ref("");
 const reserveWeekday = ref("");
 const reserveWeekdayDisplay = ref("");
+
+const reserveName = ref("");
+const reservePhone = ref("");
+const reserveEmail = ref("");
+const reserveNote = ref("");
 
 // Props 定義（支援 v-model）
 const props = defineProps({
@@ -140,6 +146,12 @@ const roundToNearestHalfHour = () => {
 };
 
 const sendReserve = () => {
+  if (userInfo) {
+    reserveName.value = userInfo.value.realName;
+    reservePhone.value = userInfo.value.phone;
+    reserveEmail.value = userInfo.value.email;
+  }
+
   console.log(
     `選擇的日期：${selectedDate.value.format("YYYY-MM-DD")}`,
     `人數：${selectedPeople.value}`,
@@ -353,19 +365,36 @@ watchEffect(() => {
               <form action="">
                 <div class="row">
                   <label for="">訂位人姓名：</label>
-                  <input type="text" class="input-basic" />
+                  <input
+                    type="text"
+                    class="input-basic"
+                    v-model="reserveName"
+                  />
                 </div>
                 <div class="row">
                   <label for="">訂位人電話：</label>
-                  <input type="text" class="input-basic" />
+                  <input
+                    type="text"
+                    class="input-basic"
+                    v-model="reservePhone"
+                  />
                 </div>
                 <div class="row">
                   <label for="">訂位人Email：</label>
-                  <input type="text" class="input-basic" />
+                  <input
+                    type="text"
+                    class="input-basic"
+                    v-model="reserveEmail"
+                  />
                 </div>
                 <div class="row">
                   <label for="">備註：</label>
-                  <textarea name="" id="" class="input-basic"></textarea>
+                  <textarea
+                    name=""
+                    id=""
+                    class="input-basic"
+                    v-model="reserveNote"
+                  ></textarea>
                 </div>
               </form>
             </div>
@@ -425,23 +454,20 @@ watchEffect(() => {
               <div class="body-bot">
                 <div class="row">
                   <div class="w-25">訂位人姓名</div>
-                  <div class="w-75">user</div>
+                  <div class="w-75">{{ reserveName }}</div>
                 </div>
                 <div class="row">
                   <div class="w-25">訂位人電話</div>
-                  <div class="w-75">123</div>
+                  <div class="w-75">{{ reservePhone }}</div>
                 </div>
                 <div class="row">
                   <div class="w-25">訂位人Email</div>
-                  <div class="w-75">456@</div>
+                  <div class="w-75">{{ reserveEmail }}</div>
                 </div>
                 <div class="row">
                   <div class="w-25">備註</div>
                   <div class="w-75 note-display">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Fugiat facere, est quibusdam deleniti magnam ab deserunt
-                    aspernatur ex dolores? Mollitia dolorum doloribus explicabo
-                    inventore illo ipsam ullam eius unde placeat?
+                    {{ reserveNote || "無" }}
                   </div>
                 </div>
               </div>
@@ -505,23 +531,20 @@ watchEffect(() => {
               <div class="body-bot">
                 <div class="row">
                   <div class="w-25">訂位人姓名</div>
-                  <div class="w-75">user</div>
+                  <div class="w-75">{{ reserveName }}</div>
                 </div>
                 <div class="row">
                   <div class="w-25">訂位人電話</div>
-                  <div class="w-75">123</div>
+                  <div class="w-75">{{ reservePhone }}</div>
                 </div>
                 <div class="row">
                   <div class="w-25">訂位人Email</div>
-                  <div class="w-75">456@</div>
+                  <div class="w-75">{{ reserveEmail }}</div>
                 </div>
                 <div class="row">
                   <div class="w-25">備註</div>
                   <div class="w-75 note-display">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Fugiat facere, est quibusdam deleniti magnam ab deserunt
-                    aspernatur ex dolores? Mollitia dolorum doloribus explicabo
-                    inventore illo ipsam ullam eius unde placeat?
+                    {{ reserveNote || "無" }}
                   </div>
                 </div>
               </div>
