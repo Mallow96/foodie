@@ -44,6 +44,29 @@ export const useFoodStore = defineStore("notes", () => {
     }
   }
 
+    const newReservation = (restaurant, date, dayOfWeek, time, partySize, name, phone, email, note) => {
+        if (name == null || phone == null || partySize ==null) {return false}
+        else{
+          reservations.value.push({
+            bookingId: `B${String(reservations.value.length + 1).padStart(3, '0')}`,
+            userId: loggedInUser.value.userId,
+            restaurantId: restaurant.id,
+            restaurantName: restaurant.name,
+            date: date,
+            dayOfWeek: dayOfWeek,
+            time: time,
+            partySize: partySize,
+            customerName: name,
+            customerPhone: phone,
+            customerEmail: email,
+            note: note,
+            createdAt: new Date().toISOString().split('T')[0],
+            status: '已預約'
+            })
+            console.log(reservations.value);
+          }
+        }
+
 
   loginUserByUsername("user1"); // <--- 執行假設登入
 
@@ -53,8 +76,12 @@ export const useFoodStore = defineStore("notes", () => {
     loggedInUser,
     getLoggedInUserBasicInfo,
     loginUserByUsername,
+    newReservation,
+    reservations,
   };
-});
+}, 
+{ persist: true } // 啟用持久化
+);
 
 // option語法
 // export const useFruitStore = defineStore('fruits', {

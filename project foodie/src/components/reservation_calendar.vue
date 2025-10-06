@@ -21,6 +21,7 @@ const userInfo = computed(() => useStore.getLoggedInUserBasicInfo);
 const reserveYear = ref("");
 const reserveMonth = ref("");
 const reserveDate = ref("");
+const reserveTime = ref("");
 const reserveWeekday = ref("");
 const reserveWeekdayDisplay = ref("");
 
@@ -150,6 +151,7 @@ const sendReserve = () => {
     reserveName.value = userInfo.value.realName;
     reservePhone.value = userInfo.value.phone;
     reserveEmail.value = userInfo.value.email;
+    reserveTime.value = selectedTime.value;
   }
 
   console.log(
@@ -445,8 +447,9 @@ watchEffect(() => {
                 <h4>{{ restaurant.name }}</h4>
                 <h4>
                   {{ reserveYear }} / {{ reserveMonth }} / {{ reserveDate }}
+                  {{ reserveWeekdayDisplay }} {{ reserveTime }}
                 </h4>
-                <h4>{{ reserveWeekdayDisplay }} {{ selectedPeople }}位</h4>
+                <h4>{{ selectedPeople }}位</h4>
               </div>
 
               <div class="divider"></div>
@@ -487,6 +490,19 @@ watchEffect(() => {
               class="btn btn-next"
               data-bs-target="#reserveModal3"
               data-bs-toggle="modal"
+              @click="
+                useStore.newReservation(
+                  restaurant.name,
+                  `${reserveYear} - ${reserveMonth} - ${reserveDate}`,
+                  reserveWeekdayDisplay,
+                  reserveTime,
+                  selectedPeople,
+                  reserveName,
+                  reservePhone,
+                  reserveEmail,
+                  reserveNote
+                )
+              "
             >
               確認
             </button>
