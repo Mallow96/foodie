@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import jsonRest from "../restaurants_data.json";
 import jsonUser from "../membership_data.json";
+import jsonReserve from "../reservation_data.json";
 import { ref, computed } from "vue";
 // import { useRouter, useRoute } from "vue-router";
 
@@ -11,6 +12,7 @@ export const useFoodStore = defineStore("notes", () => {
 
   const restaurants = ref(jsonRest);
   const users = ref(jsonUser);
+  const reservations = ref(jsonReserve);
 
   const loggedInUser = ref(null);
 
@@ -26,6 +28,7 @@ export const useFoodStore = defineStore("notes", () => {
     return null;
   });
 
+
   // function() 就是 actions
   // 根據 username 設定登入使用者
   function loginUserByUsername(username) {
@@ -40,6 +43,7 @@ export const useFoodStore = defineStore("notes", () => {
       return false;
     }
   }
+
 
   loginUserByUsername("user1"); // <--- 執行假設登入
 
