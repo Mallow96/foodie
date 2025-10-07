@@ -54,7 +54,7 @@ function onNewSearch() {
           type="text"
           placeholder="輸入餐廳名稱"
         />
-        <button @click="onNewSearch">重新搜尋</button>
+        <button @click="onNewSearch" class="rounded-pill">重新搜尋</button>
       </div>
     </div>
 
@@ -66,26 +66,41 @@ function onNewSearch() {
 
     <div v-else class="results-list">
       <div v-for="item in store.results" :key="item.id" class="restaurant-card">
-        <router-link :to="`/restaurant/${item.id}`" class="card-body">
-          <h3>{{ item.name }}</h3>
-          <p class="address">{{ item.address }}</p>
-          <p class="rating" v-if="item.rating">{{ item.rating.toFixed(1) }}</p>
-          <div class="stars">
-            <div
-              class="stars-outer"
-              :style="{ '--rating': item.rating.toFixed(1) }"
-            >
-              ★★★★★
-              <div class="stars-inner">★★★★★</div>
-            </div>
+        <router-link :to="`/restaurant/${item.id}`" class="card-body row">
+          <div class="col-3 result-img">
+            <img :src="item.imageUrl" :alt="item.name" />
           </div>
-          <p class="phone" v-if="item.contactPhone">
-            {{ item.contactPhone }}
-          </p>
-          <p class="category" v-if="item.contactPhone">{{ item.about }}</p>
-          <p class="price-range" v-if="item.priceRange">
-            TWD$ {{ item.priceRange }}
-          </p>
+          <div class="col-6 card-center">
+            <h3>{{ item.name }}</h3>
+            <p class="address">{{ item.address }}</p>
+            <p class="rating" v-if="item.rating">
+              {{ item.rating.toFixed(1) }}
+            </p>
+            <div class="stars">
+              <div
+                class="stars-outer"
+                :style="{ '--rating': item.rating.toFixed(1) }"
+              >
+                ★★★★★
+                <div class="stars-inner">★★★★★</div>
+              </div>
+            </div>
+            <p class="phone" v-if="item.contactPhone">
+              {{ item.contactPhone }}
+            </p>
+            <p class="category" v-if="item.contactPhone">{{ item.about }}</p>
+            <p class="price-range" v-if="item.priceRange">
+              TWD$ {{ item.priceRange }}
+            </p>
+          </div>
+          <div class="col-3 result-actions">
+            <button class="favorite-btn">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <button class="book-btn">
+              前往預訂<i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
         </router-link>
       </div>
     </div>
@@ -113,6 +128,15 @@ p {
   gap: 8px;
   max-width: 500px;
   margin: 20px auto;
+
+  button {
+    background-color: var(--color-primary-beige);
+    color: var(--color-primary-dbrown);
+
+    &:hover {
+      background-color: var(--color-beige-200);
+    }
+  }
 }
 
 input {
@@ -126,15 +150,8 @@ input {
 button {
   padding: 12px 24px;
   font-size: 1rem;
-  background-color: #007bff;
-  color: white;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
 }
 
 .no-results {
@@ -143,7 +160,6 @@ button:hover {
 }
 
 .no-results button {
-  background-color: #6c757d;
   margin-top: 20px;
 }
 
@@ -155,16 +171,36 @@ button:hover {
 .restaurant-card {
   border: 1px solid #ddd;
   border-radius: 8px;
-  background-color: #f9f9f9;
+  background-color: white;
+  padding: 1rem;
+  &:hover {
+    background-color: var(--color-yellow-100);
+  }
 }
 
 .restaurant-card h3 {
   color: #333;
 }
 
+.result-img {
+  width: 25%;
+  height: 11rem;
+  overflow: hidden;
+}
+
+.result-img img {
+  height: 100%;
+  object-fit: cover;
+}
+
 .card-body {
   width: 100%;
   height: 100%;
+  align-items: center;
+}
+
+.card-center {
+  padding-left: 1rem;
 }
 
 .address {
@@ -177,104 +213,12 @@ button:hover {
   font-size: 0.9rem;
 }
 
-.result-card {
-  width: 1200px;
-  height: 288px;
-  background: white;
-  border-radius: 12px;
-  display: flex;
-  overflow: hidden;
-  margin-bottom: 20px;
-}
-
-.result-card:hover {
-  background-color: #fff5c6;
-}
-
-.result-img {
-  width: 220px;
-  height: 288px;
-}
-
-.result-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.result-content {
-  flex: 1;
-  display: flex;
-  padding: 24px;
-}
-
-.result-text {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.result-note {
-  font-size: 16px;
-  color: #966f53;
-  margin: 0;
-  padding: 2px;
-  border: 1px solid #966f53;
-}
-
-.result-title {
-  font-size: 40px;
-  font-weight: 900;
-  margin: 0;
-}
-
-.result-address {
-  font-size: 20px;
-  font-weight: 700;
-  margin: 0;
-}
-
-.result-rating {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.rating-score {
-  font-size: 32px;
-  font-weight: 700;
-  color: #4f0201;
-}
-
-.stars {
-  color: #ffc107;
-  font-size: 16px;
-}
-
-.rating-count {
-  font-size: 16px;
-  color: #966f53;
-}
-
-.result-price {
-  font-size: 16px;
-  font-weight: 600;
-  margin: 0;
-}
-
-.result-desc {
-  font-size: 16px;
-  line-height: 1.5;
-  margin: 0;
-}
-
 .result-actions {
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 48px;
-  padding-left: 20px;
+  justify-content: space-between;
 }
 
 .favorite-btn {
@@ -294,112 +238,14 @@ button:hover {
 
 .book-btn {
   padding: 12px 16px;
-  background: #966f53;
-  color: #f0e7d3;
+  background-color: transparent;
+  color: var(--color-primary-dbrown);
   border: none;
   border-radius: 15px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-}
-
-.reservation-card {
-  width: 804px;
-  height: 284px;
-  background: white;
-  border-radius: 12px;
-  display: flex;
-  overflow: hidden;
-  margin-bottom: 20px;
-  padding: 32px;
-}
-
-.reservation-img {
-  width: 220px;
-  height: 220px;
-}
-
-.reservation-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.reservation-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 24px;
-  position: relative;
-  margin: 0;
-  padding: 0;
-}
-
-.reservation-info {
-  flex: 1;
-  margin-left: 40px;
-}
-
-.reservation-subtitle {
-  font-size: 24px;
-  font-weight: 800;
-  margin: 0 0 16px 0;
-}
-
-.reservation-details {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.reservation-date,
-.reservation-address,
-.reservation-phone {
-  font-size: 16px;
-  margin: 0;
-}
-
-.reservation-phone {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.reservation-phone i {
-  color: #4f0201;
-}
-
-.reservation-actions {
-  display: flex;
-  gap: 12px;
-  justify-content: flex-end;
-  margin-top: auto;
-}
-
-.edit-btn,
-.cancel-btn {
-  width: 80px;
-  height: 40px;
-  padding: 0;
-  font-weight: 600;
-  color: #f0e7d3;
-  border: none;
-  border-radius: 100px;
-  font-size: 20px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
-
-.edit-btn {
-  background-color: #b89d8a;
-}
-
-.cancel-btn {
-  background-color: #966f53;
 }
 
 /* 1. 外層容器：顯示空心星 (作為背景) */

@@ -99,6 +99,7 @@ watch(isExpanded, async (newVal) => {
             type="text"
             placeholder="請輸入關鍵字..."
             ref="expandedInput"
+            @keyup.enter="onSearch()"
             v-model="keyword"
           />
         </div>
