@@ -15,13 +15,15 @@ const setActiveTab = (tabName) => {
 };
 
 // 假設 restaurants 中每筆物件有唯一屬性 id
-const restaurant = restStore.restaurants.find((r) => String(r.id) === id);
+const restaurant = restStore.restaurantsWithImg.find(
+  (r) => String(r.id) === id
+);
 </script>
 
 <template>
   <main v-if="restaurant">
     <div class="banner">
-      <img src="../assets/food stock/pexels-robinstickel-70497.jpg" alt="" />
+      <img :src="restaurant.imageUrl" :alt="restaurant.name" />
     </div>
 
     <!-- 餐廳標題及主要資訊 -->
