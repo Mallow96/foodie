@@ -138,6 +138,21 @@ export const useFoodStore = defineStore(
       }));
     });
 
+    // 將 reservations 裡每筆資料，結合對應餐廳的 imageUrl
+    const reservationsWithImg = computed(() =>
+      reservations.value.map((resv) => {
+        // 找到該筆 reservation 的餐廳物件
+        const restaurant = restaurantsWithImg.value.find(
+          (r) => r.id === resv.restaurantId
+        );
+        return {
+          ...resv,
+          // 如果有找到，就加上 imageUrl，否則留空字串
+          restaurantImage: restaurant?.imageUrl || "",
+        };
+      })
+    );
+
     const newReservation = (
       restaurantId,
       date,
@@ -209,6 +224,7 @@ export const useFoodStore = defineStore(
       search,
       testFoodImages,
       restaurantsWithImg,
+      reservationsWithImg,
     };
   },
   { persist: true } // 啟用持久化

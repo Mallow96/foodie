@@ -22,14 +22,11 @@ console.log(reserveInfo);
       <h2 class="mb-4">訂位紀錄</h2>
       <div
         class="reservation-card"
-        v-for="reservation in useStore.reservations"
-        :key="reservation.id"
+        v-for="reservation in useStore.reservationsWithImg"
+        :key="reservation.bookingId"
       >
         <div class="reservation-img">
-          <img
-            src="../assets/food stock/pexels-valeriya-11213786.jpg"
-            alt="img"
-          />
+          <img :src="reservation.restaurantImage" alt="餐廳圖片" />
         </div>
 
         <div class="reservation-content">
