@@ -66,7 +66,7 @@ function onNewSearch() {
 
     <div v-else class="results-list">
       <div v-for="item in store.results" :key="item.id" class="restaurant-card">
-        <router-link class="card-body">
+        <router-link :to="`/restaurant/${item.id}`" class="card-body">
           <h3>{{ item.name }}</h3>
           <p class="address">{{ item.address }}</p>
           <p class="rating" v-if="item.rating">{{ item.rating.toFixed(1) }}</p>
