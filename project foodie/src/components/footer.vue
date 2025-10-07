@@ -52,7 +52,7 @@
             </router-link>
           </li>
           <li>
-            <a href="" class="fw-bold">Twelve</a>
+            <router-link :to="{ name: 'searchResult' }">Twelve</router-link>
           </li>
           <li><a href="" class="fw-bold"> Thirteen </a></li>
           <li>

@@ -63,5 +63,6 @@ const formatDateTime = (isoString) => {
 <style scoped>
 main {
   min-height: 70vh;
+  padding: 0 1rem;
 }
 </style>

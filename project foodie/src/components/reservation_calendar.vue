@@ -492,7 +492,7 @@ watchEffect(() => {
               data-bs-toggle="modal"
               @click="
                 useStore.newReservation(
-                  restaurant.name,
+                  restaurant.id,
                   `${reserveYear} - ${reserveMonth} - ${reserveDate}`,
                   reserveWeekdayDisplay,
                   reserveTime,

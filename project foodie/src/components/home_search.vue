@@ -1,6 +1,13 @@
 <script setup>
-import Btn_send from "./btn_send.vue";
 import { ref, watch, nextTick, onMounted, onUnmounted } from "vue";
+import { useRouter, useRoute } from "vue-router";
+import { useFoodStore } from "../store/foodie_store";
+
+const router = useRouter();
+const route = useRoute();
+const store = useFoodStore();
+
+const keyword = ref(route.query.keyword || "");
 
 const isExpanded = ref(false);
 const collapseShow = ref(false);
@@ -32,6 +39,22 @@ const handleClickOutside = (event) => {
   if (searchBlock.value && !searchBlock.value.contains(event.target)) {
     fnSearchCollapse();
   }
+};
+
+const onSearch = () => {
+  if (!keyword.value.trim()) {
+    alert("請輸入搜尋關鍵字");
+    return;
+  }
+
+  // 執行搜尋
+  store.search(keyword.value);
+
+  // 跳轉到搜尋結果頁面，並帶上關鍵字參數
+  router.push({
+    name: "searchResult",
+    query: { keyword: keyword.value },
+  });
 };
 
 onMounted(() => {
@@ -76,6 +99,7 @@ watch(isExpanded, async (newVal) => {
             type="text"
             placeholder="請輸入關鍵字..."
             ref="expandedInput"
+            v-model="keyword"
           />
         </div>
 
@@ -106,7 +130,7 @@ watch(isExpanded, async (newVal) => {
               </label>
             </div>
           </div>
-          <Btn_send></Btn_send>
+          <button class="button-default btn" @click="onSearch()">搜尋</button>
         </div>
         <!-- 收合內容 -->
       </div>
@@ -201,6 +225,16 @@ section {
   -webkit-animation: slide-in-fwd-center 0.5s
     cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation: slide-in-fwd-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+button {
+  padding: 0.75rem 1.875rem;
+  border-radius: 30px !important;
+  font-size: 1.25rem;
+  &:hover {
+    background-color: var(--color-primary-yellow);
+    color: var(--color-primary-dbrown);
+  }
 }
 
 @-webkit-keyframes slide-in-fwd-center {

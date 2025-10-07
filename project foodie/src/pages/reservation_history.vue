@@ -1,5 +1,16 @@
 <script setup>
 import accountAside from "../components/account_aside.vue";
+
+import { computed } from "vue";
+import { useFoodStore } from "../store/foodie_store";
+
+const useStore = useFoodStore();
+
+const reserveInfo = computed(() => {
+  useStore.getReservationInfo;
+});
+
+console.log(reserveInfo);
 </script>
 
 <template>
@@ -8,24 +19,185 @@ import accountAside from "../components/account_aside.vue";
       <accountAside></accountAside>
     </aside>
     <main class="col-9">
-      <h2 class="mb-4">Reservation History</h2>
-      <div
+      <h2 class="mb-4">訂位紀錄</h2>
+      <!-- <div
         class="card mb-3"
-        v-for="reservation in $store.reservations"
+        v-for="reservation in useStore.reservations"
         :key="reservation.id"
       >
         <div class="card-body">
-          <h5 class="card-title">{{ reservation.restaurantName }}</h5>
-          <p class="card-text">
-            Date: {{ reservation.date }}<br />
-            Time: {{ reservation.time }}<br />
-            Guests: {{ reservation.guests }}<br />
-            Status: {{ reservation.status }}
+          <h5 class="card-title">
+            {{ useStore.getRestaurantInfo(reservation.restaurantId).name }}
+          </h5>
+          <p class="card-text">日期: {{ reservation.date }}</p>
+          <p>時間: {{ reservation.time }}</p>
+          <p>人數: {{ reservation.partySize }}</p>
+          <p>備註: {{ reservation.note }}</p>
+          <p>餐廳id: {{ reservation.restaurantId }}</p>
+          <p>
+            餐廳地址:
+            {{ useStore.getRestaurantInfo(reservation.restaurantId).address }}
           </p>
+          <p>
+            餐廳電話:
+            {{
+              useStore.getRestaurantInfo(reservation.restaurantId).contactPhone
+            }}
+          </p>
+        </div>
+      </div> -->
+
+      <div
+        class="reservation-card"
+        v-for="reservation in useStore.reservations"
+        :key="reservation.id"
+      >
+        <div class="reservation-img">
+          <img
+            src="../assets/food stock/pexels-valeriya-11213786.jpg"
+            alt="img"
+          />
+        </div>
+
+        <div class="reservation-content">
+          <div class="reservation-info">
+            <h3 class="reservation-subtitle">
+              {{ useStore.getRestaurantInfo(reservation.restaurantId).name }}
+            </h3>
+            <div class="reservation-details">
+              <div class="reservation-date">
+                <p class="card-text">{{ reservation.date }}</p>
+                <p>{{ reservation.time }}</p>
+                <p>{{ reservation.partySize }} 位</p>
+              </div>
+              <p class="reservation-address">
+                {{
+                  useStore.getRestaurantInfo(reservation.restaurantId).address
+                }}
+              </p>
+              <p class="reservation-phone">
+                <i class="fa-solid fa-phone"></i>
+                {{
+                  useStore.getRestaurantInfo(reservation.restaurantId)
+                    .contactPhone
+                }}
+              </p>
+
+              <!-- <p>備註: {{ reservation.note }}</p> -->
+              <!-- <p>餐廳id: {{ reservation.restaurantId }}</p> -->
+            </div>
+          </div>
+
+          <div class="reservation-actions">
+            <button class="edit-btn">修改</button>
+            <button class="cancel-btn">取消</button>
+          </div>
         </div>
       </div>
     </main>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+main {
+  padding: 0 1rem;
+}
+
+.reservation-card {
+  background: white;
+  border-radius: 12px;
+  display: flex;
+  overflow: hidden;
+  margin-bottom: 20px;
+  padding: 32px;
+}
+
+.reservation-img {
+  width: 220px;
+  height: 220px;
+}
+
+.reservation-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reservation-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.reservation-info {
+  flex: 1;
+  margin-left: 40px;
+}
+
+.reservation-subtitle {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 16px 0;
+}
+
+.reservation-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reservation-date,
+.reservation-address,
+.reservation-phone {
+  font-size: 16px;
+  margin: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.reservation-phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reservation-phone i {
+  color: #4f0201;
+}
+
+.reservation-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+
+.edit-btn,
+.cancel-btn {
+  width: 80px;
+  height: 40px;
+  padding: 0;
+  font-weight: 600;
+  color: #f0e7d3;
+  border: none;
+  border-radius: 100px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.edit-btn {
+  background-color: #b89d8a;
+}
+
+.cancel-btn {
+  background-color: #966f53;
+}
+</style>
