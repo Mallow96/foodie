@@ -3,7 +3,11 @@ import Home_search from "../components/home_search.vue";
 </script>
 
 <template>
-  <Home_search></Home_search>
+  <main><Home_search></Home_search></main>
 </template>
 
-<style scoped></style>
+<style scoped>
+main {
+  min-height: 80vh;
+}
+</style>

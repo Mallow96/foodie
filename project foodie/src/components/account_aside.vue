@@ -23,7 +23,7 @@ const userInfo = computed(() => useStore.getLoggedInUserBasicInfo);
 </script>
 
 <template>
-  <main class="content">
+  <aside class="content">
     <div class="user-info w-100">
       <div class="profile"></div>
       <h2>{{ userInfo.realName }}</h2>
@@ -63,7 +63,7 @@ const userInfo = computed(() => useStore.getLoggedInUserBasicInfo);
         </router-link>
       </li>
     </ul>
-  </main>
+  </aside>
 </template>
 
 <style scoped>
@@ -73,7 +73,7 @@ const userInfo = computed(() => useStore.getLoggedInUserBasicInfo);
   height: 0.125rem;
 }
 
-main {
+aside {
   width: 98%;
   padding: 1.5rem 0.75rem;
   justify-items: center;

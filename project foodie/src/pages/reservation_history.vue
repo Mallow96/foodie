@@ -20,33 +20,6 @@ console.log(reserveInfo);
     </aside>
     <main class="col-9">
       <h2 class="mb-4">訂位紀錄</h2>
-      <!-- <div
-        class="card mb-3"
-        v-for="reservation in useStore.reservations"
-        :key="reservation.id"
-      >
-        <div class="card-body">
-          <h5 class="card-title">
-            {{ useStore.getRestaurantInfo(reservation.restaurantId).name }}
-          </h5>
-          <p class="card-text">日期: {{ reservation.date }}</p>
-          <p>時間: {{ reservation.time }}</p>
-          <p>人數: {{ reservation.partySize }}</p>
-          <p>備註: {{ reservation.note }}</p>
-          <p>餐廳id: {{ reservation.restaurantId }}</p>
-          <p>
-            餐廳地址:
-            {{ useStore.getRestaurantInfo(reservation.restaurantId).address }}
-          </p>
-          <p>
-            餐廳電話:
-            {{
-              useStore.getRestaurantInfo(reservation.restaurantId).contactPhone
-            }}
-          </p>
-        </div>
-      </div> -->
-
       <div
         class="reservation-card"
         v-for="reservation in useStore.reservations"
