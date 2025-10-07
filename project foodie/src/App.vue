@@ -1,6 +1,11 @@
 <script setup>
 import Header from "./components/header.vue";
 import Footer from "./components/footer.vue";
+import { useFoodStore } from "./store/foodie_store";
+
+const store = useFoodStore();
+
+store.loginUserByUsername("user1");
 </script>
 
 <template>

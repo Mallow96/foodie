@@ -8,11 +8,14 @@ import {
   watchEffect,
 } from "vue";
 
-import { useRoute } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 import { useFoodStore } from "../store/foodie_store";
+
 import dayjs from "dayjs";
 
 const route = useRoute();
+const router = useRouter();
+
 const id = route.params.id;
 const useStore = useFoodStore();
 const restaurant = useStore.restaurants.find((r) => String(r.id) === id);
@@ -191,6 +194,12 @@ const sendReserve = () => {
     default:
       reserveWeekdayDisplay.value = "ERROR";
   }
+};
+
+const reserveComplete = () => {
+  setTimeout(() => {
+    router.push({ name: "reservationHistory" });
+  }, "1000");
 };
 
 window.addEventListener("hide.bs.modal", (event) => {
@@ -532,7 +541,7 @@ watchEffect(() => {
           <!-- 主要內容 -->
           <div class="modal-body">
             <div class="modal-body-container">
-              <p class="text-center">請確認您的聯絡資訊</p>
+              <p class="text-center">以下是您的預訂資訊</p>
 
               <div class="body-top">
                 <h4>{{ restaurant.name }}</h4>
@@ -570,13 +579,12 @@ watchEffect(() => {
           <!-- 按鈕列 -->
           <div class="modal-footer">
             <button
-              class="btn btn-back"
-              data-bs-target="#reserveModa2"
-              data-bs-toggle="modal"
+              class="btn btn-next"
+              data-bs-dismiss="modal"
+              @click="reserveComplete"
             >
-              上一步
+              完成
             </button>
-            <button class="btn btn-next" data-bs-dismiss="modal">確認</button>
           </div>
         </div>
       </div>

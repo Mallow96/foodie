@@ -208,8 +208,6 @@ export const useFoodStore = defineStore(
       });
     }
 
-    loginUserByUsername("user1"); // <--- 執行假設登入
-
     return {
       restaurants,
       users,
