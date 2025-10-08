@@ -1,16 +1,38 @@
 <script setup>
 import accountAside from "../components/account_aside.vue";
 
-import { computed } from "vue";
+import { ref, onMounted } from "vue";
 import { useFoodStore } from "../store/foodie_store";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 const useStore = useFoodStore();
 
-const reserveInfo = computed(() => {
-  useStore.getReservationInfo;
+const hasReservation = ref();
+const reservationCount = ref(useStore.reservationsWithImg.length);
+let noDataModal;
+
+onMounted(() => {
+  noDataModal = new bootstrap.Modal(document.getElementById("noDataModal"));
+
+  if (reservationCount.value > 0) {
+    console.log("有預訂資料");
+    hasReservation.value = true;
+  } else {
+    console.log("無預訂資料");
+    hasReservation.value = false;
+    showModal();
+  }
 });
 
-console.log(reserveInfo);
+const showModal = () => {
+  noDataModal.show();
+};
+
+const directHome = () => {
+  noDataModal.hide();
+  router.push("/");
+};
 </script>
 
 <template>
@@ -18,8 +40,12 @@ console.log(reserveInfo);
     <aside class="col-3">
       <accountAside></accountAside>
     </aside>
+
     <main class="col-9">
       <h2 class="mb-4">訂位紀錄</h2>
+      <div v-if="!hasReservation" class="warning-text">
+        <h3 class="no-reservation">查無訂位紀錄</h3>
+      </div>
       <div
         class="reservation-card"
         v-for="reservation in useStore.reservationsWithImg"
@@ -66,11 +92,44 @@ console.log(reserveInfo);
       </div>
     </main>
   </div>
+
+  <div class="modal" tabindex="-1" id="noDataModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">查無訂位紀錄</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <p>尚未找到任何預訂紀錄，請確認您有訂位成功；若有問題請聯繫客服。</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" @click="directHome">
+            回首頁
+          </button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
 main {
   padding: 0 1rem;
+}
+
+.warning-text {
+  height: 100%;
+  place-content: center;
+  h3 {
+    text-align: center;
+  }
 }
 
 .reservation-card {

@@ -6,6 +6,7 @@ import RestaurantPage from "../pages/restaurant_page.vue";
 import AccountSetting from "../pages/account_setting.vue";
 import ReservationHistory from "../pages/reservation_history.vue";
 import SearchResult from "../pages/search_result.vue";
+import PageUnfinish from "../pages/page_unfinish.vue";
 
 const routes = [
   { path: "/", name: "test", component: Test },
@@ -23,6 +24,11 @@ const routes = [
     component: ReservationHistory,
   },
   { path: "/search-result", name: "searchResult", component: SearchResult },
+  {
+    path: "/this-page-is-developing",
+    name: "developing",
+    component: PageUnfinish,
+  },
 ];
 
 const router = createRouter({

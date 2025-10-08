@@ -13,7 +13,7 @@
       class="right d-flex align-items-center position-absolute top-50 end-0 translate-middle-y me-4"
     >
       <div class="icons d-flex gap-4">
-        <router-link :to="{}">
+        <router-link :to="{ name: 'developing' }">
           <i class="fa-solid fa-bell"></i>
         </router-link>
 

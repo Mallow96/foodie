@@ -12,29 +12,29 @@
         </div>
         <ol class="socials">
           <li>
-            <a href="">
+            <router-link :to="{ name: 'developing' }">
               <i class="fa-brands fa-youtube"></i>
-            </a>
+            </router-link>
           </li>
           <li>
-            <a href="">
+            <router-link :to="{ name: 'developing' }">
               <i class="fa-brands fa-facebook-f"></i>
-            </a>
+            </router-link>
           </li>
           <li>
-            <a href="">
+            <router-link :to="{ name: 'developing' }">
               <i class="fa-brands fa-x-twitter"></i>
-            </a>
+            </router-link>
           </li>
           <li>
-            <a href="">
+            <router-link :to="{ name: 'developing' }">
               <i class="fa-brands fa-instagram"></i>
-            </a>
+            </router-link>
           </li>
           <li>
-            <a href="">
+            <router-link :to="{ name: 'developing' }">
               <i class="fa-brands fa-linkedin-in"></i>
-            </a>
+            </router-link>
           </li>
         </ol>
       </div>
@@ -52,17 +52,19 @@
             </router-link>
           </li>
           <li>
-            <router-link :to="{ name: 'searchResult' }">Twelve</router-link>
-          </li>
-          <li><a href="" class="fw-bold"> Thirteen </a></li>
-          <li>
-            <a href="" class="fw-bold">Fourteen</a>
+            <router-link :to="{ name: 'developing' }"> Twelve </router-link>
           </li>
           <li>
-            <a href="" class="fw-bold">Fifteen</a>
+            <router-link :to="{ name: 'developing' }"> Thirteen </router-link>
           </li>
           <li>
-            <a href="" class="fw-bold">Sixteen</a>
+            <router-link :to="{ name: 'developing' }"> Fourteen </router-link>
+          </li>
+          <li>
+            <router-link :to="{ name: 'developing' }"> Fifteen </router-link>
+          </li>
+          <li>
+            <router-link :to="{ name: 'developing' }"> Sixteen </router-link>
           </li>
         </ol>
       </div>
