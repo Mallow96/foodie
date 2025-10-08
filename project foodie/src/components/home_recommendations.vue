@@ -5,12 +5,30 @@ const store = useFoodStore();
 
 function scrollCards(direction) {
   const container = document.querySelector(".cards-container");
-  const scrollAmount = 800;
+  const scrollAmount = container.clientWidth;
+  const tolerance = 10;
 
-  container.scrollBy({
-    left: direction * scrollAmount,
-    behavior: "smooth",
-  });
+  const maxScrollLeft = container.scrollWidth - container.clientWidth;
+  const isAtEnd = container.scrollLeft >= maxScrollLeft - tolerance; // 允許 10px 的誤差範圍
+
+  if (direction === 1 && isAtEnd) {
+    // 如果向右滾動且已到達最右端，回到開始位置
+    container.scrollTo({
+      left: 0,
+      behavior: "smooth",
+    });
+  } else if (direction === -1 && container.scrollLeft <= tolerance) {
+    // 如果向左滾動且已到達最左端，跳到最右端
+    container.scrollTo({
+      left: maxScrollLeft,
+      behavior: "smooth",
+    });
+  } else {
+    container.scrollBy({
+      left: direction * scrollAmount,
+      behavior: "smooth",
+    });
+  }
 }
 
 //隨機生成推薦餐廳id，模擬演算法
@@ -98,7 +116,6 @@ for (const id of randomIds) {
 
 .cards-container {
   display: flex;
-  gap: 20px;
   overflow-x: auto;
   scroll-behavior: smooth;
   scrollbar-width: none;
@@ -113,7 +130,8 @@ for (const id of randomIds) {
 }
 
 .card {
-  flex: 0 0 285px;
+  flex: 0 0 24%;
+  margin: 0 0.5%;
   border-radius: 15px;
   border: none;
   transition: transform 0.3s ease;
@@ -122,6 +140,13 @@ for (const id of randomIds) {
 
   a {
     color: black;
+  }
+
+  &:first-child {
+    margin-left: 1%;
+  }
+  &:last-child {
+    margin-right: 1%;
   }
 }
 

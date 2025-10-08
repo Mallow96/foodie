@@ -151,7 +151,6 @@ watch(isExpanded, async (newVal) => {
 <style scoped>
 section {
   width: 100%;
-  height: 31.25rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

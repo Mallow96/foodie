@@ -36,6 +36,7 @@
   --bellow-header: 3.5rem;
 
   --border-radius: 0.9375rem;
+  --home-section-gap: 10rem;
 }
 
 html,
@@ -85,6 +86,7 @@ h1 {
   margin: var(--bellow-header) 0;
   max-width: 1200px;
   /* height: 100vh; */
+  padding: 0;
 }
 
 .divider {
