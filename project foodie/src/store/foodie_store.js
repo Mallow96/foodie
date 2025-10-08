@@ -172,11 +172,14 @@ export const useFoodStore = defineStore(
 
     function getRestaurantInfo(id) {
       return (
-        restaurants.value.find((r) => r.id === id) || {
+        restaurantsWithImg.value.find((r) => r.id === id) || {
           id: "",
           name: "",
           address: "",
           contactPhone: "",
+          rating: "",
+          reviewCount: "",
+          imageUrl: "",
         }
       );
     }

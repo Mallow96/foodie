@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from "vue";
 import { useFoodStore } from "../store/foodie_store"; // 引入 store
 const store = useFoodStore();
 
@@ -12,19 +13,13 @@ function scrollCards(direction) {
   });
 }
 
-function scrollCoupons(direction) {
-  const container = document.getElementById("couponsContainer");
-  const scrollAmount = 570;
+//隨機生成推薦餐廳id，模擬演算法
+const randomIds = store.randomIdGenerator(12, 1001, 1300);
 
-  container.scrollBy({
-    left: direction * scrollAmount,
-    behavior: "smooth",
-  });
+const recommendedRestaurants = [];
+for (const id of randomIds) {
+  recommendedRestaurants.push(store.getRestaurantInfo(id));
 }
-
-const randomIds = store.randomIdGenerator(10, 1001, 1300);
-console.log(`已成功生成 ${randomIds.length} 個隨機且唯一的 ID：`);
-console.log(randomIds);
 </script>
 
 <template>
@@ -40,23 +35,33 @@ console.log(randomIds);
       </button>
 
       <div class="cards-container">
-        <div class="card" v-for="item in randomIds">
-          <div class="card-img-container">
-            <img src="../img/16.png" class="card-img-top" alt="餐廳圖片" />
-            <div class="card-tag">熱門</div>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Le Petit Pain</h5>
-            <p class="card-address">台北市大安區</p>
-            <div class="rating">
-              <span class="rating-score">4.82</span>
-              <div class="stars">★★★★★</div>
-              <span class="score-amount">(709)</span>
+        <div class="card" v-for="item in recommendedRestaurants">
+          <router-link :to="`/restaurant/${item.id}`">
+            <div class="card-img-container">
+              <img :src="item.imageUrl" :alt="item.name" class="card-img-top" />
+              <div class="card-tag">熱門</div>
             </div>
-            <button class="arrow-btn">
-              <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ item.name }}</h5>
+              <p class="card-address">{{ item.address }}</p>
+              <div class="rating">
+                <span class="rating-score">{{ item.rating }}</span>
+                <div
+                  class="stars-outer"
+                  :style="{ '--rating': item.rating.toFixed(1) }"
+                >
+                  ★★★★★
+                  <div class="stars-inner">★★★★★</div>
+                </div>
+                <span class="score-amount">({{ item.reviewCount }})</span>
+              </div>
+              <div class="">
+                <button class="arrow-btn">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </router-link>
         </div>
       </div>
 
@@ -109,12 +114,15 @@ console.log(randomIds);
 
 .card {
   flex: 0 0 285px;
-  height: 315px;
   border-radius: 15px;
   border: none;
   transition: transform 0.3s ease;
   overflow: hidden;
   scroll-snap-align: start;
+
+  a {
+    color: black;
+  }
 }
 
 .card-img-top {
@@ -124,7 +132,7 @@ console.log(randomIds);
 }
 
 .card-body {
-  padding: 12px 16px 0px 16px;
+  padding: 1rem;
   position: relative;
 }
 
@@ -172,9 +180,10 @@ console.log(randomIds);
 }
 
 .arrow-btn {
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
+  /* position: absolute; */
+  /* bottom: 15px; */
+  /* right: 15px; */
+  margin-left: auto;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -194,7 +203,8 @@ console.log(randomIds);
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: white;
+  background-color: white;
+  color: black;
   border: 1px solid #dee2e6;
   display: flex;
   align-items: center;
@@ -231,5 +241,40 @@ console.log(randomIds);
 
 .card-img-container {
   position: relative;
+}
+
+/* 1. 外層容器：顯示空心星 (作為背景) */
+.stars-outer {
+  /* 確保元素可以設定寬度，且不換行 */
+  display: inline-block;
+  position: relative;
+
+  /* 設置星星的字體大小和顏色 */
+  font-size: 24px; /* 調整這個值來改變星星的大小 */
+  color: lightgray; /* 空心星（背景）的顏色 */
+  line-height: 1; /* 防止星星因為行高被撐開 */
+  letter-spacing: 2px; /* 調整星星間距 */
+
+  /* 讓 CSS 變數 --rating 可以在這裡被使用 */
+  --rating: 0;
+}
+
+/* 2. 內層容器：顯示實心星 (作為前景覆蓋) */
+.stars-inner {
+  /* 絕對定位，讓它疊加在外層空心星上方 */
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  /* **關鍵技巧：只顯示指定寬度範圍內的內容** */
+  overflow: hidden;
+  white-space: nowrap; /* 確保星星不會換行 */
+
+  /* 實心星（前景）的顏色 */
+  color: var(--color-primary-yellow);
+
+  /* *** 魔法公式：根據分數計算寬度百分比 *** */
+  /* (評分 / 總分 5) * 100% = 實心星需要覆蓋的寬度 */
+  width: calc(var(--rating) / 5 * 100%);
 }
 </style>
