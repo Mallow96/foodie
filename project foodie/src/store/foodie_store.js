@@ -258,6 +258,39 @@ export const useFoodStore = defineStore(
       });
     }
 
+    const randomIdGenerator = (count, minNum, maxNum) => {
+      // 檢查範圍是否足夠生成所需數量的 ID
+      if (maxNum - minNum + 1 < count) {
+        console.error(
+          `錯誤：範圍 (共 ${
+            maxNum - minNum + 1
+          } 個) 太小，無法生成 ${count} 個唯一 ID。`
+        );
+        return [];
+      }
+
+      const uniqueIds = new Set(); // 使用 Set 來高效地儲存和檢查 ID 的唯一性
+      const totalPossible = maxNum - minNum + 1; // 總共可能的 ID 數量
+
+      // 方法 1：隨機抽取法（適用於需要的數量較少時）
+      while (uniqueIds.size < count) {
+        // 1. 生成範圍內的隨機數字
+        // Math.random() * (max - min + 1) -> 產生 0 到 (max - min) 之間的數
+        // Math.floor(...) + min -> 確保是 min 到 max 之間的整數
+        const randomNum =
+          Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+
+        // 2. 組裝成 ID 格式
+        const newId = `r${randomNum}`;
+
+        // 3. 將新的 ID 加入 Set。Set 只會儲存唯一的值，如果 ID 已存在，size 不會增加
+        uniqueIds.add(newId);
+      }
+
+      // 將 Set 轉換回陣列並回傳
+      return Array.from(uniqueIds);
+    };
+
     return {
       restaurants,
       users,
@@ -278,6 +311,7 @@ export const useFoodStore = defineStore(
       newReservation,
       getRestaurantInfo,
       search,
+      randomIdGenerator,
     };
   },
   { persist: true } // 啟用持久化
