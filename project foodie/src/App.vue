@@ -2,10 +2,49 @@
 import Header from "./components/header.vue";
 import Footer from "./components/footer.vue";
 import { useFoodStore } from "./store/foodie_store";
+import { onMounted, watch } from "vue";
+import { storeToRefs } from "pinia";
 
+//取得store
 const store = useFoodStore();
 
-store.loginUserByUsername("user1");
+//storeToRefs可保持響應性
+const { hasLoadedMembers, isLoading } = storeToRefs(store);
+
+//登入用戶定義為"xxx"
+const currentUsername = "user1";
+
+//fetch資料
+onMounted(() => {
+  if (!hasLoadedMembers.value) {
+    console.log("App Mounted: 所有資料載入");
+    store.fetchAllData();
+  }
+});
+
+//監聽資料載入狀態
+watch(
+  isLoading,
+  (newisLoading) => {
+    //條件
+    if (newisLoading === false && hasLoadedMembers.value) {
+      console.log("資料載入完成");
+
+      //載入完成，執行loginUser
+      const loadSuccess = store.loginUserByUsername(currentUsername);
+
+      if (loadSuccess) {
+        console.log(`${currentUsername} 登入狀態成功`);
+      } else {
+        console.log("設定登入失敗");
+      }
+    } else if (newisLoading === false && store.dataError) {
+      //有載入，但發生錯誤
+      console.error("資料載入失敗，錯誤訊息: ", store.dataError);
+    }
+  },
+  { immediate: true }
+);
 </script>
 
 <template>

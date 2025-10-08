@@ -1,23 +1,26 @@
 import { defineStore } from "pinia";
-import jsonRest from "../restaurants_data.json";
-import jsonUser from "../membership_data.json";
-import jsonReserve from "../reservation_data.json";
 import { ref, computed } from "vue";
+import axios from "axios";
 
-// import { useRouter, useRoute } from "vue-router";
+const userJSON = "/membership_data.json";
+const restaurantJSON = "/restaurants_data.json";
+const reservationJSON = "/reservation_data.json";
 
 //setup 語法
 export const useFoodStore = defineStore(
   "notes",
   () => {
     // ref() 就是 state 属性
-    // const noteStore = useNoteStore();
 
-    const restaurants = ref(jsonRest);
-    const users = ref(jsonUser);
-    const reservations = ref(jsonReserve);
-
+    const users = ref(null);
     const loggedInUser = ref(null);
+
+    const restaurants = ref(null);
+    const reservations = ref(null);
+
+    const isLoading = ref(false);
+    const dataError = ref(null);
+
     const reservationData = ref(null);
 
     const testFoodImages = ref([
@@ -44,7 +47,16 @@ export const useFoodStore = defineStore(
     ]);
 
     // computed() 就是 getters
+    const hasLoadedMembers = computed(() => {
+      return !!(
+        users.value &&
+        Array.isArray(users.value) &&
+        users.value.length > 0
+      );
+    });
+
     // 取得登入使用者的基本資訊（避免暴露密碼 hash 等）
+
     const getLoggedInUserBasicInfo = computed(() => {
       if (loggedInUser.value) {
         // 只回傳需要顯示的資料欄位
@@ -107,8 +119,46 @@ export const useFoodStore = defineStore(
 
     // function() 就是 actions
     // 根據 username 設定登入使用者
-    function loginUserByUsername(username) {
+    async function fetchAllData() {
+      isLoading.value = true;
+      dataError.value = null;
+
+      try {
+        console.log(`Debug: 嘗試請求會員資料: ${userJSON}`);
+        const memberResponse = await axios.get(userJSON);
+        users.value = memberResponse.data;
+        console.log("會員資料已成功載入。");
+
+        console.log(`Debug: 嘗試請求餐廳資料: ${restaurantJSON}`);
+        const restaurantResponse = await axios.get(restaurantJSON);
+        restaurants.value = restaurantResponse.data;
+        console.log("✅ 餐廳資料載入成功。");
+
+        console.log(`Debug: 嘗試請求預約資料: ${reservationJSON}`);
+        const reservationResponse = await axios.get(reservationJSON);
+        reservations.value = reservationResponse.data;
+        console.log("✅ 預約資料載入成功。");
+
+        console.log("所有 JSON 資料已成功載入並分類。");
+      } catch (err) {
+        console.error("載入資料時發生錯誤或請求未成功發出:", err.message);
+        dataError.value = "無法載入部分或所有資料，請檢查檔案路徑。";
+        users.value = null;
+        restaurants.value = null;
+        reservations.value = null;
+      } finally {
+        isLoading.value = false;
+      }
+    }
+
+    const loginUserByUsername = (username) => {
+      if (!hasLoadedMembers.value) {
+        console.error("錯誤: 會員資料尚未載入，無法執行登入。");
+        return false;
+      }
+
       const user = users.value.find((m) => m.username === username);
+
       if (user) {
         loggedInUser.value = user;
         console.log(`User ${username} logged in successfully.`);
@@ -118,7 +168,7 @@ export const useFoodStore = defineStore(
         loggedInUser.value = null; // 清空狀態
         return false;
       }
-    }
+    };
 
     function getRestaurantInfo(id) {
       return (
@@ -211,18 +261,23 @@ export const useFoodStore = defineStore(
     return {
       restaurants,
       users,
+      reservations,
+
       loggedInUser,
       getLoggedInUserBasicInfo,
-      loginUserByUsername,
-      newReservation,
-      reservations,
+      isLoading,
+      dataError,
+      hasLoadedMembers,
       getReservationInfo,
-      getRestaurantInfo,
       results,
-      search,
       testFoodImages,
       restaurantsWithImg,
       reservationsWithImg,
+      fetchAllData,
+      loginUserByUsername,
+      newReservation,
+      getRestaurantInfo,
+      search,
     };
   },
   { persist: true } // 啟用持久化
