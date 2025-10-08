@@ -5,7 +5,7 @@ const router = useRouter();
 
 function scrollCoupons(direction) {
   const container = document.getElementById("couponsContainer");
-  const scrollAmount = container.clientWidth / 2 + 16;
+  const scrollAmount = container.clientWidth * 1.02;
   const tolerance = 10;
 
   const maxScrollLeft = container.scrollWidth - container.clientWidth;
@@ -160,14 +160,12 @@ const directUnfinish = () => {
 </template>
 
 <style scoped>
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
+section {
+  place-content: center;
 }
 
 .section-title {
   text-align: center;
-  margin: 48px 0 0;
 }
 
 .main-title {
@@ -189,11 +187,13 @@ const directUnfinish = () => {
 
 .coupons-container {
   display: flex;
-  gap: 2%;
   overflow-x: auto;
   scroll-behavior: smooth;
   scrollbar-width: none;
-  width: 100%;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  gap: calc(2% / 1);
 }
 
 .coupons-container::-webkit-scrollbar {

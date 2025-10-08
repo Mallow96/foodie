@@ -12,6 +12,7 @@ const keyword = ref(route.query.keyword || "");
 const isExpanded = ref(false);
 const collapseShow = ref(false);
 const searchBlock = ref(null);
+const isDisplayMap = ref(false);
 
 const fnSearchExpand = () => {
   if (!isExpanded.value) {
@@ -47,14 +48,20 @@ const onSearch = () => {
     return;
   }
 
-  // 執行搜尋
-  store.search(keyword.value);
+  if (!isDisplayMap.value) {
+    // 執行搜尋
+    store.search(keyword.value);
 
-  // 跳轉到搜尋結果頁面，並帶上關鍵字參數
-  router.push({
-    name: "searchResult",
-    query: { keyword: keyword.value },
-  });
+    // 跳轉到搜尋結果頁面，並帶上關鍵字參數
+    router.push({
+      name: "searchResult",
+      query: { keyword: keyword.value },
+    });
+  } else {
+    router.push({
+      name: "developing",
+    });
+  }
 };
 
 onMounted(() => {
@@ -109,10 +116,12 @@ watch(isExpanded, async (newVal) => {
           <div class="radio-group">
             <div class="form-check">
               <input
+                v-model="isDisplayMap"
                 class="form-check-input"
                 type="radio"
                 name="radioDefault"
                 id="radioDefault2"
+                value="false"
                 checked
               />
               <label class="form-check-label" for="radioDefault2">
@@ -121,10 +130,12 @@ watch(isExpanded, async (newVal) => {
             </div>
             <div class="form-check">
               <input
+                v-model="isDisplayMap"
                 class="form-check-input"
                 type="radio"
                 name="radioDefault"
                 id="radioDefault1"
+                value="true"
               />
               <label class="form-check-label" for="radioDefault1">
                 地圖顯示
@@ -138,10 +149,13 @@ watch(isExpanded, async (newVal) => {
       <!-- 搜尋鈕 -->
 
       <!-- 地圖鈕 -->
-      <div class="map-block search-bar-blocks">
+      <router-link
+        :to="{ name: 'developing' }"
+        class="map-block search-bar-blocks"
+      >
         <span>前往地圖</span>
         <i class="fa-solid fa-arrow-right"></i>
-      </div>
+      </router-link>
       <!-- 地圖鈕 -->
     </div>
     <!-- 主按鈕*2 -->
@@ -183,7 +197,7 @@ section {
     }
 
     &.map-block {
-      cursor: pointer;
+      color: var(--color-primary-dbrown);
     }
   }
 }

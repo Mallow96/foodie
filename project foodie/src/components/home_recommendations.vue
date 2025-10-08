@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from "vue";
 import { useFoodStore } from "../store/foodie_store"; // 引入 store
 const store = useFoodStore();
 
@@ -91,9 +90,12 @@ for (const id of randomIds) {
 </template>
 
 <style scoped>
+section {
+  place-content: center;
+}
+
 .section-title {
   text-align: center;
-  margin: 48px 0 0;
 }
 
 .main-title {
@@ -123,6 +125,7 @@ for (const id of randomIds) {
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
   scroll-behavior: smooth;
+  gap: calc(4% / 3);
 }
 
 .cards-container::-webkit-scrollbar {
@@ -131,7 +134,6 @@ for (const id of randomIds) {
 
 .card {
   flex: 0 0 24%;
-  margin: 0 0.5%;
   border-radius: 15px;
   border: none;
   transition: transform 0.3s ease;
@@ -140,13 +142,6 @@ for (const id of randomIds) {
 
   a {
     color: black;
-  }
-
-  &:first-child {
-    margin-left: 1%;
-  }
-  &:last-child {
-    margin-right: 1%;
   }
 }
 
