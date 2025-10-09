@@ -48,9 +48,14 @@ watch(
 </script>
 
 <template>
+  <div class="backgrounds">
+    <img src="./assets/bg-egg.png" alt="bg-img" class="bg-img egg-bg" />
+    <img src="./assets/egg.png" alt="egg-img" class="bg-img egg-img" />
+  </div>
   <header>
     <Header></Header>
   </header>
+
   <div class="container">
     <router-view></router-view>
   </div>
@@ -77,5 +82,18 @@ footer {
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
   margin: 0;
   padding: 0;
+}
+
+.bg-img {
+  position: absolute;
+}
+
+.egg-bg {
+  left: -12rem;
+}
+
+.egg-img {
+  left: 6rem;
+  top: 12rem;
 }
 </style>

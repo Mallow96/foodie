@@ -1,18 +1,16 @@
 <script setup></script>
 
 <template>
-  <header class="d-flex justify-content-center align-center py-1">
-    <div class="logo mx-auto">
+  <header class="header">
+    <div class="logo">
       <a href="">
         <img src="../assets/logo.svg" alt="logo" class="logo-img" />
         <!-- <h2>thisisLogo</h2> -->
       </a>
     </div>
 
-    <div
-      class="right d-flex align-items-center position-absolute top-50 end-0 translate-middle-y me-4"
-    >
-      <div class="icons d-flex gap-4">
+    <div class="nav-group">
+      <div class="icons">
         <router-link :to="{ name: 'developing' }">
           <i class="fa-solid fa-bell"></i>
         </router-link>
@@ -26,9 +24,12 @@
 </template>
 
 <style scoped>
-header {
+.header {
   width: 100%;
-  background-color: var(--color-beige-50);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
 }
 
 .logo {
@@ -36,18 +37,24 @@ header {
 }
 
 .logo-img {
-  width: 6.75rem;
+  width: 8.75rem;
   height: auto;
 }
 
-.icons > a {
-  :hover {
-    color: var(--color-primary-orange);
-  }
-}
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 
-a > i {
-  font-size: 1.5rem;
-  color: var(--color-primary-brown);
+  a {
+    :hover {
+      color: var(--color-primary-orange);
+    }
+
+    i {
+      font-size: 2rem;
+      color: var(--color-primary-brown);
+    }
+  }
 }
 </style>
