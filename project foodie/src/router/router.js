@@ -34,6 +34,14 @@ const routes = [
 const router = createRouter({
   routes,
   history: createWebHashHistory(),
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      // 瀏覽器前進/後退，回復到上次的滾動位置
+      return savedPosition;
+    } else {
+      // 否則回到頁面頂部
+      return { top: 0 };
+    }}
 });
 
 export default router;

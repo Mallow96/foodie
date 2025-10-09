@@ -1,7 +1,15 @@
-<script setup></script>
+<script setup>
+import { useRouter } from "vue-router";
+const router = useRouter();
+const goBack = () => {
+  router.back();
+};
+</script>
 
 <template>
-  <a href=""> <i class="backBtn fa-solid fa-chevron-left"></i> </a>
+  <a href="" @click="goBack">
+    <i class="backBtn fa-solid fa-chevron-left"></i>
+  </a>
 </template>
 
 <style scoped>
