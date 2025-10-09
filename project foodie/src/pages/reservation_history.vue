@@ -85,8 +85,8 @@ const directHome = () => {
           </div>
 
           <div class="reservation-actions">
-            <button class="edit-btn">修改</button>
             <button class="cancel-btn">取消</button>
+            <button class="edit-btn">修改</button>
           </div>
         </div>
       </div>
@@ -220,14 +220,19 @@ main {
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  background-color: var(--color-brown-50);
+
+  &:hover {
+    background-color: var(--color-beige-200);
+  }
 }
 
 .edit-btn {
-  background-color: #b89d8a;
+  color: var(--color-dbrown-300);
 }
 
 .cancel-btn {
-  background-color: #966f53;
+  color: var(--color-dbrown-200);
 }
 
 .btn-home {
