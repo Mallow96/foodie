@@ -106,13 +106,13 @@ const directHome = () => {
           ></button>
         </div>
         <div class="modal-body">
-          <p>尚未找到任何預訂紀錄，請確認您有訂位成功；若有問題請聯繫客服。</p>
+          <p>尚未找到任何預訂紀錄，請確認您有訂位成功。</p>
+          <p>若有問題，請聯繫客服。</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" @click="directHome">
+          <button type="button" class="btn btn-home" @click="directHome">
             回首頁
           </button>
-          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
         </div>
       </div>
     </div>
@@ -228,5 +228,14 @@ main {
 
 .cancel-btn {
   background-color: #966f53;
+}
+
+.btn-home {
+  background-color: var(--color-primary-brown);
+  color: white;
+
+  &:hover {
+    background-color: var(--color-brown-300);
+  }
 }
 </style>

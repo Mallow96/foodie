@@ -593,6 +593,7 @@ watchEffect(() => {
 
   <!-- 候位 -->
   <div class="queue-modal">
+    <!-- 候位1 -->
     <div
       class="modal fade"
       id="queueModal"
@@ -602,8 +603,9 @@ watchEffect(() => {
     >
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
+          <!-- 1標題 -->
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="queueModalLabel">queue</h1>
+            <h1 class="modal-title fs-5" id="queueModalLabel">預估等待時間</h1>
             <button
               type="button"
               class="btn-close"
@@ -611,21 +613,47 @@ watchEffect(() => {
               aria-label="Close"
             ></button>
           </div>
+
+          <!-- 主要內容 -->
           <div class="modal-body">
-            Show a second modal and hide this one with the button below.
+            <div class="modal-body-container">
+              <div class="body-top">
+                <h4>{{ restaurant.name }}</h4>
+                <h4>
+                  {{ reserveYear }} / {{ reserveMonth }} / {{ reserveDate }}
+                  {{ reserveWeekdayDisplay }} {{ reserveTime }}
+                </h4>
+                <h4>{{ selectedPeople }}位</h4>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="body-bot">
+                <h5>前面還有 n 組</h5>
+                <h3>預估等待時間 nn 分鐘</h3>
+              </div>
+            </div>
           </div>
+
+          <!-- 按鈕列 -->
           <div class="modal-footer">
+            <button type="button" class="btn btn-back" data-bs-dismiss="modal">
+              取消
+            </button>
+            <!-- 開下一個modal -->
             <button
-              class="btn btn-primary"
+              class="btn btn-next"
               data-bs-target="#queueModal2"
               data-bs-toggle="modal"
             >
-              Open second modal
+              下一步
             </button>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- 候位2 -->
     <div
       class="modal fade"
       id="queueModal2"
@@ -635,8 +663,9 @@ watchEffect(() => {
     >
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
+          <!-- 2標題 -->
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="queueModalLabel2">Modal 2</h1>
+            <h1 class="modal-title fs-5" id="queueModalLabel2">聯絡資訊</h1>
             <button
               type="button"
               class="btn-close"
@@ -644,16 +673,227 @@ watchEffect(() => {
               aria-label="Close"
             ></button>
           </div>
+
+          <!-- 主要內容 -->
           <div class="modal-body">
-            Hide this modal and show the first with the button below.
+            <div class="modal-body-container">
+              <p class="text-center">請填寫您的聯絡資訊</p>
+              <form action="">
+                <div class="row">
+                  <label for="">訂位人姓名：</label>
+                  <input
+                    type="text"
+                    class="input-basic"
+                    v-model="reserveName"
+                  />
+                </div>
+                <div class="row">
+                  <label for="">訂位人電話：</label>
+                  <input
+                    type="text"
+                    class="input-basic"
+                    v-model="reservePhone"
+                  />
+                </div>
+                <div class="row">
+                  <label for="">訂位人Email：</label>
+                  <input
+                    type="text"
+                    class="input-basic"
+                    v-model="reserveEmail"
+                  />
+                </div>
+                <div class="row">
+                  <label for="">備註：</label>
+                  <textarea
+                    name=""
+                    id=""
+                    class="input-basic"
+                    v-model="reserveNote"
+                  ></textarea>
+                </div>
+              </form>
+            </div>
           </div>
+
+          <!-- 按鈕列 -->
           <div class="modal-footer">
             <button
-              class="btn btn-primary"
+              class="btn btn-back"
               data-bs-target="#queueModal"
               data-bs-toggle="modal"
             >
-              Back to first
+              上一步
+            </button>
+            <!-- 開下一個modal -->
+            <button
+              class="btn btn-next"
+              data-bs-target="#queueModal3"
+              data-bs-toggle="modal"
+            >
+              下一步
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 候位3 -->
+    <div
+      class="modal fade"
+      id="queueModal3"
+      aria-hidden="true"
+      aria-labelledby="reserveModalLabel3"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <!-- 3標題 -->
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="reserveModalLabel3">確認資訊</h1>
+            <button type="button" class="btn" data-bs-dismiss="modal">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- 主要內容 -->
+          <div class="modal-body">
+            <div class="modal-body-container">
+              <p class="text-center">請確認您的聯絡資訊</p>
+
+              <div class="body-top">
+                <h4>{{ restaurant.name }}</h4>
+                <h4>
+                  {{ reserveYear }} / {{ reserveMonth }} / {{ reserveDate }}
+                </h4>
+                <h4>{{ reserveWeekdayDisplay }} {{ selectedPeople }}位</h4>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="body-bot">
+                <div class="row">
+                  <div class="w-25">訂位人姓名</div>
+                  <div class="w-75">{{ reserveName }}</div>
+                </div>
+                <div class="row">
+                  <div class="w-25">訂位人電話</div>
+                  <div class="w-75">{{ reservePhone }}</div>
+                </div>
+                <div class="row">
+                  <div class="w-25">訂位人Email</div>
+                  <div class="w-75">{{ reserveEmail }}</div>
+                </div>
+                <div class="row">
+                  <div class="w-25">備註</div>
+                  <div class="w-75 note-display">
+                    {{ reserveNote || "無" }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 按鈕列 -->
+          <div class="modal-footer">
+            <button
+              class="btn btn-back"
+              data-bs-target="#queueModal2"
+              data-bs-toggle="modal"
+            >
+              上一步
+            </button>
+            <!-- 開下一個modal -->
+            <button
+              class="btn btn-next"
+              data-bs-target="#queueModal4"
+              data-bs-toggle="modal"
+              @click="
+                useStore.newReservation(
+                  restaurant.id,
+                  `${reserveYear} - ${reserveMonth} - ${reserveDate}`,
+                  reserveWeekdayDisplay,
+                  reserveTime,
+                  selectedPeople,
+                  reserveName,
+                  reservePhone,
+                  reserveEmail,
+                  reserveNote
+                )
+              "
+            >
+              確認取號
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 候位4 -->
+    <div
+      class="modal fade"
+      id="queueModal4"
+      aria-hidden="true"
+      aria-labelledby="reserveModalLabel3"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <!-- 3標題 -->
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="reserveModalLabel3">取號成功</h1>
+            <button type="button" class="btn" data-bs-dismiss="modal">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- 主要內容 -->
+          <div class="modal-body">
+            <div class="modal-body-container">
+              <p class="text-center">以下是您的預訂資訊</p>
+
+              <div class="body-top">
+                <h3>您的號碼 nnnn</h3>
+                <h4>{{ restaurant.name }}</h4>
+                <h4>
+                  {{ reserveYear }} / {{ reserveMonth }} / {{ reserveDate }}
+                </h4>
+                <h4>{{ reserveWeekdayDisplay }} {{ selectedPeople }}位</h4>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="body-bot">
+                <div class="row">
+                  <div class="w-25">訂位人姓名</div>
+                  <div class="w-75">{{ reserveName }}</div>
+                </div>
+                <div class="row">
+                  <div class="w-25">訂位人電話</div>
+                  <div class="w-75">{{ reservePhone }}</div>
+                </div>
+                <div class="row">
+                  <div class="w-25">訂位人Email</div>
+                  <div class="w-75">{{ reserveEmail }}</div>
+                </div>
+                <div class="row">
+                  <div class="w-25">備註</div>
+                  <div class="w-75 note-display">
+                    {{ reserveNote || "無" }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 按鈕列 -->
+          <div class="modal-footer">
+            <button
+              class="btn btn-next"
+              data-bs-dismiss="modal"
+              @click="reserveComplete"
+            >
+              完成
             </button>
           </div>
         </div>
@@ -923,14 +1163,7 @@ form {
 }
 
 .body-bot {
-  .row {
-    div {
-      white-space: normal; /* Allows wrapping */
-      overflow-wrap: break-word;
-      &:first-child {
-        color: var(--color-primary-brown);
-      }
-    }
-  }
+  text-align: center;
+  padding: 1rem 0;
 }
 </style>
