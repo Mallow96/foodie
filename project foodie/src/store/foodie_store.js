@@ -21,8 +21,6 @@ export const useFoodStore = defineStore(
     const isLoading = ref(false);
     const dataError = ref(null);
 
-    const reservationData = ref(null);
-
     const testFoodImages = ref([
       "https://user-gen-media-assets.s3.amazonaws.com/seedream_images/103e6b95-ebea-4499-ab78-8a12c3260db4.png",
       "https://user-gen-media-assets.s3.amazonaws.com/seedream_images/49b0993f-3b3d-4e54-86a6-7a1f9576d140.png",
@@ -87,7 +85,7 @@ export const useFoodStore = defineStore(
     });
 
     const getReservationInfo = computed(() => {
-      if (reservationData.value) {
+      if (reservations.value) {
         // 只回傳需要顯示的資料欄位
         const {
           bookingId,
@@ -100,7 +98,7 @@ export const useFoodStore = defineStore(
           customerName,
           customerPhone,
           customerEmail,
-        } = reservationData.value;
+        } = reservations.value;
         return {
           bookingId,
           userId,
@@ -242,6 +240,11 @@ export const useFoodStore = defineStore(
         console.log(reservations.value);
       }
     };
+
+    // const cancelReservation = (id) => {
+    //   const index = notes.findIndex((note) => note.id === id);
+    //   notes.splice(index, 1);
+    // };
 
     const results = ref([]);
     function search(keyword) {
