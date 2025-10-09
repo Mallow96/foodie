@@ -47,17 +47,17 @@ const formatDateTime = (isoString) => {
         </router-link>
       </li>
       <li>
-        <router-link :to="{ name: 'developing' }">
+        <router-link :to="{ name: 'developing' }" class="unfinished">
           <i class="fa-regular fa-circle-user btn-icon"></i>我的主頁
         </router-link>
       </li>
       <li>
-        <router-link :to="{ name: 'developing' }">
+        <router-link :to="{ name: 'developing' }" class="unfinished">
           <i class="fa-regular fa-heart btn-icon"></i>收藏清單
         </router-link>
       </li>
       <li>
-        <router-link :to="{ name: 'developing' }">
+        <router-link :to="{ name: 'developing' }" class="unfinished">
           <i class="fa-solid fa-ticket btn-icon"></i>優惠管理
         </router-link>
       </li>

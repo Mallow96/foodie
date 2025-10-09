@@ -11,7 +11,7 @@
 
     <div class="nav-group">
       <div class="icons">
-        <router-link :to="{ name: 'developing' }">
+        <router-link :to="{ name: 'developing' }" class="unfinished">
           <i class="fa-solid fa-bell"></i>
         </router-link>
 

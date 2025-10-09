@@ -7,20 +7,21 @@ const goBack = () => {
 </script>
 
 <template>
-  <a href="" @click="goBack">
+  <div @click="goBack">
     <i class="backBtn fa-solid fa-chevron-left"></i>
-  </a>
+  </div>
 </template>
 
 <style scoped>
-a {
+div {
   padding: 1rem 1rem;
   border-radius: 0.9375rem;
   color: var(--color-primary-brown);
 }
 
-a:hover {
+div:hover {
   color: var(--color-primary-yellow);
+  cursor: pointer;
 }
 
 .backBtn {

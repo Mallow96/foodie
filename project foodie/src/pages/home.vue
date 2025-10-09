@@ -145,7 +145,7 @@ const onMouseEnterLeave = () => {
   }
 
   .boba-img {
-    left: 14rem;
+    left: 8rem;
     top: 144rem;
   }
 

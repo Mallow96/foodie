@@ -155,6 +155,12 @@ textarea:focus {
   top: calc(var(--bellow-header) + 8px);
 }
 
+.unfinished{
+cursor: not-allowed;
+}
+
+
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

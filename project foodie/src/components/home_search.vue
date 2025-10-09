@@ -128,16 +128,16 @@ watch(isExpanded, async (newVal) => {
                 清單顯示
               </label>
             </div>
-            <div class="form-check">
+            <div class="form-check unfinished">
               <input
                 v-model="isDisplayMap"
-                class="form-check-input"
+                class="form-check-input unfinished"
                 type="radio"
                 name="radioDefault"
                 id="radioDefault1"
                 value="true"
               />
-              <label class="form-check-label" for="radioDefault1">
+              <label class="form-check-label unfinished" for="radioDefault1">
                 地圖顯示
               </label>
             </div>
@@ -151,7 +151,7 @@ watch(isExpanded, async (newVal) => {
       <!-- 地圖鈕 -->
       <router-link
         :to="{ name: 'developing' }"
-        class="map-block search-bar-blocks"
+        class="map-block search-bar-blocks unfinished"
       >
         <span>前往地圖</span>
         <i class="fa-solid fa-arrow-right"></i>

@@ -7,32 +7,31 @@
         <div class="logo d-inline-block">
           <a href="">
             <img src="../assets/logo.svg" alt="logo" class="logo-img" />
-            <!-- <h2>thisisLogo</h2> -->
           </a>
         </div>
         <ol class="socials">
           <li>
-            <router-link :to="{ name: 'developing' }">
+            <router-link :to="{ name: 'developing' }" class="unfinished">
               <i class="fa-brands fa-youtube"></i>
             </router-link>
           </li>
           <li>
-            <router-link :to="{ name: 'developing' }">
+            <router-link :to="{ name: 'developing' }" class="unfinished">
               <i class="fa-brands fa-facebook-f"></i>
             </router-link>
           </li>
           <li>
-            <router-link :to="{ name: 'developing' }">
+            <router-link :to="{ name: 'developing' }" class="unfinished">
               <i class="fa-brands fa-x-twitter"></i>
             </router-link>
           </li>
           <li>
-            <router-link :to="{ name: 'developing' }">
+            <router-link :to="{ name: 'developing' }" class="unfinished">
               <i class="fa-brands fa-instagram"></i>
             </router-link>
           </li>
           <li>
-            <router-link :to="{ name: 'developing' }">
+            <router-link :to="{ name: 'developing' }" class="unfinished">
               <i class="fa-brands fa-linkedin-in"></i>
             </router-link>
           </li>
@@ -52,19 +51,29 @@
             </router-link>
           </li>
           <li>
-            <router-link :to="{ name: 'developing' }"> Twelve </router-link>
+            <router-link :to="{ name: 'developing' }" class="unfinished">
+              Twelve
+            </router-link>
           </li>
           <li>
-            <router-link :to="{ name: 'developing' }"> Thirteen </router-link>
+            <router-link :to="{ name: 'developing' }" class="unfinished">
+              Thirteen
+            </router-link>
           </li>
           <li>
-            <router-link :to="{ name: 'developing' }"> Fourteen </router-link>
+            <router-link :to="{ name: 'developing' }" class="unfinished">
+              Fourteen
+            </router-link>
           </li>
           <li>
-            <router-link :to="{ name: 'developing' }"> Fifteen </router-link>
+            <router-link :to="{ name: 'developing' }" class="unfinished">
+              Fifteen
+            </router-link>
           </li>
           <li>
-            <router-link :to="{ name: 'developing' }"> Sixteen </router-link>
+            <router-link :to="{ name: 'developing' }" class="unfinished">
+              Sixteen
+            </router-link>
           </li>
         </ol>
       </div>

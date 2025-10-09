@@ -1,6 +1,9 @@
-<script setup></script>
+<script setup>
+import BackBtn from "../components/back_btn.vue";
+</script>
 
 <template>
+  <div class="back"><BackBtn></BackBtn></div>
   <section>
     <h1>正在建置中</h1>
     <p>此功能尚未完成，敬請期待更多內容上線！</p>
