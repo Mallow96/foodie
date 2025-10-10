@@ -41,20 +41,43 @@ function onNewSearch() {
 <template>
   <div class="search-results">
     <div class="search-header">
-      <h2>搜尋結果</h2>
-      <p v-if="currentKeyword">
-        關鍵字：{{ currentKeyword }} (共找到 {{ store.results.length }} 筆結果)
-      </p>
+      <div class="left">
+        <h2>搜尋結果</h2>
+        <p v-if="currentKeyword">
+          (共找到
+          {{ store.results.length }} 筆結果)
+        </p>
+      </div>
 
-      <!-- 重新搜尋功能 -->
-      <div class="search-container">
-        <input
-          v-model="newKeyword"
-          @keyup.enter="onNewSearch"
-          type="text"
-          placeholder="輸入餐廳名稱"
-        />
-        <button @click="onNewSearch" class="rounded-pill">重新搜尋</button>
+      <div class="right">
+        <!-- 重新搜尋功能 -->
+        <div class="search-container">
+          <input
+            v-model="newKeyword"
+            @keyup.enter="onNewSearch"
+            type="text"
+            placeholder="輸入餐廳名稱"
+            class="search-input rounded-pill"
+          />
+          <button @click="onNewSearch" class="rounded-pill">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            搜尋
+          </button>
+          <button
+            class="unfinished rounded-pill"
+            @click="store.directUnfinished()"
+          >
+            <i class="fa-solid fa-sliders"></i>
+            篩選條件
+          </button>
+          <button
+            class="unfinished rounded-pill"
+            @click="store.directUnfinished()"
+          >
+            <i class="fa-regular fa-map"></i>
+            前往地圖
+          </button>
+        </div>
       </div>
     </div>
 
@@ -119,20 +142,26 @@ p {
 }
 
 .search-header {
-  margin-bottom: 30px;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .search-container {
   display: flex;
   gap: 8px;
-  max-width: 500px;
   margin: 20px auto;
 
   button {
     background-color: var(--color-primary-beige);
     color: var(--color-primary-dbrown);
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: none;
 
+    .fa-sliders {
+      rotate: 90deg;
+    }
     &:hover {
       background-color: var(--color-beige-200);
     }
@@ -143,15 +172,7 @@ input {
   flex: 1;
   padding: 12px;
   font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-button {
-  padding: 12px 24px;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
+  border: 1px solid var(--color-primary-brown);
 }
 
 .no-results {

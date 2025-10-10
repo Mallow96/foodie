@@ -1,6 +1,8 @@
 import { defineStore } from "pinia";
 import { ref, computed } from "vue";
 import axios from "axios";
+import { useRouter } from "vue-router";
+
 
 const userJSON = "/membership_data.json";
 const restaurantJSON = "/restaurants_data.json";
@@ -11,6 +13,8 @@ export const useFoodStore = defineStore(
   "notes",
   () => {
     // ref() 就是 state 属性
+
+    const router = useRouter();
 
     const users = ref(null);
     const loggedInUser = ref(null);
@@ -264,6 +268,10 @@ export const useFoodStore = defineStore(
       });
     }
 
+const directUnfinished = ()=>{
+  router.push('/this-page-is-developing')
+    }
+
     const randomIdGenerator = (count, minNum, maxNum) => {
       // 檢查範圍是否足夠生成所需數量的 ID
       if (maxNum - minNum + 1 < count) {
@@ -274,6 +282,8 @@ export const useFoodStore = defineStore(
         );
         return [];
       }
+
+
 
       const uniqueIds = new Set(); // 使用 Set 來高效地儲存和檢查 ID 的唯一性
       const totalPossible = maxNum - minNum + 1; // 總共可能的 ID 數量
@@ -317,7 +327,9 @@ export const useFoodStore = defineStore(
       newReservation,
       getRestaurantInfo,
       search,
+      directUnfinished,
       randomIdGenerator,
+      
     };
   },
   { persist: true } // 啟用持久化
