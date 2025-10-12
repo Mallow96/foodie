@@ -142,6 +142,18 @@ section {
 
   a {
     color: black;
+    height: 100%;
+  }
+
+  &:hover {
+    .card-body {
+      background-color: var(--color-yellow-300);
+    }
+
+    .arrow-btn {
+      background-color: var(--color-primary-dbrown);
+      color: white;
+    }
   }
 }
 
@@ -154,15 +166,7 @@ section {
 .card-body {
   padding: 1rem;
   position: relative;
-}
-
-.card:hover .card-body {
-  background-color: #fff5c6;
-}
-
-.card:hover .arrow-btn {
-  background-color: #4f0201;
-  color: #f0e7d3;
+  height: 100%;
 }
 
 .card-title {
