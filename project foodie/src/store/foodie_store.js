@@ -17,6 +17,7 @@ export const useFoodStore = defineStore(
 
     const users = ref(null);
     const loggedInUser = ref(null);
+    const currentUsername = ref("user1");
 
     const restaurants = ref(null);
     const reservations = ref(null);
@@ -88,35 +89,46 @@ export const useFoodStore = defineStore(
     });
 
     const getReservationInfo = computed(() => {
-      if (reservations.value) {
-        // 只回傳需要顯示的資料欄位
-        const {
-          bookingId,
-          userId,
-          restaurantId,
-          date,
-          time,
-          partySize,
-          notes,
-          customerName,
-          customerPhone,
-          customerEmail,
-        } = reservations.value;
-        return {
-          bookingId,
-          userId,
-          restaurantId,
-          date,
-          time,
-          partySize,
-          notes,
-          customerName,
-          customerPhone,
-          customerEmail,
-        };
+      if (!loggedInUser.value?.userId || !reservations.value) {
+        return [];
       }
-      return null;
+
+      // 回傳當前登入使用者的所有訂單（含餐廳圖片）
+      return reservationsWithImg.value.filter(
+        (reservation) => reservation.userId === loggedInUser.value.userId
+      );
     });
+
+    // const getReservationInfo = computed(() => {
+    //   if (reservations.value) {
+    //     // 只回傳需要顯示的資料欄位
+    //     const {
+    //       bookingId,
+    //       userId,
+    //       restaurantId,
+    //       date,
+    //       time,
+    //       partySize,
+    //       notes,
+    //       customerName,
+    //       customerPhone,
+    //       customerEmail,
+    //     } = reservations.value;
+    //     return {
+    //       bookingId,
+    //       userId,
+    //       restaurantId,
+    //       date,
+    //       time,
+    //       partySize,
+    //       notes,
+    //       customerName,
+    //       customerPhone,
+    //       customerEmail,
+    //     };
+    //   }
+    //   return null;
+    // });
 
     // function() 就是 actions
     // 根據 username 設定登入使用者
@@ -304,11 +316,16 @@ export const useFoodStore = defineStore(
       return Array.from(uniqueIds);
     };
 
+    const changeUserName = (newName) => {
+      currentUsername.value = newName;
+      window.location.reload();
+    };
+
     return {
       restaurants,
       users,
       reservations,
-
+      currentUsername,
       loggedInUser,
       getLoggedInUserBasicInfo,
       isLoading,
@@ -326,6 +343,7 @@ export const useFoodStore = defineStore(
       search,
       directUnfinished,
       randomIdGenerator,
+      changeUserName,
     };
   },
   { persist: true } // 啟用持久化

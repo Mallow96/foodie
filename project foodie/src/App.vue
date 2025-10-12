@@ -7,12 +7,10 @@ import { storeToRefs } from "pinia";
 
 //取得store
 const store = useFoodStore();
+const { currentUsername } = storeToRefs(store);
 
 //storeToRefs可保持響應性
 const { hasLoadedMembers, isLoading } = storeToRefs(store);
-
-//登入用戶定義為"xxx"
-const currentUsername = "user1";
 
 //fetch資料
 onMounted(() => {
@@ -31,10 +29,10 @@ watch(
       console.log("資料載入完成");
 
       //載入完成，執行loginUser
-      const loadSuccess = store.loginUserByUsername(currentUsername);
+      const loadSuccess = store.loginUserByUsername(currentUsername.value);
 
       if (loadSuccess) {
-        console.log(`${currentUsername} 登入狀態成功`);
+        console.log(`${currentUsername.value} 登入狀態成功`);
       } else {
         console.log("設定登入失敗");
       }

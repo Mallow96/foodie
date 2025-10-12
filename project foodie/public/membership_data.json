@@ -2,7 +2,7 @@
   {
     "userId": "u1001",
     "username": "user1",
-    "realName": "林佳音",
+    "realName": "林安琪",
     "phone": "0969185071",
     "email": "user1@example.com",
     "passwordHash": "$2b$12$abcdef495210",
@@ -107,7 +107,7 @@
   {
     "userId": "u1002",
     "username": "user2",
-    "realName": "王美玲",
+    "realName": "李志華",
     "phone": "0968620880",
     "email": "user2@example.com",
     "passwordHash": "$2b$12$mnopqr202100",
@@ -208,18 +208,10 @@
     "phone": "0918759545",
     "email": "user3@example.com",
     "passwordHash": "$2b$12$abcdef453375",
-    "likedRestaurants": [
-      "r77"
-    ],
+    "likedRestaurants": ["r77"],
     "roles": "member",
     "createdAt": "2025-03-16T09:09:50.890827",
     "lastLogin": "2025-09-21T09:09:50.890831",
-    "reviewAmount": [
-      "rev4002",
-      "rev2080",
-      "rev2459",
-      "rev3487",
-      "rev3260"
-    ]
+    "reviewAmount": ["rev4002", "rev2080", "rev2459", "rev3487", "rev3260"]
   }
 ]

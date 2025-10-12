@@ -2,14 +2,16 @@
 import accountAside from "../components/account_aside.vue";
 
 import { ref, onMounted } from "vue";
+import { storeToRefs } from "pinia";
 import { useFoodStore } from "../store/foodie_store";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
 const useStore = useFoodStore();
+const { getReservationInfo } = storeToRefs(useStore);
 
 const hasReservation = ref();
-const reservationCount = ref(useStore.reservationsWithImg.length);
+const reservationCount = ref(useStore.getReservationInfo.length);
 let noDataModal;
 
 onMounted(() => {
@@ -25,10 +27,12 @@ onMounted(() => {
   }
 });
 
+// 顯示無資料彈跳視窗
 const showModal = () => {
   noDataModal.show();
 };
 
+// 點擊回首頁按鈕
 const directHome = () => {
   noDataModal.hide();
   router.push("/");
@@ -48,7 +52,7 @@ const directHome = () => {
       </div>
       <div
         class="reservation-card"
-        v-for="reservation in useStore.reservationsWithImg"
+        v-for="reservation in getReservationInfo"
         :key="reservation.bookingId"
       >
         <div class="reservation-img">

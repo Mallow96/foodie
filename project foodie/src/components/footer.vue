@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+import { useFoodStore } from "../store/foodie_store";
+
+const store = useFoodStore();
+</script>
 
 <template>
   <div class="footer w-100">
@@ -66,14 +70,14 @@
             </router-link>
           </li>
           <li>
-            <router-link :to="{ name: 'developing' }" class="unfinished">
-              Fifteen
-            </router-link>
+            <div class="change-user" @click="store.changeUserName('user1')">
+              Change 1
+            </div>
           </li>
           <li>
-            <router-link :to="{ name: 'developing' }" class="unfinished">
-              Sixteen
-            </router-link>
+            <div class="change-user" @click="store.changeUserName('user2')">
+              Change 2
+            </div>
           </li>
         </ol>
       </div>
@@ -115,5 +119,9 @@ ol {
   padding: 0;
   align-items: center;
   margin: 0;
+}
+
+.change-user {
+  cursor: pointer;
 }
 </style>
