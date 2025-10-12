@@ -1163,7 +1163,7 @@ form {
 }
 
 .body-bot {
-  text-align: center;
+  /* text-align: center; */
   padding: 1rem 0;
 }
 </style>

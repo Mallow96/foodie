@@ -12,10 +12,14 @@ const { getReservationInfo } = storeToRefs(useStore);
 
 const hasReservation = ref();
 const reservationCount = ref(useStore.getReservationInfo.length);
-let noDataModal;
+const noDataModal = ref(null);
+const cancelModal = ref(null);
+const selectedReservation = ref(null);
 
 onMounted(() => {
-  noDataModal = new bootstrap.Modal(document.getElementById("noDataModal"));
+  noDataModal.value = new bootstrap.Modal(
+    document.getElementById("noDataModal")
+  );
 
   if (reservationCount.value > 0) {
     console.log("有預訂資料");
@@ -29,13 +33,22 @@ onMounted(() => {
 
 // 顯示無資料彈跳視窗
 const showModal = () => {
-  noDataModal.show();
+  noDataModal.value.show();
 };
 
 // 點擊回首頁按鈕
 const directHome = () => {
-  noDataModal.hide();
+  noDataModal.value.hide();
   router.push("/");
+};
+
+const onCancel = (bookingId) => {
+  cancelModal.value = new bootstrap.Modal(
+    document.getElementById("cancelModal")
+  );
+  cancelModal.value.show();
+  selectedReservation.value = bookingId;
+  console.log("selectedReservation:", selectedReservation.value);
 };
 </script>
 
@@ -89,7 +102,9 @@ const directHome = () => {
           </div>
 
           <div class="reservation-actions">
-            <button class="cancel-btn">取消</button>
+            <button class="cancel-btn" @click="onCancel(reservation.bookingId)">
+              取消
+            </button>
             <button class="edit-btn">修改</button>
           </div>
         </div>
@@ -97,6 +112,7 @@ const directHome = () => {
     </main>
   </div>
 
+  <!-- 查無訂單 -->
   <div class="modal" tabindex="-1" id="noDataModal">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -117,6 +133,62 @@ const directHome = () => {
           <button type="button" class="btn btn-home" @click="directHome">
             回首頁
           </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 取消訂單 -->
+  <div class="modal" tabindex="-1" id="cancelModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- 取消 標題 -->
+        <div class="modal-header">
+          <h5 class="modal-title">查無訂位紀錄</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <!-- 取消 內容 -->
+        <div class="modal-body">
+          <div class="modal-body-container">
+            <p class="text-center">請確認您的聯絡資訊</p>
+
+            <div class="body-top">
+              <h4>restaurantName</h4>
+              <h4>date:</h4>
+              <h4>n位</h4>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="body-bot">
+              <div class="row">
+                <div class="w-25">訂位人姓名</div>
+                <div class="w-75">name</div>
+              </div>
+              <div class="row">
+                <div class="w-25">訂位人電話</div>
+                <div class="w-75">09123456</div>
+              </div>
+              <div class="row">
+                <div class="w-25">訂位人Email</div>
+                <div class="w-75">email@email.com</div>
+              </div>
+              <div class="row">
+                <div class="w-25">備註</div>
+                <div class="w-75 note-display">note</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 取消 按鈕 -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-back">關閉</button>
+          <button type="button" class="btn btn-next">確認取消</button>
         </div>
       </div>
     </div>
@@ -245,6 +317,60 @@ main {
 
   &:hover {
     background-color: var(--color-brown-300);
+  }
+}
+
+.modal-footer {
+  flex-wrap: nowrap;
+
+  button {
+    font-size: 1.5rem;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+}
+
+.modal-body-container {
+  border: 1px solid var(--color-brown-300);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.divider {
+  margin: 1rem;
+}
+
+.body-top,
+.body-bot {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.body-top {
+  text-align: center;
+}
+
+.body-bot {
+  /* text-align: center; */
+  padding: 1rem 0;
+}
+
+.btn-back {
+  color: var(--color-dbrown-300);
+  background-color: var(--color-yellow-200);
+
+  &:hover {
+    background-color: var(--color-beige-200);
+  }
+}
+
+.btn-next {
+  color: var(--color-primary-dbrown);
+  background-color: var(--color-primary-yellow);
+
+  &:hover {
+    background-color: var(--color-yellow-300);
   }
 }
 </style>
