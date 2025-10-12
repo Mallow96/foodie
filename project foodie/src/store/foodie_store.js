@@ -99,37 +99,6 @@ export const useFoodStore = defineStore(
       );
     });
 
-    // const getReservationInfo = computed(() => {
-    //   if (reservations.value) {
-    //     // 只回傳需要顯示的資料欄位
-    //     const {
-    //       bookingId,
-    //       userId,
-    //       restaurantId,
-    //       date,
-    //       time,
-    //       partySize,
-    //       notes,
-    //       customerName,
-    //       customerPhone,
-    //       customerEmail,
-    //     } = reservations.value;
-    //     return {
-    //       bookingId,
-    //       userId,
-    //       restaurantId,
-    //       date,
-    //       time,
-    //       partySize,
-    //       notes,
-    //       customerName,
-    //       customerPhone,
-    //       customerEmail,
-    //     };
-    //   }
-    //   return null;
-    // });
-
     // function() 就是 actions
     // 根據 username 設定登入使用者
     async function fetchAllData() {
@@ -256,10 +225,21 @@ export const useFoodStore = defineStore(
       }
     };
 
-    // const cancelReservation = (id) => {
-    //   const index = notes.findIndex((note) => note.id === id);
-    //   notes.splice(index, 1);
-    // };
+    const findReservationById = (id) => {
+      const target = reservations.value.find((res) => res.bookingId === id);
+      return target || null;
+    };
+
+    const cancelReservation = (id) => {
+      const index = reservations.value.findIndex((res) => res.bookingId === id);
+      if (index === -1) {
+        console.error(`找不到 bookingId 為 ${id} 的預約紀錄。`);
+        return;
+      }
+
+      reservations.value.splice(index, 1);
+      console.log(`已取消 bookingId 為 ${id} 的預約紀錄。`);
+    };
 
     const results = ref([]);
     function search(keyword) {
@@ -344,6 +324,8 @@ export const useFoodStore = defineStore(
       directUnfinished,
       randomIdGenerator,
       changeUserName,
+      findReservationById,
+      cancelReservation,
     };
   },
   { persist: true } // 啟用持久化

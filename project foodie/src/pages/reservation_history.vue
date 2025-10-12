@@ -14,7 +14,7 @@ const hasReservation = ref();
 const reservationCount = ref(useStore.getReservationInfo.length);
 const noDataModal = ref(null);
 const cancelModal = ref(null);
-const selectedReservation = ref(null);
+const selectedReservation = ref({});
 
 onMounted(() => {
   noDataModal.value = new bootstrap.Modal(
@@ -47,8 +47,21 @@ const onCancel = (bookingId) => {
     document.getElementById("cancelModal")
   );
   cancelModal.value.show();
-  selectedReservation.value = bookingId;
-  console.log("selectedReservation:", selectedReservation.value);
+  selectedReservation.value = useStore.findReservationById(bookingId);
+};
+
+const hideModal = () => {
+  cancelModal.value.hide();
+};
+
+const confirmCancel = () => {
+  useStore.cancelReservation(selectedReservation.value.bookingId);
+  cancelModal.value.hide();
+  if (useStore.getReservationInfo.length === 0) {
+    hasReservation.value = false;
+    showModal();
+  }
+  selectedReservation.value = {};
 };
 </script>
 
@@ -144,13 +157,10 @@ const onCancel = (bookingId) => {
       <div class="modal-content">
         <!-- 取消 標題 -->
         <div class="modal-header">
-          <h5 class="modal-title">查無訂位紀錄</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
+          <h5 class="modal-title fs-5">取消預訂</h5>
+          <button type="button" class="btn" data-bs-dismiss="modal">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
         </div>
         <!-- 取消 內容 -->
         <div class="modal-body">
@@ -158,9 +168,15 @@ const onCancel = (bookingId) => {
             <p class="text-center">請確認您的聯絡資訊</p>
 
             <div class="body-top">
-              <h4>restaurantName</h4>
-              <h4>date:</h4>
-              <h4>n位</h4>
+              <h4>{{ selectedReservation.restaurantName }}</h4>
+              <div class="d-flex justify-content-center gap-4">
+                <h4>{{ selectedReservation.date }}</h4>
+                <h4>{{ selectedReservation.dayOfWeek }}</h4>
+              </div>
+              <div class="d-flex justify-content-center gap-4">
+                <h4>{{ selectedReservation.time }}</h4>
+                <h4>{{ selectedReservation.partySize }} 位</h4>
+              </div>
             </div>
 
             <div class="divider"></div>
@@ -168,27 +184,33 @@ const onCancel = (bookingId) => {
             <div class="body-bot">
               <div class="row">
                 <div class="w-25">訂位人姓名</div>
-                <div class="w-75">name</div>
+                <div class="w-75">{{ selectedReservation.customerName }}</div>
               </div>
               <div class="row">
                 <div class="w-25">訂位人電話</div>
-                <div class="w-75">09123456</div>
+                <div class="w-75">{{ selectedReservation.customerPhone }}</div>
               </div>
               <div class="row">
                 <div class="w-25">訂位人Email</div>
-                <div class="w-75">email@email.com</div>
+                <div class="w-75">{{ selectedReservation.customerEmail }}</div>
               </div>
               <div class="row">
                 <div class="w-25">備註</div>
-                <div class="w-75 note-display">note</div>
+                <div class="w-75 note-display">
+                  {{ selectedReservation.note || "無" }}
+                </div>
               </div>
             </div>
           </div>
         </div>
         <!-- 取消 按鈕 -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-back">關閉</button>
-          <button type="button" class="btn btn-next">確認取消</button>
+          <button type="button" class="btn btn-back" @click="hideModal()">
+            關閉
+          </button>
+          <button type="button" class="btn btn-next" @click="confirmCancel()">
+            確認取消
+          </button>
         </div>
       </div>
     </div>
@@ -317,6 +339,29 @@ main {
 
   &:hover {
     background-color: var(--color-brown-300);
+  }
+}
+
+.modal-header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  h5 {
+    color: var(--color-primary-dbrown);
+  }
+
+  button {
+    color: var(--color-primary-brown);
+    margin: 0;
+    position: absolute;
+    right: 3%;
+
+    &:hover {
+      color: var(--color-primary-orange);
+    }
+    &:active {
+      border: none;
+    }
   }
 }
 
