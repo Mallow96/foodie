@@ -3,7 +3,6 @@ import { ref, computed } from "vue";
 import axios from "axios";
 import { useRouter } from "vue-router";
 
-
 const userJSON = "/membership_data.json";
 const restaurantJSON = "/restaurants_data.json";
 const reservationJSON = "/reservation_data.json";
@@ -268,9 +267,9 @@ export const useFoodStore = defineStore(
       });
     }
 
-const directUnfinished = ()=>{
-  router.push('/this-page-is-developing')
-    }
+    const directUnfinished = () => {
+      router.push("/this-page-is-developing");
+    };
 
     const randomIdGenerator = (count, minNum, maxNum) => {
       // 檢查範圍是否足夠生成所需數量的 ID
@@ -282,8 +281,6 @@ const directUnfinished = ()=>{
         );
         return [];
       }
-
-
 
       const uniqueIds = new Set(); // 使用 Set 來高效地儲存和檢查 ID 的唯一性
       const totalPossible = maxNum - minNum + 1; // 總共可能的 ID 數量
@@ -329,7 +326,6 @@ const directUnfinished = ()=>{
       search,
       directUnfinished,
       randomIdGenerator,
-      
     };
   },
   { persist: true } // 啟用持久化
