@@ -132,12 +132,34 @@ export const useFoodStore = defineStore(
         console.log("✅ 預約資料載入成功。");
 
         console.log("所有 JSON 資料已成功載入並分類。");
+
+        if (loggedInUser.value) {
+          const restoredUsername = loggedInUser.value.username;
+          const userExists = users.value.find(
+            (m) => m.username === restoredUsername
+          );
+
+          if (userExists) {
+            // 如果用戶存在，用新載入的物件更新 loggedInUser (避免使用舊的持久化物件)
+            loggedInUser.value = userExists;
+            console.log(
+              `✅ 已使用新載入的數據重新驗證並更新用戶 ${restoredUsername} 狀態。`
+            );
+          } else {
+            // 如果用戶在新的 JSON 數據中不存在，則清空登入狀態
+            loggedInUser.value = null;
+            console.warn(
+              `已載入數據中找不到用戶 ${restoredUsername}，狀態已清空。`
+            );
+          }
+        }
       } catch (err) {
         console.error("載入資料時發生錯誤或請求未成功發出:", err.message);
         dataError.value = "無法載入部分或所有資料，請檢查檔案路徑。";
-        users.value = null;
-        restaurants.value = null;
-        reservations.value = null;
+
+        // users.value = null;
+        // restaurants.value = null;
+        // reservations.value = null;
       } finally {
         isLoading.value = false;
       }
