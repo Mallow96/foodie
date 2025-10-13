@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { ref, computed } from "vue";
 import axios from "axios";
-import { useRouter } from "vue-router";
+// import { useRouter } from "vue-router";
 
 const userJSON = "/membership_data.json";
 const restaurantJSON = "/restaurants_data.json";
@@ -13,7 +13,7 @@ export const useFoodStore = defineStore(
   () => {
     // ref() 就是 state 属性
 
-    const router = useRouter();
+    // const router = useRouter();
 
     const users = ref(null);
     const loggedInUser = ref(null);
