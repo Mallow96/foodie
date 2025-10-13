@@ -29,12 +29,12 @@ const formatDateTime = (isoString) => {
   <main class="content w-100">
     <div class="user-info w-100 d-flex align-items-center">
       <span class="profile"></span>
-      <h2>{{ userInfo.realName }}</h2>
-      <span> ({{ userInfo.username }})</span>
+      <h2>{{ userInfo?.realName }}</h2>
+      <span> ({{ userInfo?.username }})</span>
       <div class="user-details ms-auto">
         <p>收藏：{{ userInfo?.likedRestaurants?.length || "n" }} 筆</p>
         <p>評論：{{ userInfo?.reviewAmount?.length || "n" }} 次</p>
-        <p>加入日期：{{ formatDateTime(userInfo.createdAt) }}</p>
+        <p>加入日期：{{ formatDateTime(userInfo?.createdAt) }}</p>
       </div>
     </div>
 

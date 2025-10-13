@@ -219,6 +219,13 @@ export const useFoodStore = defineStore(
       if (name == null || phone == null || partySize == null) {
         return false;
       } else {
+        if (!reservations.value) {
+          reservations.value = []; // 如果是 null，將其初始化為空陣列
+        }
+
+        const restaurantName =
+          getRestaurantInfo(restaurantId)?.name || "未知餐廳";
+
         reservations.value.push({
           bookingId: `B${String(reservations.value.length + 1).padStart(
             3,
@@ -226,7 +233,7 @@ export const useFoodStore = defineStore(
           )}`,
           userId: loggedInUser.value.userId,
           restaurantId: restaurantId,
-          restaurantName: getRestaurantInfo(restaurantId).name,
+          restaurantName: restaurantName,
           date: date,
           dayOfWeek: dayOfWeek,
           time: time,
