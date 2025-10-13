@@ -3,9 +3,19 @@ import { ref, computed } from "vue";
 import axios from "axios";
 // import { useRouter } from "vue-router";
 
-const userJSON = "/membership_data.json";
-const restaurantJSON = "/restaurants_data.json";
-const reservationJSON = "/reservation_data.json";
+// store.js 檔案頂部
+
+// ⚡️ 修正：使用 import.meta.env.BASE_URL 確保路徑指向正確的子目錄
+// 在您的環境中，BASE_URL 會是 '/foodie/'
+const BASE_PATH = import.meta.env.BASE_URL;
+
+const userJSON = `${BASE_PATH}membership_data.json`;
+const restaurantJSON = `${BASE_PATH}restaurants_data.json`;
+const reservationJSON = `${BASE_PATH}reservation_data.json`;
+
+// const userJSON = "/membership_data.json";
+// const restaurantJSON = "/restaurants_data.json";
+// const reservationJSON = "/reservation_data.json";
 
 //setup 語法
 export const useFoodStore = defineStore(
@@ -167,6 +177,9 @@ export const useFoodStore = defineStore(
     }
 
     const restaurantsWithImg = computed(() => {
+      if (!restaurants.value) {
+        return [];
+      }
       return restaurants.value.map((restaurant, index) => ({
         ...restaurant,
         imageUrl: testFoodImages.value[index % testFoodImages.value.length],
