@@ -502,7 +502,7 @@ watchEffect(() => {
               @click="
                 useStore.newReservation(
                   restaurant.id,
-                  `${reserveYear} / ${reserveMonth} / ${reserveDate}`,
+                  `${reserveYear}-${reserveMonth}-${reserveDate}`,
                   reserveWeekdayDisplay,
                   reserveTime,
                   selectedPeople,

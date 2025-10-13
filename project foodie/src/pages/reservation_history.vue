@@ -1,7 +1,7 @@
 <script setup>
 import accountAside from "../components/account_aside.vue";
 
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 import { storeToRefs } from "pinia";
 import { useFoodStore } from "../store/foodie_store";
 import { useRouter } from "vue-router";
@@ -14,7 +14,40 @@ const hasReservation = ref();
 const reservationCount = ref(useStore.getReservationInfo.length);
 const noDataModal = ref(null);
 const cancelModal = ref(null);
+const editModal = ref(null);
 const selectedReservation = ref({});
+
+const selectedPeople = ref();
+const selectedTime = ref("");
+const selectedDate = ref("");
+const selectedWeekDay = ref("");
+const dayNames = [
+  "星期日",
+  "星期一",
+  "星期二",
+  "星期三",
+  "星期四",
+  "星期五",
+  "星期六",
+];
+const reserveNote = ref("");
+const currentBookingId = ref("");
+
+watch(
+  selectedDate,
+  (newDate) => {
+    if (newDate) {
+      const dateObject = new Date(newDate);
+
+      const dayIndex = dateObject.getDay();
+
+      selectedWeekDay.value = dayNames[dayIndex];
+    } else {
+      selectedWeekDay.value = "";
+    }
+  },
+  { immediate: true }
+);
 
 onMounted(() => {
   noDataModal.value = new bootstrap.Modal(
@@ -27,12 +60,17 @@ onMounted(() => {
   } else {
     console.log("無預訂資料");
     hasReservation.value = false;
-    showModal();
+    showNoDataModal();
   }
+
+  const datePicker = document.getElementById("datePicker");
+  datePicker.addEventListener("focus", () => {
+    datePicker.showPicker();
+  });
 });
 
 // 顯示無資料彈跳視窗
-const showModal = () => {
+const showNoDataModal = () => {
   noDataModal.value.show();
 };
 
@@ -42,6 +80,7 @@ const directHome = () => {
   router.push("/");
 };
 
+//取消預訂
 const onCancel = (bookingId) => {
   cancelModal.value = new bootstrap.Modal(
     document.getElementById("cancelModal")
@@ -50,7 +89,7 @@ const onCancel = (bookingId) => {
   selectedReservation.value = useStore.findReservationById(bookingId);
 };
 
-const hideModal = () => {
+const hideCancelModal = () => {
   cancelModal.value.hide();
 };
 
@@ -59,9 +98,53 @@ const confirmCancel = () => {
   cancelModal.value.hide();
   if (useStore.getReservationInfo.length === 0) {
     hasReservation.value = false;
-    showModal();
+    showNoDataModal();
   }
   selectedReservation.value = {};
+};
+
+//修改預訂
+
+const onEdit = (id) => {
+  editModal.value = new bootstrap.Modal(document.getElementById("editModal"));
+
+  console.log(`將修改訂單 ${id}`);
+  editModal.value.show();
+
+  selectedReservation.value = useStore.findReservationById(id);
+
+  currentBookingId.value = id;
+  selectedPeople.value = selectedReservation.value.partySize;
+  selectedTime.value = selectedReservation.value.time;
+  selectedDate.value = selectedReservation.value.date;
+  reserveNote.value = selectedReservation.value.note;
+};
+
+const timeOptions = [];
+for (let hour = 0; hour < 24; hour++) {
+  timeOptions.push(`${hour.toString().padStart(2, "0")}:00`);
+  timeOptions.push(`${hour.toString().padStart(2, "0")}:30`);
+}
+
+const hideEditModal = () => {
+  editModal.value.hide();
+};
+
+const confirmEdit = () => {
+  if (selectedDate.value && selectedPeople.value && selectedTime.value) {
+    useStore.editReservation(
+      currentBookingId.value,
+      selectedDate.value,
+      selectedPeople.value,
+      selectedTime.value,
+      reserveNote.value,
+      selectedWeekDay.value
+    );
+
+    hideEditModal();
+  } else {
+    alert("請檢查：日期、人數、時間皆為必填！");
+  }
 };
 </script>
 
@@ -108,9 +191,6 @@ const confirmCancel = () => {
                     .contactPhone
                 }}
               </p>
-
-              <!-- <p>備註: {{ reservation.note }}</p> -->
-              <!-- <p>餐廳id: {{ reservation.restaurantId }}</p> -->
             </div>
           </div>
 
@@ -118,7 +198,9 @@ const confirmCancel = () => {
             <button class="cancel-btn" @click="onCancel(reservation.bookingId)">
               取消
             </button>
-            <button class="edit-btn">修改</button>
+            <button class="edit-btn" @click="onEdit(reservation.bookingId)">
+              修改
+            </button>
           </div>
         </div>
       </div>
@@ -205,11 +287,116 @@ const confirmCancel = () => {
         </div>
         <!-- 取消 按鈕 -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-back" @click="hideModal()">
+          <button type="button" class="btn btn-back" @click="hideCancelModal()">
             關閉
           </button>
           <button type="button" class="btn btn-next" @click="confirmCancel()">
             確認取消
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 修改訂單 -->
+  <div class="modal" tabindex="-1" id="editModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- 修改 標題 -->
+        <div class="modal-header">
+          <h5 class="modal-title fs-5">修改預訂</h5>
+          <button type="button" class="btn" data-bs-dismiss="modal">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <!-- 修改 內容 -->
+        <div class="modal-body">
+          <div class="modal-body-container">
+            <div class="body-top">
+              <!-- 人數按鈕 -->
+              <div class="dropdown-group">
+                <i class="fa-regular fa-user"></i>
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  v-model="selectedPeople"
+                >
+                  <option v-for="n in 10" :value="n">{{ n }} 人</option>
+                </select>
+              </div>
+              <!-- 人數按鈕 -->
+
+              <!-- 日期按鈕 -->
+              <div class="dropdown-group">
+                <i class="fa-regular fa-calendar"></i>
+                <input
+                  type="date"
+                  class="date-input"
+                  v-model="selectedDate"
+                  id="datePicker"
+                />
+              </div>
+              <!-- 日期按鈕 -->
+
+              <!-- 時間按鈕 -->
+              <div class="dropdown-group">
+                <i class="fa-regular fa-clock"></i>
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  v-model="selectedTime"
+                >
+                  <option v-for="time in timeOptions" :key="time" :value="time">
+                    {{ time }}
+                  </option>
+                </select>
+              </div>
+              <!-- 時間按鈕 -->
+
+              <!-- 備註 -->
+              <div class="dropdown-group">
+                <label for="">備註：</label>
+                <textarea
+                  name=""
+                  id=""
+                  class="input-basic"
+                  v-model="reserveNote"
+                ></textarea>
+              </div>
+              <!-- 備註 -->
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="body-bot">
+              <div class="row">
+                <div class="w-25">用餐人數</div>
+                <div class="w-75">{{ selectedPeople }} 位</div>
+              </div>
+              <div class="row">
+                <div class="w-25">用餐日期</div>
+                <div class="w-75">{{ selectedDate }} {{ selectedWeekDay }}</div>
+              </div>
+              <div class="row">
+                <div class="w-25">用餐時間</div>
+                <div class="w-75">{{ selectedTime }}</div>
+              </div>
+              <div class="row">
+                <div class="w-25">備註</div>
+                <div class="w-75 note-display">
+                  {{ reserveNote || "無" }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 修改 按鈕 -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-back" @click="hideEditModal()">
+            關閉
+          </button>
+          <button type="button" class="btn btn-next" @click="confirmEdit()">
+            送出
           </button>
         </div>
       </div>
@@ -416,6 +603,35 @@ main {
 
   &:hover {
     background-color: var(--color-yellow-300);
+  }
+}
+
+.dropdown-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.form-select:focus {
+  border-color: var(--color-primary-brown);
+  box-shadow: 0 0 0 0.2rem var(--color-primary-yellow);
+}
+
+label {
+  white-space: nowrap;
+}
+
+.date-input,
+textarea {
+  background-color: white;
+  color: black;
+  width: 100%;
+  padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  &:focus {
+    border-color: var(--color-primary-brown);
+    box-shadow: 0 0 0 0.2rem var(--color-primary-yellow);
   }
 }
 </style>

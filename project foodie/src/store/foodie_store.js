@@ -258,6 +258,26 @@ export const useFoodStore = defineStore(
       console.log(`已取消 bookingId 為 ${id} 的預約紀錄。`);
     };
 
+    const editReservation = (
+      id,
+      newDate,
+      newPartySize,
+      newTime,
+      newNote,
+      newDayOfWeek
+    ) => {
+      const target = reservations.value.find((res) => res.bookingId === id);
+      if (target) {
+        target.date = newDate;
+        target.partySize = newPartySize;
+        target.time = newTime;
+        target.note = newNote;
+        target.dayOfWeek = newDayOfWeek;
+      } else {
+        console.log("修改有誤");
+      }
+    };
+
     const results = ref([]);
     function search(keyword) {
       const kw = keyword.trim().toLowerCase();
@@ -343,6 +363,7 @@ export const useFoodStore = defineStore(
       changeUserName,
       findReservationById,
       cancelReservation,
+      editReservation,
     };
   },
   { persist: true } // 啟用持久化
