@@ -80,14 +80,16 @@ const onMouseEnterLeave = () => {
       alt="beer-img"
       class="bg-img beer-img"
       @mouseenter="onMouseEnterLeave"
-      v-if="!isHover"></img>
+      v-if="!isHover"
+    />
     <img
-      src="../assets/beer-hover.png"  
+      src="../assets/beer-hover.png"
       alt="beer-img"
       class="bg-img beer-img"
       @mouseleave="onMouseEnterLeave"
-      v-else></img>
-      <!-- beer -->
+      v-else
+    />
+    <!-- beer -->
   </div>
 
   <div class="content search-bar">
@@ -105,59 +107,64 @@ const onMouseEnterLeave = () => {
 </template>
 
 <style scoped>
-/* .section {
-  overflow: visible;
-} */
-
 .backgrounds {
-  .bg-img {
-    position: absolute;
-  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
 
-  .egg-bg {
-    top: 0;
-    left: -12rem;
-  }
+.bg-img {
+  position: absolute;
+  z-index: 1;
+}
 
-  .egg-img {
-    left: 6rem;
-    top: 12rem;
-  }
+.egg-bg {
+  top: -2rem;
+  left: -8rem;
+}
 
-  .bao-bg {
-    top: 32rem;
-    right: -16rem;
-  }
+.egg-img {
+  left: 8rem;
+  top: 10rem;
+}
 
-  .bao-img {
-    top: 48rem;
-    right: 4rem;
-  }
+.bao-bg {
+  top: 30rem;
+  right: -16rem;
+}
 
-  .recommand-bg {
-    left: 10rem;
-    top: 93rem;
-  }
+.bao-img {
+  top: 44rem;
+  right: 0rem;
+}
 
-  .boba-bg {
-    left: -14rem;
-    top: 137.5rem;
-  }
+.recommand-bg {
+  left: 10rem;
+  top: 93rem;
+}
 
-  .boba-img {
-    left: 8rem;
-    top: 144rem;
-  }
+.boba-bg {
+  left: -14rem;
+  top: 137.5rem;
+}
 
-  .beer-bg {
-    bottom: 10rem;
-    right: 0;
-  }
+.boba-img {
+  left: 8rem;
+  top: 144rem;
+}
 
-  .beer-img{
-    bottom: 37rem;
-    right: 6rem;
-  }
+.beer-bg {
+  bottom: 10rem;
+  right: 0;
+}
+
+.beer-img {
+  bottom: 37rem;
+  right: 6rem;
 }
 
 .content {
@@ -165,6 +172,8 @@ const onMouseEnterLeave = () => {
   flex-direction: column;
   justify-content: center;
   margin-bottom: var(--home-section-gap);
+  position: relative;
+  z-index: 10;
 }
 
 .search-bar {
